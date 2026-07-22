@@ -33,7 +33,7 @@
       <a href="#audit" class="bg-emerald-500 hover:bg-emerald-400 text-slate-900 font-semibold px-6 py-3 rounded-lg transition">Request your free RAG failure audit</a>
       <a href="#pricing" class="border border-white/15 hover:border-white/30 text-slate-200 font-medium px-6 py-3 rounded-lg transition">See pricing</a>
     </div>
-    <p class="text-xs text-slate-500 mt-4">No credit card. We run the diagnostic on your top failure cases and send back a report.</p>
+    <p class="text-xs text-slate-500 mt-4">No credit card. RAGDiag runs its diagnostic on your top failure cases and you get back a ranked report.</p>
   </section>
 
   <!-- The problem (sourced) -->
@@ -65,13 +65,13 @@
     <div class="grid sm:grid-cols-3 gap-6">
       <div>
         <div class="text-emerald-400 font-mono text-sm mb-2">01</div>
-        <h3 class="text-white font-semibold mb-1">Send us your failure set</h3>
+        <h3 class="text-white font-semibold mb-1">Share your failure set</h3>
         <p class="text-sm text-slate-400">Share 20–50 queries your RAG system answered wrong, along with the context it retrieved. No production access needed.</p>
       </div>
       <div>
         <div class="text-emerald-400 font-mono text-sm mb-2">02</div>
-        <h3 class="text-white font-semibold mb-1">We run counterfactual isolation</h3>
-        <p class="text-sm text-slate-400">We change one component at a time — chunking, embedding, retrieval, reranker, query preprocessing — to see which one, when fixed, actually recovers the right answer.</p>
+        <h3 class="text-white font-semibold mb-1">RAGDiag runs counterfactual isolation</h3>
+        <p class="text-sm text-slate-400">The diagnostic engine changes one component at a time — chunking, embedding, retrieval, reranker, query preprocessing — to see which one, when fixed, actually recovers the right answer.</p>
       </div>
       <div>
         <div class="text-emerald-400 font-mono text-sm mb-2">03</div>
@@ -121,7 +121,7 @@
   <!-- Free audit form -->
   <section id="audit" class="max-w-xl mx-auto px-6 py-16 border-t border-white/5">
     <h2 class="text-2xl font-bold text-white text-center mb-2">Request your free RAG failure audit</h2>
-    <p class="text-slate-400 text-center text-sm mb-8">Tell us about your stack. We'll reply with what to send and run the diagnostic on your top failure cases — free, no card.</p>
+    <p class="text-slate-400 text-center text-sm mb-8">Tell us about your stack. We'll reply with what to send, then RAGDiag runs its diagnostic on your top failure cases — free, no card.</p>
     <!-- Standing convention: all site forms POST to the form-intake Lambda (SES → team@). -->
     <form action="https://sceg3rbntvunklbuqe4mzb4eea0vrcwc.lambda-url.us-east-1.on.aws/" method="POST" class="space-y-4">
       <input type="hidden" name="_subject" value="RAGDiag — free audit request" />
