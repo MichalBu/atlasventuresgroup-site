@@ -122,10 +122,10 @@
   <section id="audit" class="max-w-xl mx-auto px-6 py-16 border-t border-white/5">
     <h2 class="text-2xl font-bold text-white text-center mb-2">Request your free RAG failure audit</h2>
     <p class="text-slate-400 text-center text-sm mb-8">Tell us about your stack. We'll reply with what to send and run the diagnostic on your top failure cases — free, no card.</p>
-    <form action="https://formsubmit.co/team@atlasventuresgroup.net" method="POST" class="space-y-4">
+    <!-- Standing convention: all site forms POST to the form-intake Lambda (SES → team@). -->
+    <form action="https://sceg3rbntvunklbuqe4mzb4eea0vrcwc.lambda-url.us-east-1.on.aws/" method="POST" class="space-y-4">
       <input type="hidden" name="_subject" value="RAGDiag — free audit request" />
       <input type="hidden" name="_next" value="https://atlasventuresgroup.net/ragdiag/thanks.html" />
-      <input type="hidden" name="_captcha" value="true" />
       <input type="text" name="_honey" style="display:none" />
       <div>
         <label class="block text-sm text-slate-300 mb-1">Work email</label>

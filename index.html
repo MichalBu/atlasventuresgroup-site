@@ -101,10 +101,11 @@
       In development now. Leave your email and we'll invite you when the first version is ready —
       early waitlist members get their first audit free.
     </p>
-    <form action="https://formsubmit.co/team@atlasventuresgroup.net" method="POST" class="space-y-4">
+    <!-- All site forms POST to the form-intake Lambda (SES delivery to team@) — standing
+         convention for every current and future form on this domain; never FormSubmit. -->
+    <form action="https://sceg3rbntvunklbuqe4mzb4eea0vrcwc.lambda-url.us-east-1.on.aws/" method="POST" class="space-y-4">
       <input type="hidden" name="_subject" value="Bookkeeping Cleanup Auditor — waitlist signup" />
       <input type="hidden" name="_next" value="https://atlasventuresgroup.net/thanks.html" />
-      <input type="hidden" name="_captcha" value="true" />
       <input type="text" name="_honey" style="display:none" />
       <div>
         <label class="block text-sm text-slate-300 mb-1">Email</label>
