@@ -6,6 +6,44 @@
 <title>Atlas Ventures Group — Focused software products for expensive, specific problems</title>
 <meta name="description" content="Atlas Ventures Group is a software venture studio. We build focused, self-serve products that fix expensive, specific problems — starting from real, documented pain." />
 <script src="https://cdn.tailwindcss.com"></script>
+<style>
+  /* --- 3D hero ------------------------------------------------------- */
+  .hero-wrap { perspective: 900px; }
+  .hero-content { transform-style: preserve-3d; transition: transform .25s ease-out; will-change: transform; }
+
+  .grid-floor {
+    position: absolute; left: -20%; right: -20%; bottom: -12%; height: 62%;
+    transform: perspective(620px) rotateX(63deg);
+    transform-origin: 50% 100%;
+    background-image:
+      linear-gradient(rgba(16,185,129,.16) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(16,185,129,.16) 1px, transparent 1px);
+    background-size: 44px 44px;
+    -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,.9) 30%, transparent 92%);
+            mask-image: linear-gradient(to top, rgba(0,0,0,.9) 30%, transparent 92%);
+    animation: grid-move 16s linear infinite;
+    pointer-events: none;
+  }
+  @keyframes grid-move { from { background-position-y: 0, 0; } to { background-position-y: 44px, 0; } }
+
+  .orb { position: absolute; border-radius: 9999px; filter: blur(70px); pointer-events: none; will-change: transform; }
+  .orb-a { width: 420px; height: 420px; top: -140px; left: -80px;
+           background: radial-gradient(circle, rgba(16,185,129,.28), transparent 65%);
+           animation: orb-float-a 14s ease-in-out infinite alternate; }
+  .orb-b { width: 360px; height: 360px; top: 30px; right: -100px;
+           background: radial-gradient(circle, rgba(34,211,238,.20), transparent 65%);
+           animation: orb-float-b 18s ease-in-out infinite alternate; }
+  .orb-c { width: 260px; height: 260px; bottom: -40px; left: 38%;
+           background: radial-gradient(circle, rgba(16,185,129,.18), transparent 65%);
+           animation: orb-float-a 22s ease-in-out infinite alternate-reverse; }
+  @keyframes orb-float-a { from { transform: translate3d(0,0,0) scale(1); } to { transform: translate3d(40px,24px,0) scale(1.12); } }
+  @keyframes orb-float-b { from { transform: translate3d(0,0,0) scale(1.08); } to { transform: translate3d(-32px,30px,0) scale(.96); } }
+
+  @media (prefers-reduced-motion: reduce) {
+    .grid-floor, .orb { animation: none; }
+    .hero-content { transition: none; }
+  }
+</style>
 </head>
 <body class="bg-[#0B0F17] text-slate-200 antialiased">
 
@@ -22,21 +60,51 @@
   </header>
 
   <!-- Hero -->
-  <section class="max-w-5xl mx-auto px-6 pt-20 pb-16 text-center">
-    <span class="inline-block text-xs font-medium text-emerald-300 bg-emerald-500/10 border border-emerald-500/20 rounded-full px-3 py-1 mb-6">Software venture studio</span>
-    <h1 class="text-4xl sm:text-5xl font-bold text-white leading-tight max-w-3xl mx-auto">
-      We build focused software products that fix <span class="text-emerald-400">expensive, specific problems.</span>
-    </h1>
-    <p class="text-lg text-slate-400 mt-6 max-w-2xl mx-auto">
-      Every product starts from a real, documented pain — sourced from practitioner communities,
-      not brainstorms — and does one job well. Built lean, launched in early access, grown only
-      when it earns it.
-    </p>
-    <div class="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
-      <a href="#products" class="bg-emerald-500 hover:bg-emerald-400 text-slate-900 font-semibold px-6 py-3 rounded-lg transition">See our products</a>
-      <a href="#contact" class="border border-white/15 hover:border-white/30 text-slate-200 font-medium px-6 py-3 rounded-lg transition">Get in touch</a>
+  <section id="hero" class="hero-wrap relative overflow-hidden">
+    <div class="orb orb-a" data-depth="30"></div>
+    <div class="orb orb-b" data-depth="18"></div>
+    <div class="orb orb-c" data-depth="42"></div>
+    <div class="grid-floor"></div>
+    <div class="hero-content relative z-10 max-w-5xl mx-auto px-6 pt-24 pb-40 text-center">
+      <span class="inline-block text-xs font-medium text-emerald-300 bg-emerald-500/10 border border-emerald-500/20 rounded-full px-3 py-1 mb-6 backdrop-blur-sm">Software venture studio</span>
+      <h1 class="text-4xl sm:text-6xl font-bold text-white leading-tight max-w-3xl mx-auto drop-shadow-[0_0_30px_rgba(16,185,129,0.15)]">
+        We build focused software products that fix <span class="text-emerald-400">expensive, specific problems.</span>
+      </h1>
+      <p class="text-lg text-slate-400 mt-6 max-w-2xl mx-auto">
+        Every product starts from a real, documented pain — sourced from practitioner communities,
+        not brainstorms — and does one job well. Built lean, launched in early access, grown only
+        when it earns it.
+      </p>
+      <div class="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
+        <a href="#products" class="bg-emerald-500 hover:bg-emerald-400 text-slate-900 font-semibold px-6 py-3 rounded-lg transition shadow-lg shadow-emerald-500/25 hover:shadow-emerald-400/40">See our products</a>
+        <a href="#contact" class="border border-white/15 hover:border-white/30 bg-white/5 backdrop-blur-sm text-slate-200 font-medium px-6 py-3 rounded-lg transition">Get in touch</a>
+      </div>
     </div>
   </section>
+  <script>
+    // Subtle 3D parallax: tilt hero content + drift orbs with the pointer. No-op on touch
+    // devices (no hover) and under prefers-reduced-motion.
+    (function () {
+      if (matchMedia('(prefers-reduced-motion: reduce)').matches || !matchMedia('(hover: hover)').matches) return;
+      var hero = document.getElementById('hero');
+      var content = hero.querySelector('.hero-content');
+      var orbs = hero.querySelectorAll('.orb');
+      hero.addEventListener('pointermove', function (e) {
+        var r = hero.getBoundingClientRect();
+        var x = (e.clientX - r.left) / r.width - 0.5;   // -0.5 .. 0.5
+        var y = (e.clientY - r.top) / r.height - 0.5;
+        content.style.transform = 'rotateY(' + (x * 4) + 'deg) rotateX(' + (-y * 3) + 'deg) translateZ(0)';
+        orbs.forEach(function (o) {
+          var d = +o.dataset.depth || 20;
+          o.style.translate = (-x * d) + 'px ' + (-y * d) + 'px';
+        });
+      });
+      hero.addEventListener('pointerleave', function () {
+        content.style.transform = '';
+        orbs.forEach(function (o) { o.style.translate = ''; });
+      });
+    })();
+  </script>
 
   <!-- Products -->
   <section id="products" class="max-w-5xl mx-auto px-6 py-12 border-t border-white/5">
