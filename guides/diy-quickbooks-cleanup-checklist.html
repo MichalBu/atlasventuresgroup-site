@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>DIY QuickBooks cleanup checklist: the order that actually works</title>
+<meta name="description" content="Cleaning up your own QuickBooks Online file? Do it in this order: reconcile first, then duplicates, then categorization - or you'll redo work. A step-by-step checklist, plus when DIY stops making sense." />
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-[#0B0F17] text-slate-200 antialiased">
+
+  <header class="border-b border-white/5">
+    <div class="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="/" title="Atlas Ventures Group - home" class="font-semibold text-white tracking-tight">Books<span class="text-emerald-400">Audit</span></a>
+      <a href="/cleanup-cost-estimator/" class="text-sm bg-emerald-500 hover:bg-emerald-400 text-slate-900 font-semibold px-4 py-2 rounded-lg transition">Estimate your cleanup cost</a>
+    </div>
+  </header>
+
+  <article class="max-w-3xl mx-auto px-6 py-14">
+    <h1 class="text-3xl sm:text-4xl font-bold text-white leading-tight">DIY QuickBooks cleanup: the checklist, in the order that actually works</h1>
+    <p class="text-slate-400 mt-4 leading-relaxed">
+      Most DIY cleanups fail for one reason: people start with categorization because it's
+      the visible mess, then reconciliation changes the underlying transactions and they do
+      the work twice. The order below exists so every step builds on verified data.
+    </p>
+
+    <ol class="space-y-8 mt-10 list-none">
+      <li>
+        <h2 class="text-xl font-semibold text-white">1. Reconcile every bank and credit card account first</h2>
+        <p class="text-slate-400 mt-2 leading-relaxed">Month by month, oldest gap first, against the real statements. This is the ground truth everything else depends on. If a month won't balance, find the missing or duplicated transaction now - do not use an adjusting entry to force it and move on; that buries the error.</p>
+      </li>
+      <li>
+        <h2 class="text-xl font-semibold text-white">2. Hunt duplicates while you reconcile</h2>
+        <p class="text-slate-400 mt-2 leading-relaxed">Reconciliation surfaces them naturally: a month that's off by exactly one transaction's amount usually has that transaction twice. Also check for double-imported bank feeds after any bank connection was re-linked.</p>
+      </li>
+      <li>
+        <h2 class="text-xl font-semibold text-white">3. Clear Undeposited Funds</h2>
+        <p class="text-slate-400 mt-2 leading-relaxed">A big Undeposited Funds balance means payments were recorded but never matched to deposits - so income may be double-counted (once as a payment, once as a deposit). Match each stuck payment to its real bank deposit.</p>
+      </li>
+      <li>
+        <h2 class="text-xl font-semibold text-white">4. Empty the parking accounts</h2>
+        <p class="text-slate-400 mt-2 leading-relaxed">"Uncategorized Expense," "Uncategorized Income," "Ask My Accountant" - every entry gets a real category. Work by vendor: sort the account by payee and categorize in batches, then set bank rules so the same vendor books correctly going forward.</p>
+      </li>
+      <li>
+        <h2 class="text-xl font-semibold text-white">5. Review categorization patterns, not just totals</h2>
+        <p class="text-slate-400 mt-2 leading-relaxed">Run the P&amp;L by month and scan for anomalies: a category that doubles one month, personal-looking expenses in business accounts, owner draws booked as expenses, loan payments booked entirely as interest. Fix the pattern and the bank rule that caused it.</p>
+      </li>
+      <li>
+        <h2 class="text-xl font-semibold text-white">6. Check AR and AP aging for ghosts</h2>
+        <p class="text-slate-400 mt-2 leading-relaxed">Invoices you know were paid but still show open, bills paid outside QBO still showing due. These distort your income (accrual) and make reports useless for decisions.</p>
+      </li>
+      <li>
+        <h2 class="text-xl font-semibold text-white">7. Close the books</h2>
+        <p class="text-slate-400 mt-2 leading-relaxed">When a period is clean, set a closing date with a password in QBO. This is what prevents the next cleanup - nothing can silently change history anymore.</p>
+      </li>
+    </ol>
+
+    <section class="mt-12 bg-white/5 border border-white/10 rounded-2xl p-6">
+      <h2 class="text-xl font-semibold text-white">When DIY stops making sense</h2>
+      <p class="text-slate-400 mt-2 leading-relaxed text-sm">
+        A rule of thumb from practitioners: under ~6 months behind with under 100
+        transactions a month is a realistic weekend-sized DIY project. A year or more
+        behind, multiple accounts, payroll in the mix - that's the $2,000-$6,000 quote
+        territory, and professionals quote high because they can't scope a file they
+        haven't seen. Check your own number with our free
+        <a href="/cleanup-cost-estimator/" class="text-emerald-400">cleanup cost estimator</a>.
+      </p>
+      <p class="text-slate-400 mt-3 leading-relaxed text-sm">
+        Either way, the first step is the same: know exactly what's wrong before anyone
+        (including you) spends hours fixing it. BooksAudit reads your QBO/Xero export and
+        returns that diagnosis as a report.
+        <a href="/cleanup-cost-estimator/#waitlist" class="text-emerald-400">Request a free diagnostic</a>.
+      </p>
+      <p class="text-xs text-slate-500 mt-4">This guide is general information, not accounting, tax, or financial advice.</p>
+    </section>
+  </article>
+
+  <footer class="border-t border-white/5">
+    <div class="max-w-5xl mx-auto px-6 py-10 text-sm text-slate-500">
+      <div class="flex flex-col sm:flex-row justify-between gap-4">
+        <p>BooksAudit is a product of <a href="/" class="text-emerald-400">Atlas Ventures Group</a>.</p>
+        <p><a href="/privacy.html" class="hover:text-slate-300">Privacy</a> · <a href="/terms.html" class="hover:text-slate-300">Terms</a></p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

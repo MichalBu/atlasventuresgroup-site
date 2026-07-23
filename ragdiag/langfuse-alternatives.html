@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Langfuse alternatives for RAG debugging (2026) - an honest comparison</title>
+<meta name="description" content="Langfuse is great at LLM observability - but tracing shows you what happened, not which component broke. The honest 2026 landscape: Langfuse, Arize Phoenix, Braintrust, RAGAS, promptfoo, and RAGDiag, by job." />
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-[#0B0F17] text-slate-200 antialiased">
+
+  <header class="border-b border-white/5">
+    <div class="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="/ragdiag/" title="RAGDiag - home" class="font-semibold text-white tracking-tight">RAG<span class="text-emerald-400">Diag</span></a>
+      <a href="/ragdiag/#audit" class="text-sm bg-emerald-500 hover:bg-emerald-400 text-slate-900 font-semibold px-4 py-2 rounded-lg transition">Get a free audit</a>
+    </div>
+  </header>
+
+  <article class="max-w-3xl mx-auto px-6 py-14">
+    <h1 class="text-3xl sm:text-4xl font-bold text-white leading-tight">Langfuse alternatives for RAG debugging: an honest 2026 comparison</h1>
+    <p class="text-slate-400 mt-4 leading-relaxed">
+      First, the honest part: if you need LLM observability - traces, spans, token costs,
+      user feedback, prompt management - Langfuse is one of the best tools available, it's
+      open source, and you should probably be running it or something like it. This page is
+      for a different situation: your RAG system gives wrong answers, your traces show you
+      everything that happened, and you still don't know <em>which component to fix</em>.
+      Different tools do different jobs here.
+    </p>
+
+    <div class="mt-10 overflow-x-auto">
+      <table class="w-full text-sm text-left">
+        <thead>
+          <tr class="border-b border-white/10 text-slate-300">
+            <th class="py-3 pr-4 font-semibold">Tool</th>
+            <th class="py-3 pr-4 font-semibold">The job it's built for</th>
+            <th class="py-3 font-semibold">Pricing (2026)</th>
+          </tr>
+        </thead>
+        <tbody class="text-slate-400">
+          <tr class="border-b border-white/5">
+            <td class="py-3 pr-4 text-slate-200">Langfuse</td>
+            <td class="py-3 pr-4">Observability: tracing, cost tracking, prompt management, evals. Shows you everything that happened on every request.</td>
+            <td class="py-3">Open source self-hosted; cloud free tier, Pro $199/mo</td>
+          </tr>
+          <tr class="border-b border-white/5">
+            <td class="py-3 pr-4 text-slate-200">Arize Phoenix</td>
+            <td class="py-3 pr-4">Open-source tracing + eval library, strong on embedding-drift visualization and experiment comparison.</td>
+            <td class="py-3">Open source; Arize AX paid tiers</td>
+          </tr>
+          <tr class="border-b border-white/5">
+            <td class="py-3 pr-4 text-slate-200">Braintrust</td>
+            <td class="py-3 pr-4">Eval-first platform: datasets, scoring, CI-style regression testing for prompts and pipelines.</td>
+            <td class="py-3">Free tier; paid from $249/mo</td>
+          </tr>
+          <tr class="border-b border-white/5">
+            <td class="py-3 pr-4 text-slate-200">RAGAS</td>
+            <td class="py-3 pr-4">Open-source RAG metrics library: faithfulness, answer relevance, context precision/recall. Scores your pipeline; you interpret why.</td>
+            <td class="py-3">Free (OSS)</td>
+          </tr>
+          <tr class="border-b border-white/5">
+            <td class="py-3 pr-4 text-slate-200">promptfoo</td>
+            <td class="py-3 pr-4">Open-source test harness: assertion-based testing of prompts/pipelines in CI, plus red-teaming.</td>
+            <td class="py-3">Free (OSS); enterprise paid</td>
+          </tr>
+          <tr>
+            <td class="py-3 pr-4 text-slate-200">RAGDiag</td>
+            <td class="py-3 pr-4">Root-cause isolation per failure: for each wrong answer, counterfactually isolates which component (chunking, embedding, retrieval, reranking, query preprocessing) caused it and ranks the highest-impact fix.</td>
+            <td class="py-3">$99/mo, free audit first</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <section class="mt-10">
+      <h2 class="text-xl font-semibold text-white">The gap between observing and diagnosing</h2>
+      <p class="text-slate-400 mt-2 leading-relaxed">
+        Tracing tools answer "what happened on this request?" Eval tools answer "how good is
+        my pipeline on average, and did my change make it better or worse?" Both are
+        necessary. Neither answers the question you have when a specific customer got a
+        specific wrong answer: <em>which of my six pipeline components do I change first?</em>
+        Answering that manually means counterfactual testing - swap one component, replay the
+        query, see if the answer flips, repeat. (Our
+        <a href="/ragdiag/why-is-my-rag-giving-wrong-answers.html" class="text-emerald-400">symptom-to-component guide</a>
+        walks through those manual tests.)
+      </p>
+      <p class="text-slate-400 mt-3 leading-relaxed">
+        RAGDiag automates exactly that loop, per failure case. It's deliberately narrow: it
+        won't replace Langfuse's tracing or Braintrust's eval workflows, and if you already
+        know which component is broken you don't need it. It earns its keep when you're
+        staring at a pile of wrong answers and every fix is a guess.
+      </p>
+    </section>
+
+    <section class="mt-10 bg-emerald-500/5 border border-emerald-500/20 rounded-2xl p-6">
+      <h2 class="text-lg font-semibold text-white">See it on your own failures</h2>
+      <p class="text-slate-400 mt-2 leading-relaxed text-sm">
+        The free audit is the fastest way to judge whether this is worth $99/mo for your
+        stack: send your top failure cases, RAGDiag runs its diagnostic, you get back a
+        ranked report. <a href="/ragdiag/#audit" class="text-emerald-400">Request a free RAG failure audit</a>.
+      </p>
+    </section>
+  </article>
+
+  <footer class="border-t border-white/5">
+    <div class="max-w-5xl mx-auto px-6 py-10 text-sm text-slate-500">
+      <div class="flex flex-col sm:flex-row justify-between gap-4">
+        <p>RAGDiag is a product of <a href="/" class="text-emerald-400">Atlas Ventures Group</a>.</p>
+        <p><a href="/ragdiag/privacy.html" class="hover:text-slate-300">Privacy</a> · <a href="/ragdiag/terms.html" class="hover:text-slate-300">Terms</a></p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

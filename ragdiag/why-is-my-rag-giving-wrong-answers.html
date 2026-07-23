@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Why is my RAG giving wrong answers? A symptom-to-component diagnostic</title>
+<meta name="description" content="Map your RAG failure symptom to the component that caused it: chunking, embedding, retrieval ranking, reranking, query preprocessing, or generation - with a quick test for each." />
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-[#0B0F17] text-slate-200 antialiased">
+
+  <header class="border-b border-white/5">
+    <div class="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="/ragdiag/" title="RAGDiag - home" class="font-semibold text-white tracking-tight">RAG<span class="text-emerald-400">Diag</span></a>
+      <a href="/ragdiag/#audit" class="text-sm bg-emerald-500 hover:bg-emerald-400 text-slate-900 font-semibold px-4 py-2 rounded-lg transition">Get a free audit</a>
+    </div>
+  </header>
+
+  <article class="max-w-3xl mx-auto px-6 py-14">
+    <h1 class="text-3xl sm:text-4xl font-bold text-white leading-tight">Why is my RAG giving wrong answers?</h1>
+    <p class="text-slate-400 mt-4 leading-relaxed">
+      "The RAG is hallucinating" is a symptom, not a diagnosis. A retrieval-augmented
+      pipeline has at least six places a wrong answer can originate, and the fix for each is
+      different - re-chunking your corpus won't help if the reranker is burying the right
+      passage. Here's the symptom-to-component map, with a quick manual test for each.
+    </p>
+
+    <div class="space-y-8 mt-10">
+      <section>
+        <h2 class="text-xl font-semibold text-white">Symptom: the answer mixes up facts from different documents</h2>
+        <p class="text-slate-400 mt-2 leading-relaxed"><span class="text-emerald-300 font-medium">Likely component: chunking.</span> Chunks that cross document or section boundaries let the model blend unrelated contexts (the classic cross-document confusion failure). <span class="text-slate-200">Quick test:</span> print the exact retrieved chunks for one bad query - if a single chunk contains text from two sources or two topics, it's chunking.</p>
+      </section>
+      <section>
+        <h2 class="text-xl font-semibold text-white">Symptom: retrieved documents are on-topic but never quite the right one</h2>
+        <p class="text-slate-400 mt-2 leading-relaxed"><span class="text-emerald-300 font-medium">Likely component: embedding model.</span> The embedding space groups by broad topic but can't separate near-neighbors (e.g. v2 vs v3 of the same doc, similar products). <span class="text-slate-200">Quick test:</span> embed the query and the known-correct passage; if their similarity is lower than the query's similarity to the wrong-but-related passage, the embedding can't make this distinction.</p>
+      </section>
+      <section>
+        <h2 class="text-xl font-semibold text-white">Symptom: the right passage exists but isn't in the retrieved set</h2>
+        <p class="text-slate-400 mt-2 leading-relaxed"><span class="text-emerald-300 font-medium">Likely component: retrieval ranking / top-k.</span> <span class="text-slate-200">Quick test:</span> query the vector store directly with k=50 and search for the correct passage's rank. Rank 12 with k=5 is a ranking/k problem; absent at k=50 points back to chunking or embedding.</p>
+      </section>
+      <section>
+        <h2 class="text-xl font-semibold text-white">Symptom: raising k made answers worse, not better</h2>
+        <p class="text-slate-400 mt-2 leading-relaxed"><span class="text-emerald-300 font-medium">Likely component: reranker (or its absence).</span> More candidates only help if something orders them well; without a reranker, extra passages are extra noise for the generator. <span class="text-slate-200">Quick test:</span> compare answer quality at k=5 vs k=20 with the reranker toggled on and off on the same query set.</p>
+      </section>
+      <section>
+        <h2 class="text-xl font-semibold text-white">Symptom: rephrasing the question changes the answer completely</h2>
+        <p class="text-slate-400 mt-2 leading-relaxed"><span class="text-emerald-300 font-medium">Likely component: query preprocessing.</span> Abbreviations, typos, or multi-part questions that a query-rewrite step should be normalizing. <span class="text-slate-200">Quick test:</span> log the final string actually sent to retrieval; if it's the user's raw text, this stage doesn't exist yet.</p>
+      </section>
+      <section>
+        <h2 class="text-xl font-semibold text-white">Symptom: the correct passage was retrieved and the answer is still wrong</h2>
+        <p class="text-slate-400 mt-2 leading-relaxed"><span class="text-emerald-300 font-medium">Likely component: generation.</span> The one case that isn't retrieval's fault: context window overload, a prompt that doesn't force grounding, or the model overriding context with its own priors. <span class="text-slate-200">Quick test:</span> hand the model only the correct passage and the question; if it still answers wrong, it's prompt/model, not pipeline.</p>
+      </section>
+    </div>
+
+    <section class="mt-12 bg-emerald-500/5 border border-emerald-500/20 rounded-2xl p-6">
+      <h2 class="text-xl font-semibold text-white">The manual tests above, automated per failure</h2>
+      <p class="text-slate-400 mt-2 leading-relaxed text-sm">
+        Each test above is a counterfactual: change one component, see if the answer flips.
+        That's exactly what RAGDiag automates - for each wrong answer you feed it, it
+        isolates which component caused it and ranks the highest-impact fix, instead of an
+        aggregate score that says you have a problem but not where.
+        <a href="/ragdiag/#audit" class="text-emerald-400">Request a free RAG failure audit</a> -
+        RAGDiag runs its diagnostic on your top failure cases, no card.
+      </p>
+    </section>
+  </article>
+
+  <footer class="border-t border-white/5">
+    <div class="max-w-5xl mx-auto px-6 py-10 text-sm text-slate-500">
+      <div class="flex flex-col sm:flex-row justify-between gap-4">
+        <p>RAGDiag is a product of <a href="/" class="text-emerald-400">Atlas Ventures Group</a>.</p>
+        <p><a href="/ragdiag/privacy.html" class="hover:text-slate-300">Privacy</a> · <a href="/ragdiag/terms.html" class="hover:text-slate-300">Terms</a></p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
