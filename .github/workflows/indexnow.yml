@@ -1,0 +1,64 @@
+name: IndexNow submit
+
+# Submits every URL in sitemap.xml to IndexNow (Bing, Yandex, Seznam, Naver) whenever
+# the site changes. Runs on GitHub's runners because the sessions that publish this
+# site cannot reach api.indexnow.org through their network policy — this is what makes
+# the submission step autonomous rather than a manual chore.
+#
+# The key file at the repo root is public by design: IndexNow authenticates a
+# submission by fetching https://atlasventuresgroup.net/<key>.txt and matching it.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '**/*.html'
+      - 'sitemap.xml'
+  workflow_dispatch:
+
+jobs:
+  submit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Wait for the Pages deployment to serve the new URLs
+        # IndexNow crawls immediately; submitting before the deploy lands would offer
+        # URLs that 404. Pages builds for this repo take well under two minutes.
+        run: sleep 120
+
+      - name: Submit sitemap URLs to IndexNow
+        run: |
+          set -euo pipefail
+          KEY_FILE=$(ls -1 [0-9a-f]*.txt 2>/dev/null | head -n1)
+          if [ -z "$KEY_FILE" ]; then
+            echo "no IndexNow key file at the repo root — nothing to submit"
+            exit 0
+          fi
+          KEY="${KEY_FILE%.txt}"
+          python3 - "$KEY" <<'PY'
+          import json, sys, urllib.request, xml.etree.ElementTree as ET
+
+          key = sys.argv[1]
+          host = "atlasventuresgroup.net"
+          ns = {"s": "http://www.sitemaps.org/schemas/sitemap/0.9"}
+          urls = [e.text.strip() for e in ET.parse("sitemap.xml").getroot()
+                  .findall(".//s:url/s:loc", ns) if e.text]
+          if not urls:
+              sys.exit("sitemap.xml lists no URLs")
+
+          payload = json.dumps({
+              "host": host,
+              "key": key,
+              "keyLocation": f"https://{host}/{key}.txt",
+              "urlList": urls,
+          }).encode()
+
+          request = urllib.request.Request(
+              "https://api.indexnow.org/indexnow", data=payload,
+              headers={"Content-Type": "application/json; charset=utf-8"})
+          with urllib.request.urlopen(request, timeout=30) as response:
+              print(f"IndexNow HTTP {response.status} for {len(urls)} URL(s)")
+              for url in urls:
+                  print("  ", url)
+          PY
