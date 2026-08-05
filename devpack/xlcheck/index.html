@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>xlcheck - test that openpyxl formulas actually calculate correctly | DevPack</title>
+<meta name="description" content="openpyxl writes formulas but never evaluates them, so a generated .xlsx can build cleanly and be arithmetically wrong. xlcheck recalculates the workbook and asserts every figure against hand-computed arithmetic. Python, 15 tests, $49 one-time." />
+<link rel="canonical" href="https://atlasventuresgroup.net/devpack/xlcheck/" />
+<script src="https://cdn.tailwindcss.com"></script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"xlcheck",
+ "applicationCategory":"DeveloperApplication","operatingSystem":"Any (Python 3.10+)",
+ "description":"Recalculates generated .xlsx workbooks and asserts every figure against hand-computed arithmetic. Catches wrong-but-plausible numbers that openpyxl cannot see.",
+ "url":"https://atlasventuresgroup.net/devpack/xlcheck/",
+ "offers":{"@type":"Offer","price":"49.00","priceCurrency":"USD","availability":"https://schema.org/PreOrder"}}
+</script>
+</head>
+<body class="bg-[#0B0F17] text-slate-200 antialiased">
+
+  <!-- Nav -->
+  <header class="border-b border-white/5">
+    <div class="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="/devpack/" title="DevPack - working code artifacts" class="font-semibold text-white tracking-tight">Dev<span class="text-emerald-400">Pack</span></a>
+      <a href="#waitlist" class="text-sm bg-emerald-500 hover:bg-emerald-400 text-slate-900 font-semibold px-4 py-2 rounded-lg transition">Tell me when it's on sale</a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="max-w-4xl mx-auto px-6 pt-16 pb-8">
+    <span class="inline-block text-xs font-medium text-amber-300 bg-amber-500/10 border border-amber-500/20 rounded-full px-3 py-1 mb-6">Built and tested - checkout not open yet</span>
+    <h1 class="text-4xl sm:text-5xl font-bold text-white leading-tight">
+      openpyxl writes formulas. <span class="text-emerald-400">It never evaluates them.</span>
+    </h1>
+    <p class="text-lg text-slate-400 mt-6">
+      So the workbook you just generated can build without a single warning, open beautifully in
+      Excel, and be arithmetically wrong - and your test suite will not notice, because the
+      "value" openpyxl reads back is the formula string you wrote.
+    </p>
+    <p class="text-lg text-slate-400 mt-4">
+      <strong class="text-white">xlcheck</strong> recalculates the workbook the way Excel would,
+      then asserts every figure against arithmetic <em>you</em> worked out by hand.
+    </p>
+    <p class="text-sm text-slate-500 mt-6">Python 3.10+ · two dependencies · $49 one-time, source included.</p>
+  </section>
+
+  <!-- Code -->
+  <section class="max-w-4xl mx-auto px-6 py-8">
+    <div class="bg-black/40 border border-white/10 rounded-2xl p-6 overflow-x-auto">
+<pre class="text-sm text-slate-300 leading-relaxed"><code>from xlcheck import load, assert_cell, assert_no_error_cells
+
+wb = load("build/report.xlsx")          <span class="text-slate-500"># recalculated, cached</span>
+assert_cell(wb, "Dashboard!A5", 16120.00, label="current MRR")
+assert_cell(wb, "Dashboard!E5", 0.032508, tolerance=1e-5, label="gross churn")
+assert_no_error_cells(wb)</code></pre>
+    </div>
+    <p class="text-sm text-slate-500 mt-4">
+      Or keep the expected figures in YAML next to the workbook and run
+      <code class="text-slate-300">python3 -m xlcheck spec.yml</code> - exit code 1 on any
+      failure, so it drops into a build or a pre-commit hook unchanged.
+    </p>
+  </section>
+
+  <!-- The four defects -->
+  <section class="max-w-3xl mx-auto px-6 py-12 border-t border-white/5">
+    <h2 class="text-2xl font-bold text-white mb-4">The defects it finds are never crashes</h2>
+    <p class="text-slate-400 leading-relaxed">
+      They are numbers that look right. These four are real - the first run of this code against
+      a set of finished, ready-to-ship finance templates found three of them, and the fourth is
+      the one that had already reached a layout nobody opened by hand:
+    </p>
+    <ul class="text-slate-400 leading-relaxed mt-6 space-y-4 text-sm">
+      <li class="border-l-2 border-emerald-500/40 pl-4">
+        An <strong class="text-slate-200">array formula</strong> needing Ctrl-Shift-Enter in Excel:
+        it returned the first row of a table and silently dropped every other one. A user with five
+        clients would have seen one, with no error anywhere on the sheet.
+      </li>
+      <li class="border-l-2 border-emerald-500/40 pl-4">
+        An <strong class="text-slate-200">average over empty months</strong>, reading 1.6% where the
+        truth was 3.25%, and 100% where the truth was 98.6%.
+      </li>
+      <li class="border-l-2 border-emerald-500/40 pl-4">
+        A <strong class="text-slate-200">zero divisor</strong> that <code class="text-slate-300">IFERROR</code>
+        dressed up as a tidy "$0.00" - an error presented as a result.
+      </li>
+      <li class="border-l-2 border-emerald-500/40 pl-4">
+        A <strong class="text-slate-200">#REF!</strong> sitting in a headline cell.
+        <code class="text-slate-300">wb.error_cells()</code> finds every one of those without you
+        having to know where to look - the cheapest high-value assertion in the package.
+      </li>
+    </ul>
+  </section>
+
+  <!-- Design rules -->
+  <section class="max-w-3xl mx-auto px-6 py-12 border-t border-white/5">
+    <h2 class="text-2xl font-bold text-white mb-6">Two rules it enforces on you, on purpose</h2>
+    <div class="space-y-6 text-sm">
+      <div>
+        <div class="text-white font-semibold">An expected value is hand-computed, never read back from the workbook.</div>
+        <p class="text-slate-400 mt-2 leading-relaxed">A test that asks the sheet what it thinks the
+        answer is proves only that the sheet is self-consistent. This is why there is no "record
+        current values" mode - it would be the most requested feature and would defeat the entire
+        package.</p>
+      </div>
+      <div>
+        <div class="text-white font-semibold">Blank is not zero.</div>
+        <p class="text-slate-400 mt-2 leading-relaxed"><code class="text-slate-300">blank</code> and
+        <code class="text-slate-300">not_blank</code> assertions exist so the <em>absence</em> of a
+        value is asserted as deliberately as its presence. A dropped table row and a suppressed
+        error both show up as an innocent empty cell.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- What you get -->
+  <section class="max-w-3xl mx-auto px-6 py-12 border-t border-white/5">
+    <h2 class="text-2xl font-bold text-white mb-6">What you get</h2>
+    <div class="grid sm:grid-cols-2 gap-x-8 gap-y-5 text-sm">
+      <div>
+        <div class="text-white font-semibold">The full source</div>
+        <p class="text-slate-400 mt-1">Five modules, readable in one sitting: recalculation model,
+        checks, YAML spec loader, CLI, package init.</p>
+      </div>
+      <div>
+        <div class="text-white font-semibold">15 tests that prove it</div>
+        <p class="text-slate-400 mt-1">The suite builds a workbook containing the real defect shapes
+        above, then asserts each one is caught. No mocks.</p>
+      </div>
+      <div>
+        <div class="text-white font-semibold">A runnable example</div>
+        <p class="text-slate-400 mt-1">Generator plus spec, end to end:
+        <code class="text-slate-300">python3 example/build_example.py &amp;&amp; python3 -m xlcheck example/spec.yml</code>.</p>
+      </div>
+      <div>
+        <div class="text-white font-semibold">Yours outright</div>
+        <p class="text-slate-400 mt-1">One-time $49. Commercial single-organisation licence, no
+        subscription, no seat count, no phone-home.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Limits -->
+  <section class="max-w-3xl mx-auto px-6 py-12 border-t border-white/5">
+    <h2 class="text-2xl font-bold text-white mb-4">Limits, stated before you buy</h2>
+    <p class="text-slate-400 leading-relaxed text-sm">
+      Recalculation uses the <code class="text-slate-300">formulas</code> engine, not Excel's. It
+      covers the ordinary function surface of a generated workbook - arithmetic, the
+      SUM/AVERAGE/COUNT family, IF/IFERROR, INDEX/MATCH, lookups, date and text functions. It does
+      not run macros, pivot tables, or external links, and a very exotic formula may not resolve -
+      which shows up as a <em>failed check</em>, never as a silent pass. Large workbooks are slow
+      to solve; results are cached per file per process, so a suite pays that cost once.
+    </p>
+  </section>
+
+  <!-- Waitlist -->
+  <section id="waitlist" class="max-w-xl mx-auto px-6 py-16 border-t border-white/5">
+    <h2 class="text-2xl font-bold text-white text-center mb-2">Tell me when it's on sale</h2>
+    <p class="text-slate-400 text-center text-sm mb-8">
+      The code is written and the tests pass; the storefront isn't open yet. Leave your email and
+      we'll send the download link the day it goes live.
+    </p>
+    <form action="https://sceg3rbntvunklbuqe4mzb4eea0vrcwc.lambda-url.us-east-1.on.aws/" method="POST" class="space-y-4">
+      <input type="hidden" name="_subject" value="DevPack - xlcheck waitlist" />
+      <input type="hidden" name="_next" value="https://atlasventuresgroup.net/thanks.html" />
+      <input type="text" name="_honey" style="display:none" />
+      <div>
+        <label class="block text-sm text-slate-300 mb-1" for="email">Email</label>
+        <input id="email" type="email" name="email" required class="w-full bg-[#0B0F17] border border-white/15 rounded-lg px-4 py-2.5 text-slate-100 focus:border-emerald-400 focus:outline-none" placeholder="you@example.com" />
+      </div>
+      <div>
+        <label class="block text-sm text-slate-300 mb-1" for="context">What are you generating spreadsheets for? <span class="text-slate-500">(optional)</span></label>
+        <textarea id="context" name="context" rows="3" class="w-full bg-[#0B0F17] border border-white/15 rounded-lg px-4 py-2.5 text-slate-100 focus:border-emerald-400 focus:outline-none" placeholder="e.g. client reports out of a Django app, templates we sell, a finance export nobody trusts…"></textarea>
+      </div>
+      <button type="submit" class="w-full bg-emerald-500 hover:bg-emerald-400 text-slate-900 font-semibold px-6 py-3 rounded-lg transition">Email me at launch</button>
+      <p class="text-xs text-slate-500 text-center">We use your email only to contact you about this
+      product. See our <a href="/privacy.html" class="text-emerald-400">Privacy Policy</a>.</p>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-white/5">
+    <div class="max-w-5xl mx-auto px-6 py-10 text-sm text-slate-500">
+      <div class="flex flex-col sm:flex-row justify-between gap-4">
+        <div>
+          <div class="font-semibold text-white">Atlas Ventures <span class="text-emerald-400">Group</span></div>
+          <p class="mt-1">A software venture studio.</p>
+          <p><a href="mailto:info@atlasventuresgroup.net" class="text-emerald-400">info@atlasventuresgroup.net</a></p>
+        </div>
+        <div class="flex flex-wrap gap-6">
+          <a href="/devpack/" class="hover:text-slate-300">DevPack</a>
+          <a href="/" class="hover:text-slate-300">Home</a>
+          <a href="/terms.html" class="hover:text-slate-300">Terms</a>
+          <a href="/privacy.html" class="hover:text-slate-300">Privacy</a>
+          <a href="/refund.html" class="hover:text-slate-300">Refunds</a>
+        </div>
+      </div>
+      <p class="mt-8 text-xs">&copy; 2026 Atlas Ventures Group. Microsoft Excel and openpyxl are
+      trademarks or projects of their respective owners, named here only to describe what this
+      tool works with - it is not affiliated with, endorsed by, or sponsored by any of them.</p>
+    </div>
+  </footer>
+
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "a4cf161bab784a24b7a9a50a4235e35e"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

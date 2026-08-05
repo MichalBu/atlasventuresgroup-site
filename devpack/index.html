@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>DevPack - working code artifacts, sold with their tests | Atlas Ventures Group</title>
+<meta name="description" content="Small Python tools that already run in production somewhere, sold as one-time downloads with their test suites: coldstart (cold-email sequencer for AWS SES) and xlcheck (recalculates generated .xlsx and asserts every figure). $49 each." />
+<link rel="canonical" href="https://atlasventuresgroup.net/devpack/" />
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-[#0B0F17] text-slate-200 antialiased">
+
+  <!-- Nav -->
+  <header class="border-b border-white/5">
+    <div class="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="/" title="Atlas Ventures Group - home" class="font-semibold text-white tracking-tight">Dev<span class="text-emerald-400">Pack</span></a>
+      <a href="#catalogue" class="text-sm bg-emerald-500 hover:bg-emerald-400 text-slate-900 font-semibold px-4 py-2 rounded-lg transition">See what's in it</a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="max-w-4xl mx-auto px-6 pt-16 pb-10 text-center">
+    <span class="inline-block text-xs font-medium text-amber-300 bg-amber-500/10 border border-amber-500/20 rounded-full px-3 py-1 mb-6">Built and tested - checkout not open yet</span>
+    <h1 class="text-4xl sm:text-5xl font-bold text-white leading-tight max-w-3xl mx-auto">
+      Working code, sold <span class="text-emerald-400">with the tests that prove it works.</span>
+    </h1>
+    <p class="text-lg text-slate-400 mt-6 max-w-2xl mx-auto">
+      Every artifact here was built because we needed it ourselves, and every one ships with the
+      suite that keeps it honest. Not a boilerplate scraped together for sale, and not a tutorial
+      with a price on it.
+    </p>
+    <p class="text-sm text-slate-500 mt-4">$49 each, one-time. Full source. Commercial licence.</p>
+  </section>
+
+  <!-- Catalogue -->
+  <section id="catalogue" class="max-w-5xl mx-auto px-6 py-8">
+    <div class="grid md:grid-cols-2 gap-5">
+
+      <a href="/devpack/coldstart/" class="bg-white/5 border border-white/10 hover:border-emerald-500/40 rounded-2xl p-6 flex flex-col transition">
+        <div class="flex items-baseline justify-between">
+          <h2 class="text-white font-semibold text-lg">coldstart</h2>
+          <span class="text-xs text-slate-500">Python · 23 tests</span>
+        </div>
+        <p class="text-sm text-slate-400 mt-3 flex-1">
+          A cold-email sequencer that is safe to leave running. Warmup ramp, threaded follow-ups,
+          any reply ends the sequence, permanent suppression re-checked before every send, RFC 8058
+          one-click unsubscribe, crash-safe sent log. Sends through your own AWS SES or SMTP -
+          no SaaS, no per-contact pricing.
+        </p>
+        <span class="text-emerald-400 text-sm font-medium mt-4">$49 - read the detail →</span>
+      </a>
+
+      <a href="/devpack/xlcheck/" class="bg-white/5 border border-white/10 hover:border-emerald-500/40 rounded-2xl p-6 flex flex-col transition">
+        <div class="flex items-baseline justify-between">
+          <h2 class="text-white font-semibold text-lg">xlcheck</h2>
+          <span class="text-xs text-slate-500">Python · 15 tests</span>
+        </div>
+        <p class="text-sm text-slate-400 mt-3 flex-1">
+          openpyxl writes formulas but never evaluates them, so a generated workbook can build
+          cleanly and be arithmetically wrong. xlcheck recalculates it the way Excel would and
+          asserts every figure against hand-computed arithmetic - plus a sweep for error cells you
+          didn't know to look for.
+        </p>
+        <span class="text-emerald-400 text-sm font-medium mt-4">$49 - read the detail →</span>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- Why -->
+  <section class="max-w-3xl mx-auto px-6 py-16 border-t border-white/5 mt-8">
+    <h2 class="text-2xl font-bold text-white mb-4">The claim that matters is "with tests"</h2>
+    <p class="text-slate-400 leading-relaxed">
+      Anyone can publish a script. The reason to pay $49 rather than spend an afternoon writing
+      your own is that the afternoon is not where the cost is - the cost is in the third week,
+      when the follow-up that didn't thread reads as a fresh cold email, or the generated report
+      shows a customer a number that is quietly wrong.
+    </p>
+    <p class="text-slate-400 leading-relaxed mt-4">
+      So each product's page names the specific failures its tests cover, in the words of the
+      failure rather than the feature. If that list doesn't describe a problem you have, don't
+      buy it.
+    </p>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-white/5">
+    <div class="max-w-5xl mx-auto px-6 py-10 text-sm text-slate-500">
+      <div class="flex flex-col sm:flex-row justify-between gap-4">
+        <div>
+          <div class="font-semibold text-white">Atlas Ventures <span class="text-emerald-400">Group</span></div>
+          <p class="mt-1">A software venture studio.</p>
+          <p><a href="mailto:info@atlasventuresgroup.net" class="text-emerald-400">info@atlasventuresgroup.net</a></p>
+        </div>
+        <div class="flex flex-wrap gap-6">
+          <a href="/" class="hover:text-slate-300">Home</a>
+          <a href="/terms.html" class="hover:text-slate-300">Terms</a>
+          <a href="/privacy.html" class="hover:text-slate-300">Privacy</a>
+          <a href="/refund.html" class="hover:text-slate-300">Refunds</a>
+        </div>
+      </div>
+      <p class="mt-8 text-xs">&copy; 2026 Atlas Ventures Group.</p>
+    </div>
+  </footer>
+
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "a4cf161bab784a24b7a9a50a4235e35e"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
