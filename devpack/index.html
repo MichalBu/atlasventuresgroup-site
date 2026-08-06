@@ -30,6 +30,10 @@
       with a price on it.
     </p>
     <p class="text-sm text-slate-500 mt-4">$49 each, one-time. Full source. Commercial licence.</p>
+    <div class="flex flex-wrap gap-3 justify-center mt-8">
+      <a href="#notify" class="bg-emerald-500 hover:bg-emerald-400 text-slate-900 font-semibold px-6 py-3 rounded-lg transition">Tell me when checkout opens</a>
+      <a href="#catalogue" class="border border-white/15 hover:border-white/30 text-slate-200 font-semibold px-6 py-3 rounded-lg transition">See what's in it</a>
+    </div>
   </section>
 
   <!-- Catalogue -->
@@ -81,6 +85,44 @@
       failure rather than the feature. If that list doesn't describe a problem you have, don't
       buy it.
     </p>
+  </section>
+
+  <!-- Tell me when checkout opens -->
+  <section id="notify" class="max-w-xl mx-auto px-6 py-16 border-t border-white/5">
+    <h2 class="text-2xl font-bold text-white text-center mb-2">Want one before checkout opens?</h2>
+    <p class="text-slate-400 text-center text-sm mb-8">
+      Both artifacts are finished and their tests pass - the only thing missing is the checkout.
+      Leave an email and we'll tell you the day it's live. Tell us which one you'd buy and we'll
+      prioritise it; tell us what you'd want built next and it goes on the list.
+    </p>
+    <!-- All site forms POST to the form-intake Lambda (SES delivery to team@) - standing
+         convention for every current and future form on this domain; never FormSubmit. -->
+    <form action="https://sceg3rbntvunklbuqe4mzb4eea0vrcwc.lambda-url.us-east-1.on.aws/" method="POST" class="space-y-4">
+      <input type="hidden" name="_subject" value="DevPack - notify when checkout opens" />
+      <input type="hidden" name="_next" value="https://atlasventuresgroup.net/thanks.html" />
+      <input type="text" name="_honey" style="display:none" />
+      <div>
+        <label class="block text-sm text-slate-300 mb-1" for="email">Email</label>
+        <input id="email" type="email" name="email" required class="w-full bg-[#0B0F17] border border-white/15 rounded-lg px-4 py-2.5 text-slate-100 focus:border-emerald-400 focus:outline-none" placeholder="you@example.com" />
+      </div>
+      <div>
+        <label class="block text-sm text-slate-300 mb-1" for="artifact">Which one would you buy? <span class="text-slate-500">(optional)</span></label>
+        <select id="artifact" name="artifact" class="w-full bg-[#0B0F17] border border-white/15 rounded-lg px-4 py-2.5 text-slate-100 focus:border-emerald-400 focus:outline-none">
+          <option value="">Not sure yet</option>
+          <option value="coldstart">coldstart - the cold-email sequencer</option>
+          <option value="xlcheck">xlcheck - the spreadsheet recalculation harness</option>
+          <option value="both">Both</option>
+          <option value="neither">Neither - I want something else</option>
+        </select>
+      </div>
+      <div>
+        <label class="block text-sm text-slate-300 mb-1" for="wanted">What would you want built next? <span class="text-slate-500">(optional)</span></label>
+        <textarea id="wanted" name="wanted" rows="3" class="w-full bg-[#0B0F17] border border-white/15 rounded-lg px-4 py-2.5 text-slate-100 focus:border-emerald-400 focus:outline-none" placeholder="e.g. the glue script you rewrite on every project and never get to keep…"></textarea>
+      </div>
+      <button type="submit" class="w-full bg-emerald-500 hover:bg-emerald-400 text-slate-900 font-semibold px-6 py-3 rounded-lg transition">Tell me when it's live</button>
+      <p class="text-xs text-slate-500 text-center">We use your email only to contact you about
+      these artifacts. See our <a href="/privacy.html" class="text-emerald-400">Privacy Policy</a>.</p>
+    </form>
   </section>
 
   <!-- Footer -->
