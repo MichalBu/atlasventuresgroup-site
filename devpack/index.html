@@ -20,7 +20,7 @@
 
   <!-- Hero -->
   <section class="max-w-4xl mx-auto px-6 pt-16 pb-10 text-center">
-    <span class="inline-block text-xs font-medium text-amber-300 bg-amber-500/10 border border-amber-500/20 rounded-full px-3 py-1 mb-6">Built and tested - checkout not open yet</span>
+    <span class="inline-block text-xs font-medium text-emerald-300 bg-emerald-500/10 border border-emerald-500/20 rounded-full px-3 py-1 mb-6">Both artifacts are on sale - instant download</span>
     <h1 class="text-4xl sm:text-5xl font-bold text-white leading-tight max-w-3xl mx-auto">
       Working code, sold <span class="text-emerald-400">with the tests that prove it works.</span>
     </h1>
@@ -31,8 +31,8 @@
     </p>
     <p class="text-sm text-slate-500 mt-4">$49 each, one-time. Full source. Commercial licence.</p>
     <div class="flex flex-wrap gap-3 justify-center mt-8">
-      <a href="#notify" class="bg-emerald-500 hover:bg-emerald-400 text-slate-900 font-semibold px-6 py-3 rounded-lg transition">Tell me when checkout opens</a>
-      <a href="#catalogue" class="border border-white/15 hover:border-white/30 text-slate-200 font-semibold px-6 py-3 rounded-lg transition">See what's in it</a>
+      <a href="#catalogue" class="bg-emerald-500 hover:bg-emerald-400 text-slate-900 font-semibold px-6 py-3 rounded-lg transition">See both artifacts</a>
+      <a href="#notify" class="border border-white/15 hover:border-white/30 text-slate-200 font-semibold px-6 py-3 rounded-lg transition">Ask for something else</a>
     </div>
   </section>
 
@@ -40,9 +40,9 @@
   <section id="catalogue" class="max-w-5xl mx-auto px-6 py-8">
     <div class="grid md:grid-cols-2 gap-5">
 
-      <a href="/devpack/coldstart/" class="bg-white/5 border border-white/10 hover:border-emerald-500/40 rounded-2xl p-6 flex flex-col transition">
+      <div class="bg-white/5 border border-white/10 hover:border-emerald-500/40 rounded-2xl p-6 flex flex-col transition">
         <div class="flex items-baseline justify-between">
-          <h2 class="text-white font-semibold text-lg">coldstart</h2>
+          <h2 class="text-white font-semibold text-lg"><a href="/devpack/coldstart/" class="hover:text-emerald-400 transition">coldstart</a></h2>
           <span class="text-xs text-slate-500">Python · 23 tests</span>
         </div>
         <p class="text-sm text-slate-400 mt-3 flex-1">
@@ -51,12 +51,18 @@
           one-click unsubscribe, crash-safe sent log. Sends through your own AWS SES or SMTP -
           no SaaS, no per-contact pricing.
         </p>
-        <span class="text-emerald-400 text-sm font-medium mt-4">$49 - read the detail →</span>
-      </a>
+        <div class="flex items-center gap-3 mt-5">
+          <a href="https://atlasteam.gumroad.com/l/dufbpw"
+             class="bg-emerald-500 hover:bg-emerald-400 text-slate-900 font-semibold text-sm px-4 py-2.5 rounded-lg transition">
+            Buy coldstart — $49
+          </a>
+          <a href="/devpack/coldstart/" class="text-emerald-400 text-sm font-medium hover:text-emerald-300 transition">Read the detail →</a>
+        </div>
+      </div>
 
-      <a href="/devpack/xlcheck/" class="bg-white/5 border border-white/10 hover:border-emerald-500/40 rounded-2xl p-6 flex flex-col transition">
+      <div class="bg-white/5 border border-white/10 hover:border-emerald-500/40 rounded-2xl p-6 flex flex-col transition">
         <div class="flex items-baseline justify-between">
-          <h2 class="text-white font-semibold text-lg">xlcheck</h2>
+          <h2 class="text-white font-semibold text-lg"><a href="/devpack/xlcheck/" class="hover:text-emerald-400 transition">xlcheck</a></h2>
           <span class="text-xs text-slate-500">Python · 15 tests</span>
         </div>
         <p class="text-sm text-slate-400 mt-3 flex-1">
@@ -65,8 +71,14 @@
           asserts every figure against hand-computed arithmetic - plus a sweep for error cells you
           didn't know to look for.
         </p>
-        <span class="text-emerald-400 text-sm font-medium mt-4">$49 - read the detail →</span>
-      </a>
+        <div class="flex items-center gap-3 mt-5">
+          <a href="https://atlasteam.gumroad.com/l/tfcxi"
+             class="bg-emerald-500 hover:bg-emerald-400 text-slate-900 font-semibold text-sm px-4 py-2.5 rounded-lg transition">
+            Buy xlcheck — $49
+          </a>
+          <a href="/devpack/xlcheck/" class="text-emerald-400 text-sm font-medium hover:text-emerald-300 transition">Read the detail →</a>
+        </div>
+      </div>
 
     </div>
   </section>
@@ -87,18 +99,18 @@
     </p>
   </section>
 
-  <!-- Tell me when checkout opens -->
+  <!-- Request / what to build next -->
   <section id="notify" class="max-w-xl mx-auto px-6 py-16 border-t border-white/5">
-    <h2 class="text-2xl font-bold text-white text-center mb-2">Want one before checkout opens?</h2>
+    <h2 class="text-2xl font-bold text-white text-center mb-2">Want something we haven't built yet?</h2>
     <p class="text-slate-400 text-center text-sm mb-8">
-      Both artifacts are finished and their tests pass - the only thing missing is the checkout.
-      Leave an email and we'll tell you the day it's live. Tell us which one you'd buy and we'll
-      prioritise it; tell us what you'd want built next and it goes on the list.
+      Both artifacts above are on sale now - buy either one and the download is instant. This form
+      is for the thing that isn't here yet: tell us which of the two comes closest, and what you'd
+      actually want built, and it goes on the list.
     </p>
     <!-- All site forms POST to the form-intake Lambda (SES delivery to team@) - standing
          convention for every current and future form on this domain; never FormSubmit. -->
     <form action="https://sceg3rbntvunklbuqe4mzb4eea0vrcwc.lambda-url.us-east-1.on.aws/" method="POST" class="space-y-4">
-      <input type="hidden" name="_subject" value="DevPack - notify when checkout opens" />
+      <input type="hidden" name="_subject" value="DevPack - request / what to build next" />
       <input type="hidden" name="_next" value="https://atlasventuresgroup.net/thanks.html" />
       <input type="text" name="_honey" style="display:none" />
       <div>
