@@ -13,7 +13,7 @@
   <header class="border-b border-white/5">
     <div class="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
       <a href="/" title="Atlas Ventures Group - home" class="font-semibold text-white tracking-tight">Books<span class="text-emerald-400">Audit</span></a>
-      <a href="#waitlist" class="text-sm bg-emerald-500 hover:bg-emerald-400 text-slate-900 font-semibold px-4 py-2 rounded-lg transition">Get a free diagnostic</a>
+      <a href="#pricing" class="text-sm bg-emerald-500 hover:bg-emerald-400 text-slate-900 font-semibold px-4 py-2 rounded-lg transition">Pricing &amp; free audit</a>
     </div>
   </header>
 
@@ -114,10 +114,50 @@
     </div>
   </section>
 
+  <!-- Pricing -->
+  <section id="pricing" class="max-w-3xl mx-auto px-6 py-10 border-t border-white/5">
+    <h2 class="text-2xl font-bold text-white mb-2">What BooksAudit costs</h2>
+    <p class="text-slate-400 leading-relaxed text-sm mb-6">
+      The cleanup itself is the number at the top of this page. Finding out what's actually
+      wrong first - before anyone bills an hour against it - costs this.
+      <span class="text-slate-300">If you're a bookkeeper or CPA rather than the business owner:
+      that number above is what you'd quote, and the one below is what it costs you to scope the
+      job before you quote it.</span>
+    </p>
+    <div class="grid sm:grid-cols-2 gap-5">
+      <div class="bg-emerald-500/5 border border-emerald-500/20 rounded-xl p-6">
+        <span class="inline-block text-xs font-medium text-emerald-300 bg-emerald-500/10 border border-emerald-500/20 rounded-full px-3 py-1 mb-3">The price</span>
+        <h3 class="text-white font-semibold">One audit</h3>
+        <p class="text-3xl font-bold text-emerald-400 mt-2">$99<span class="text-base font-medium text-slate-400"> one-time</span></p>
+        <p class="text-sm text-slate-400 mt-3 leading-relaxed">
+          One business, one QuickBooks Online or Xero export, one dated diagnostic report you
+          can hand straight to a bookkeeper. No subscription, no account, nothing recurring.
+        </p>
+      </div>
+      <div class="bg-white/5 border border-white/10 rounded-xl p-6">
+        <span class="inline-block text-xs font-medium text-slate-400 bg-white/5 border border-white/10 rounded-full px-3 py-1 mb-3">Only if you do this often</span>
+        <h3 class="text-white font-semibold">Practice plan</h3>
+        <p class="text-3xl font-bold text-slate-200 mt-2">$79<span class="text-base font-medium text-slate-400">/month</span></p>
+        <p class="text-sm text-slate-400 mt-3 leading-relaxed">
+          Only worth it if you scope cleanups regularly: 5 client audits a month, $29 for each
+          one after. Most people should just pay the $99 - tell us below if we've got this the
+          wrong way round.
+        </p>
+      </div>
+    </div>
+    <p class="text-sm text-slate-400 mt-6 leading-relaxed">
+      <span class="text-white font-semibold">Nothing is charged today, and there is nothing to
+      buy on this page.</span> BooksAudit is pre-launch and not self-serve yet - we run each
+      report by hand, which is exactly why the early ones are free. Join the list below, we'll
+      run yours at no cost, and paid access opens to that list first. The prices above are what
+      it will cost when it does.
+    </p>
+  </section>
+
   <!-- Waitlist form -->
   <section id="waitlist" class="max-w-xl mx-auto px-6 py-12 border-t border-white/5">
     <h2 class="text-2xl font-bold text-white text-center mb-2">Get a free diagnostic of your books</h2>
-    <p class="text-slate-400 text-center text-sm mb-8">Early access: we'll reply with what to export, run the diagnostic on it, and send back your report - free, no card.</p>
+    <p class="text-slate-400 text-center text-sm mb-8">Early access: we'll reply with what to export, run the diagnostic on it, and send back your report - free, no card. In exchange, tell us straight whether $99 is what it's worth to you.</p>
     <!-- Standing convention: all site forms POST to the form-intake Lambda (SES → team@). -->
     <form action="https://sceg3rbntvunklbuqe4mzb4eea0vrcwc.lambda-url.us-east-1.on.aws/" method="POST" class="space-y-4">
       <input type="hidden" name="_subject" value="BooksAudit - cleanup estimator waitlist" />
@@ -131,6 +171,31 @@
       <div>
         <label class="block text-sm text-slate-300 mb-1">What's the situation? <span class="text-slate-500">(optional)</span></label>
         <textarea name="situation" rows="3" class="w-full bg-[#0B0F17] border border-white/15 rounded-lg px-4 py-2.5 text-slate-100 focus:border-emerald-400 focus:outline-none" placeholder="e.g. About a year behind in QBO, previous bookkeeper miscategorized everything"></textarea>
+      </div>
+      <fieldset>
+        <legend class="block text-sm text-slate-300 mb-2">Once it opens at <span class="text-white font-semibold">$99</span> an audit - would you pay that?</legend>
+        <div class="space-y-2">
+          <label class="flex items-start gap-2 text-sm text-slate-400">
+            <input type="radio" name="would_pay" value="YES - would pay $99 one-time" required class="mt-1 accent-emerald-500" />
+            <span>Yes - $99 for one audit is worth it to me</span>
+          </label>
+          <label class="flex items-start gap-2 text-sm text-slate-400">
+            <input type="radio" name="would_pay" value="YES - would pay $79/mo practice plan" class="mt-1 accent-emerald-500" />
+            <span>I'm a bookkeeper or CPA - I'd pay $79/month for the practice plan</span>
+          </label>
+          <label class="flex items-start gap-2 text-sm text-slate-400">
+            <input type="radio" name="would_pay" value="WOULD PAY LESS - see price_feedback" class="mt-1 accent-emerald-500" />
+            <span>I'd pay for this, but less than that - I'll say what below</span>
+          </label>
+          <label class="flex items-start gap-2 text-sm text-slate-400">
+            <input type="radio" name="would_pay" value="NO - too expensive / would not pay" class="mt-1 accent-emerald-500" />
+            <span>Too expensive - I wouldn't pay for this</span>
+          </label>
+        </div>
+      </fieldset>
+      <div>
+        <label class="block text-sm text-slate-300 mb-1" for="price_feedback">What would you actually pay? <span class="text-slate-500">(optional - and the single most useful thing you can tell us)</span></label>
+        <input type="text" name="price_feedback" id="price_feedback" class="w-full bg-[#0B0F17] border border-white/15 rounded-lg px-4 py-2.5 text-slate-100 focus:border-emerald-400 focus:outline-none" placeholder="e.g. I'd pay $150 for this, or $40 is my limit" />
       </div>
       <button type="submit" class="w-full bg-emerald-500 hover:bg-emerald-400 text-slate-900 font-semibold px-6 py-3 rounded-lg transition">Request my free diagnostic</button>
       <p class="text-xs text-slate-500 text-center">We use what you send only to run and follow up on your diagnostic. See our <a href="/privacy.html" class="text-emerald-400">Privacy Policy</a>.</p>

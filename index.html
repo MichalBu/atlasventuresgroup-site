@@ -120,7 +120,7 @@
         <span class="self-start text-xs font-medium text-amber-300 bg-amber-500/10 border border-amber-500/20 rounded-full px-3 py-1 mb-4">In development</span>
         <h3 class="text-white font-semibold text-lg">Bookkeeping Cleanup Auditor</h3>
         <p class="text-sm text-slate-400 mt-2 flex-1">
-          Suspect your books are wrong? Upload a QuickBooks Online or Xero export and get a dated
+          Suspect your books are wrong? Send a QuickBooks Online or Xero export and get back a dated
           diagnostic report flagging miscategorized transactions, duplicates, unreconciled accounts,
           and common handoff errors. Diagnostic only - it never touches your ledger.
         </p>
@@ -131,8 +131,10 @@
           commercial API terms that prohibit using it to train models, and we don't retain it once
           your report is delivered.
         </p>
-        <p class="text-sm text-slate-300 mt-3"><span class="text-white font-semibold">$49/month</span>
-        at launch, cancel anytime. Waitlist members get their first audit free.</p>
+        <p class="text-sm text-slate-300 mt-3"><span class="text-white font-semibold">$99 per audit</span>,
+        one-time - or <span class="text-white font-semibold">$79/month</span> for bookkeeping and CPA
+        practices (5 client audits a month, cancel anytime). Not open for purchase yet; waitlist
+        members get their first audit free and paid access first.</p>
         <div class="mt-5 flex flex-wrap gap-x-5 gap-y-2">
           <a href="cleanup-cost-estimator/" class="text-sm font-semibold text-amber-300 hover:text-amber-200 transition">Try the free cost estimator &rarr;</a>
           <a href="#waitlist" class="text-sm font-semibold text-slate-400 hover:text-slate-300 transition">Join the waitlist</a>
@@ -194,8 +196,9 @@
   <section id="waitlist" class="max-w-xl mx-auto px-6 py-16 border-t border-white/5">
     <h2 class="text-2xl font-bold text-white text-center mb-2">Bookkeeping Cleanup Auditor - waitlist</h2>
     <p class="text-slate-400 text-center text-sm mb-8">
-      In development now. Leave your email and we'll invite you when the first version is ready -
-      early waitlist members get their first audit free.
+      In development now. It will cost $99 an audit, or $79/month for a bookkeeping or CPA practice.
+      Leave your email and we'll invite you when the first version is ready - early waitlist members
+      get their first audit free. Nothing is charged today.
     </p>
     <!-- All site forms POST to the form-intake Lambda (SES delivery to team@) - standing
          convention for every current and future form on this domain; never FormSubmit. -->
@@ -214,6 +217,31 @@
       <div>
         <label class="block text-sm text-slate-300 mb-1">What do you suspect is wrong? <span class="text-slate-500">(optional)</span></label>
         <textarea name="problem" rows="3" class="w-full bg-[#0B0F17] border border-white/15 rounded-lg px-4 py-2.5 text-slate-100 focus:border-emerald-400 focus:outline-none" placeholder="Inherited messy books, offshore bookkeeper errors, accounts that never reconcile…"></textarea>
+      </div>
+      <fieldset>
+        <legend class="block text-sm text-slate-300 mb-2">Once it opens at <span class="text-white font-semibold">$99</span> an audit - would you pay that?</legend>
+        <div class="space-y-2">
+          <label class="flex items-start gap-2 text-sm text-slate-400">
+            <input type="radio" name="would_pay" value="YES - would pay $99 one-time" required class="mt-1 accent-emerald-500" />
+            <span>Yes - $99 for one audit is worth it to me</span>
+          </label>
+          <label class="flex items-start gap-2 text-sm text-slate-400">
+            <input type="radio" name="would_pay" value="YES - would pay $79/mo practice plan" class="mt-1 accent-emerald-500" />
+            <span>I'm a bookkeeper or CPA - I'd pay $79/month for the practice plan</span>
+          </label>
+          <label class="flex items-start gap-2 text-sm text-slate-400">
+            <input type="radio" name="would_pay" value="WOULD PAY LESS - see price_feedback" class="mt-1 accent-emerald-500" />
+            <span>I'd pay for this, but less than that - I'll say what below</span>
+          </label>
+          <label class="flex items-start gap-2 text-sm text-slate-400">
+            <input type="radio" name="would_pay" value="NO - too expensive / would not pay" class="mt-1 accent-emerald-500" />
+            <span>Too expensive - I wouldn't pay for this</span>
+          </label>
+        </div>
+      </fieldset>
+      <div>
+        <label class="block text-sm text-slate-300 mb-1" for="price_feedback_home">What would you actually pay? <span class="text-slate-500">(optional - and the single most useful thing you can tell us)</span></label>
+        <input type="text" name="price_feedback" id="price_feedback_home" class="w-full bg-[#0B0F17] border border-white/15 rounded-lg px-4 py-2.5 text-slate-100 focus:border-emerald-400 focus:outline-none" placeholder="e.g. I'd pay $150 for this, or $40 is my limit" />
       </div>
       <button type="submit" class="w-full bg-emerald-500 hover:bg-emerald-400 text-slate-900 font-semibold px-6 py-3 rounded-lg transition">Join the waitlist</button>
       <p class="text-xs text-slate-500 text-center">We use your email only to contact you about this product. See our <a href="privacy.html" class="text-emerald-400">Privacy Policy</a>.</p>
