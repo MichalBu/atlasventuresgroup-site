@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Books diagnostic — Northgate Plumbing &amp;amp; Heating LLC (sample file)</title><style>
+:root{color-scheme:light}
+*{box-sizing:border-box}
+body{margin:0;background:#f6f7f8;color:#1c2226;
+  font:15px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif}
+.page{max-width:830px;margin:0 auto;background:#fff;padding:44px 52px 60px}
+h1{font-size:25px;margin:0 0 4px;letter-spacing:-.2px}
+h2{font-size:17px;margin:38px 0 12px;padding-bottom:7px;border-bottom:1px solid #e3e7ea}
+h3{font-size:15px;margin:0 0 3px}
+p{margin:0 0 11px}
+.sub{color:#5c6a73;font-size:13px;margin:0 0 26px}
+.meta{width:100%;border-collapse:collapse;font-size:13px;margin:0 0 8px}
+.meta td{padding:5px 10px 5px 0;vertical-align:top;border-bottom:1px solid #eef1f3}
+.meta td:first-child{color:#5c6a73;white-space:nowrap;width:34%}
+.hero{border:1px solid #dfe4e8;border-radius:8px;padding:20px 22px;margin:0 0 6px;background:#fbfcfc}
+.grade{font-size:31px;font-weight:650;letter-spacing:-.5px;margin:0 0 2px}
+.kpis{display:flex;flex-wrap:wrap;gap:26px;margin:16px 0 0;padding:15px 0 0;border-top:1px solid #e8ecef}
+.kpi{min-width:132px}
+.kpi .n{font-size:19px;font-weight:600}
+.kpi .l{font-size:11.5px;color:#5c6a73;text-transform:uppercase;letter-spacing:.55px}
+.f{border:1px solid #e3e7ea;border-left-width:4px;border-radius:6px;padding:15px 17px;margin:0 0 13px}
+.tag{display:inline-block;font-size:10.5px;font-weight:650;text-transform:uppercase;
+  letter-spacing:.6px;padding:2px 7px;border-radius:3px;vertical-align:2px;margin-left:8px}
+.detail{margin:7px 0 9px}
+.why{color:#3d4a53;font-size:14px;margin:0}
+table.ex{width:100%;border-collapse:collapse;font-size:12px;margin:12px 0 0}
+table.ex th{text-align:left;color:#5c6a73;font-weight:600;border-bottom:1px solid #e3e7ea;
+  padding:5px 8px 5px 0;white-space:nowrap}
+table.ex td{padding:5px 8px 5px 0;border-bottom:1px solid #f1f4f5;vertical-align:top}
+table.ex td.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.exnote{font-size:11.5px;color:#6b7883;margin:7px 0 0}
+.skip{border:1px solid #e3e7ea;border-radius:6px;padding:14px 17px;background:#fafbfb}
+.skip li{margin:0 0 7px}
+.clean{border:1px solid #d9e6da;background:#f4faf5;border-radius:6px;padding:14px 17px}
+.foot{margin:40px 0 0;padding:18px 0 0;border-top:1px solid #e3e7ea;font-size:11.5px;
+  color:#6b7883}
+.foot strong{color:#4a565e}
+@media print{body{background:#fff}.page{padding:0;max-width:none}.f{break-inside:avoid}}
+</style></head><body><div class="page">
+
+<h1>Books diagnostic report</h1>
+<p class="sub">Read-only review of a QuickBooks / Xero export &middot; prepared 2026-08-09</p>
+
+<table class="meta">
+<tr><td>File reviewed for</td><td>Northgate Plumbing &amp;amp; Heating LLC (sample file)</td></tr>
+<tr><td>Export analysed</td><td>demo-plumbing-general-ledger.csv (qbo-general-ledger)</td></tr>
+<tr><td>Period covered</td><td>2025-01-01 → 2026-02-14</td></tr>
+<tr><td>Transaction lines read</td><td>4,714</td></tr>
+</table>
+
+<div class="hero">
+  <div class="grade">Severe cleanup</div>
+  <p class="why">The file needs rebuilding in places. Balances should not be relied on for tax or lending decisions until the items below are resolved.</p>
+  <div class="kpis">
+    <div class="kpi"><div class="n">4</div><div class="l">Critical &amp; high</div></div>
+    <div class="kpi"><div class="n">8</div><div class="l">Findings total</div></div>
+    <div class="kpi"><div class="n">17.2–39.4 hrs</div><div class="l">Indicative effort</div></div>
+    <div class="kpi"><div class="n">$1,290–$23,570</div><div class="l">Indicative cost</div></div>
+  </div>
+</div>
+<p class="exnote">The ranges are an indication for scoping, not a quote. They are built two
+ways and widened to cover both: the estimated hours above at $75–150/hr, and $2–10 per
+transaction line — the two bases practitioners quote from. Cleanup pricing observed in the
+market for a file a year behind runs roughly $2,000–6,000, and $5,000–15,000 for larger
+projects.</p>
+
+<h2>Findings</h2>
+<div class="f" style="border-left-color:#8b1a1a;background:#fbeaea"><h3>Unreconciled bank and credit-card activity<span class="tag" style="color:#8b1a1a;background:#fff;border:1px solid #8b1a1a">Critical</span></h3><p class="detail">332 of 902 bank/credit-card lines (37%) carry no reconciled flag, spanning 12 month(s).</p><p class="why">Until the bank feed is reconciled, no balance in the file can be relied on — this is normally the first and largest block of cleanup work, and it gates everything downstream.</p><table class="ex"><thead><tr><th>Date</th><th>Type</th><th>Payee / contact</th><th>Account</th><th>Description</th><th class="n">Amount</th></tr></thead><tbody><tr><td>2025-01-06</td><td>Expense</td><td>First National Bank</td><td>Bank Charges</td><td>Bank Charges</td><td class="n">$248.34</td></tr><tr><td>2025-01-14</td><td>Expense</td><td>First National Bank</td><td>Bank Charges</td><td>Bank Charges</td><td class="n">$406.65</td></tr><tr><td>2025-01-21</td><td>Expense</td><td>First National Bank</td><td>Bank Charges</td><td>Bank Charges</td><td class="n">$172.57</td></tr><tr><td>2025-01-22</td><td>Expense</td><td>First National Bank</td><td>Bank Charges</td><td>Bank Charges</td><td class="n">$31.79</td></tr><tr><td>2025-02-05</td><td>Expense</td><td>First National Bank</td><td>Bank Charges</td><td>Bank Charges</td><td class="n">$67.66</td></tr></tbody></table><p class="exnote">Showing 5 of 332 affected line(s); the full list travels with the underlying data.</p></div><div class="f" style="border-left-color:#a4531a;background:#fdf1e6"><h3>Transactions parked in suspense / uncategorized accounts<span class="tag" style="color:#a4531a;background:#fff;border:1px solid #a4531a">High</span></h3><p class="detail">6 line(s) totalling $23,670.95 sit in 2 holding account(s): Ask My Accountant, Uncategorized Expense.</p><p class="why">Every line here is a coding decision nobody made yet. They distort the P&amp;L, and each one needs a human judgement call — this is the part of a cleanup that is hardest to quote blind, because the count is knowable but the research per line is not.</p><table class="ex"><thead><tr><th>Date</th><th>Type</th><th>Account</th><th>Description</th><th class="n">Amount</th></tr></thead><tbody><tr><td>2025-11-07</td><td>Expense</td><td>Uncategorized Expense</td><td>—</td><td class="n">$6,140.00</td></tr><tr><td>2025-10-11</td><td>Journal Entry</td><td>Ask My Accountant</td><td>To be reviewed</td><td class="n">$5,125.40</td></tr><tr><td>2025-03-14</td><td>Expense</td><td>Uncategorized Expense</td><td>Wire out - ask owner</td><td class="n">$4,820.00</td></tr><tr><td>2025-04-30</td><td>Journal Entry</td><td>Ask My Accountant</td><td>To be reviewed</td><td class="n">$3,300.00</td></tr><tr><td>2025-06-02</td><td>Expense</td><td>Uncategorized Expense</td><td>—</td><td class="n">$2,310.55</td></tr></tbody></table><p class="exnote">Showing 5 of 6 affected line(s); the full list travels with the underlying data.</p></div><div class="f" style="border-left-color:#a4531a;background:#fdf1e6"><h3>Opening Balance Equity still holds a balance<span class="tag" style="color:#a4531a;background:#fff;border:1px solid #a4531a">High</span></h3><p class="detail">Opening Balance Equity nets to $6,860.00 across 2 line(s).</p><p class="why">OBE is a temporary account QuickBooks uses during setup or migration; a remaining balance means the conversion was never finished and the balance sheet does not tie. It is a reliable marker of a file set up in a hurry.</p><table class="ex"><thead><tr><th>Date</th><th>Type</th><th>Account</th><th>Description</th><th class="n">Amount</th></tr></thead><tbody><tr><td>2025-01-02</td><td>Journal Entry</td><td>Opening Balance Equity</td><td>Opening balances</td><td class="n">$8,420.00</td></tr><tr><td>2025-07-31</td><td>Journal Entry</td><td>Opening Balance Equity</td><td>Adjust cash to statement</td><td class="n">-$1,560.00</td></tr></tbody></table></div><div class="f" style="border-left-color:#a4531a;background:#fdf1e6"><h3>Possible duplicate bills or payments<span class="tag" style="color:#a4531a;background:#fff;border:1px solid #a4531a">High</span></h3><p class="detail">4 further line(s) repeat an identical charge later in the period, at no regular interval — $5,619.70 of exposure in total.</p><p class="why">Duplicates overstate expenses and can mean a supplier was paid twice. Charges on a regular monthly or weekly cadence are excluded as subscriptions, so what remains is worth a glance each — quick, high-value work, and a good thing to show a prospect first. Matching is deliberately strict on the payee name, so a duplicate entered under a second spelling of the same vendor shows up in the payee-hygiene finding rather than here.</p><table class="ex"><thead><tr><th>Date</th><th>Type</th><th>Payee / contact</th><th>Account</th><th>Description</th><th class="n">Amount</th></tr></thead><tbody><tr><td>2025-05-08</td><td>Bill</td><td>Ferguson Supply</td><td>Accounts Payable</td><td>Materials</td><td class="n">-$1,842.60</td></tr><tr><td>2025-05-12</td><td>Bill</td><td>Ferguson Supply</td><td>Accounts Payable</td><td>Materials</td><td class="n">-$1,842.60</td></tr><tr><td>2025-05-08</td><td>Bill</td><td>Ferguson Supply</td><td>Cost of Goods Sold - Materials</td><td>Materials</td><td class="n">$1,842.60</td></tr><tr><td>2025-05-12</td><td>Bill</td><td>Ferguson Supply</td><td>Cost of Goods Sold - Materials</td><td>Materials</td><td class="n">$1,842.60</td></tr><tr><td>2025-09-03</td><td>Bill</td><td>Watts Water Tech</td><td>Accounts Payable</td><td>Materials</td><td class="n">-$967.25</td></tr><tr><td>2025-09-09</td><td>Bill</td><td>Watts Water Tech</td><td>Accounts Payable</td><td>Materials</td><td class="n">-$967.25</td></tr></tbody></table></div><div class="f" style="border-left-color:#8a6d1a;background:#fdf9e6"><h3>Large transactions with no payee and no description<span class="tag" style="color:#8a6d1a;background:#fff;border:1px solid #8a6d1a">Medium</span></h3><p class="detail">6 line(s) at or above $3,109.93 carry neither a payee nor a description.</p><p class="why">These are the lines an accountant cannot code without asking the owner, and the ones most likely to be queried in an audit or a loan application. Each is a round-trip email during the cleanup, which is where cleanup timelines slip.</p><table class="ex"><thead><tr><th>Date</th><th>Type</th><th>Account</th><th class="n">Amount</th></tr></thead><tbody><tr><td>2025-08-06</td><td>Check</td><td>Checking</td><td class="n">-$9,250.00</td></tr><tr><td>2025-08-06</td><td>Check</td><td>Cost of Goods Sold - Subcontractors</td><td class="n">$9,250.00</td></tr><tr><td>2025-02-21</td><td>Check</td><td>Checking</td><td class="n">-$7,400.00</td></tr><tr><td>2025-02-21</td><td>Check</td><td>Cost of Goods Sold - Subcontractors</td><td class="n">$7,400.00</td></tr><tr><td>2025-11-07</td><td>Expense</td><td>Checking</td><td class="n">-$6,140.00</td></tr></tbody></table><p class="exnote">Showing 5 of 6 affected line(s); the full list travels with the underlying data.</p></div><div class="f" style="border-left-color:#8a6d1a;background:#fdf9e6"><h3>Direct postings into a sales-tax / GST / VAT account<span class="tag" style="color:#8a6d1a;background:#fff;border:1px solid #8a6d1a">Medium</span></h3><p class="detail">12 of 12 tax-account line(s) were posted directly from a bill, expense, cheque, deposit or journal.</p><p class="why">Tax control accounts are meant to be driven by the tax mechanism, not posted to by hand. Direct entries are the usual cause of a return that does not agree with the ledger — and of amended filings later.</p><table class="ex"><thead><tr><th>Date</th><th>Type</th><th>Payee / contact</th><th>Account</th><th>Description</th><th class="n">Amount</th></tr></thead><tbody><tr><td>2025-10-22</td><td>Check</td><td>State Dept of Revenue</td><td>Sales Tax Payable</td><td>Sales tax remittance</td><td class="n">$2,471.80</td></tr><tr><td>2025-01-22</td><td>Check</td><td>State Dept of Revenue</td><td>Sales Tax Payable</td><td>Sales tax remittance</td><td class="n">$2,407.54</td></tr><tr><td>2025-08-22</td><td>Check</td><td>State Dept of Revenue</td><td>Sales Tax Payable</td><td>Sales tax remittance</td><td class="n">$2,312.09</td></tr><tr><td>2025-07-22</td><td>Check</td><td>State Dept of Revenue</td><td>Sales Tax Payable</td><td>Sales tax remittance</td><td class="n">$2,292.98</td></tr><tr><td>2025-04-22</td><td>Check</td><td>State Dept of Revenue</td><td>Sales Tax Payable</td><td>Sales tax remittance</td><td class="n">$2,131.17</td></tr></tbody></table><p class="exnote">Showing 5 of 12 affected line(s); the full list travels with the underlying data.</p></div><div class="f" style="border-left-color:#8a6d1a;background:#fdf9e6"><h3>Manual journal entries posted into control accounts<span class="tag" style="color:#8a6d1a;background:#fff;border:1px solid #8a6d1a">Medium</span></h3><p class="detail">3 manual journal line(s) hit bank, A/R, A/P, inventory or Undeposited Funds.</p><p class="why">Journals into these accounts bypass reconciliation and the A/R/A/P ageing, so the subledgers stop agreeing with the balance sheet. They usually mark someone forcing a balance to match rather than fixing the underlying transaction.</p><table class="ex"><thead><tr><th>Date</th><th>Type</th><th>Account</th><th>Description</th><th class="n">Amount</th></tr></thead><tbody><tr><td>2025-10-11</td><td>Journal Entry</td><td>Checking</td><td>To be reviewed</td><td class="n">-$5,125.40</td></tr><tr><td>2025-04-30</td><td>Journal Entry</td><td>Checking</td><td>To be reviewed</td><td class="n">-$3,300.00</td></tr><tr><td>2025-07-31</td><td>Journal Entry</td><td>Checking</td><td>Adjust cash to statement</td><td class="n">$1,560.00</td></tr></tbody></table></div><div class="f" style="border-left-color:#3f5566;background:#eef2f5"><h3>The same payee recorded under several names<span class="tag" style="color:#3f5566;background:#fff;border:1px solid #3f5566">Low</span></h3><p class="detail">1 payee(s) appear under more than one spelling, e.g. ferguson supply → 2 variants.</p><p class="why">Duplicate payee records split the spend history, which is how expenses get coded inconsistently month to month. Cheap to merge, and it stops the miscoding recurring after the cleanup.</p><table class="ex"><thead><tr><th>Date</th><th>Type</th><th>Payee / contact</th><th>Account</th><th>Description</th><th class="n">Amount</th></tr></thead><tbody><tr><td>2025-01-02</td><td>Bill Payment (Check)</td><td>FERGUSON SUPPLY</td><td>Accounts Payable</td><td>Payment on account</td><td class="n">$829.17</td></tr><tr><td>2025-01-09</td><td>Bill</td><td>Ferguson Supply Co</td><td>Accounts Payable</td><td>Copper pipe</td><td class="n">-$897.53</td></tr><tr><td>2025-01-13</td><td>Bill Payment (Check)</td><td>Ferguson Supply Co</td><td>Accounts Payable</td><td>Payment on account</td><td class="n">$1,941.86</td></tr><tr><td>2025-01-20</td><td>Bill Payment (Check)</td><td>Ferguson Supply Co</td><td>Accounts Payable</td><td>Payment on account</td><td class="n">$1,674.55</td></tr><tr><td>2025-01-20</td><td>Bill</td><td>FERGUSON SUPPLY</td><td>Accounts Payable</td><td>Copper pipe</td><td class="n">-$831.06</td></tr></tbody></table></div>
+
+
+
+<h2>How this was produced</h2>
+<p>Every finding above comes from a deterministic check run over the export you supplied —
+the same checks, in the same order, on every file. Nothing was inferred from outside the
+data, no ledger was accessed, and nothing was changed: this is a read-only review of a file
+you exported yourself.</p>
+<p>Severity reflects how much other work a finding blocks. Unreconciled bank activity ranks
+above tidy-up items because no balance can be relied on until it is cleared, and the items
+below it are usually re-worked if it changes.</p>
+
+<div class="foot">
+<strong>BooksAudit — a product of Atlas Ventures Group.</strong> Shankar St 1, Herzliya,
+4672501, Israel.<br>
+This report is a diagnostic summary of the data in the export provided. It is
+<strong>not accounting, tax, audit, or financial advice</strong>, it is not an audit or a
+review engagement under any professional standard, and it should not be relied on as the sole
+basis for any filing, lending, or transaction decision. Figures reflect the export as
+supplied; a partial or filtered export produces a partial picture. BooksAudit is not
+affiliated with, endorsed by, or sponsored by Intuit Inc. or Xero Limited. QuickBooks and
+Xero are trademarks of their respective owners.
+</div>
+</div></body></html>

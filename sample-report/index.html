@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>See a real BooksAudit report before you send anything | BooksAudit</title>
+<meta name="description" content="The actual diagnostic BooksAudit produces, run on a sample QuickBooks general ledger: 8 findings ranked by severity, an indicative cleanup effort and cost range, and a plain list of what could not be checked." />
+<link rel="canonical" href="https://atlasventuresgroup.net/sample-report/" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://atlasventuresgroup.net/sample-report/" />
+<meta property="og:title" content="See a real BooksAudit report before you send anything | BooksAudit" />
+<meta property="og:description" content="The actual diagnostic BooksAudit produces, run on a sample QuickBooks general ledger: 8 findings ranked by severity, an indicative cleanup effort and cost range, and a plain list of what could not be checked." />
+<meta property="og:site_name" content="Atlas Ventures Group" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="See a real BooksAudit report before you send anything | BooksAudit" />
+<meta name="twitter:description" content="The actual diagnostic BooksAudit produces, run on a sample QuickBooks general ledger: 8 findings ranked by severity, an indicative cleanup effort and cost range, and a plain list of what could not be checked." />
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-[#0B0F17] text-slate-200 antialiased">
+
+  <!-- Nav -->
+  <header class="border-b border-white/5">
+    <div class="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="/" title="Atlas Ventures Group - home" class="font-semibold text-white tracking-tight">Books<span class="text-emerald-400">Audit</span></a>
+      <a href="/for-practices/" class="text-sm bg-emerald-500 hover:bg-emerald-400 text-slate-900 font-semibold px-4 py-2 rounded-lg transition">Send a file - free</a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="max-w-3xl mx-auto px-6 pt-14 pb-8">
+    <h1 class="text-3xl sm:text-4xl font-bold text-white leading-tight">This is the report. Read it before you send us anything.</h1>
+    <p class="text-slate-300 mt-5 leading-relaxed">
+      Below is a complete, unedited BooksAudit diagnostic - the same file a practice receives,
+      produced by the same code, with nothing removed and nothing added for the website. It was
+      run on a <span class="text-white font-medium">sample general ledger we built ourselves</span>,
+      not on a client's books.
+    </p>
+    <div class="mt-6 flex flex-wrap gap-3">
+      <a href="/sample-report/report.html" class="bg-emerald-500 hover:bg-emerald-400 text-slate-900 font-semibold px-5 py-2.5 rounded-lg transition">Open the full report</a>
+      <a href="/for-practices/" class="border border-white/15 hover:border-white/30 text-slate-200 font-semibold px-5 py-2.5 rounded-lg transition">Run one on your own file - free</a>
+    </div>
+  </section>
+
+  <!-- Honesty box: what this file is -->
+  <section class="max-w-3xl mx-auto px-6 pb-4">
+    <div class="border border-amber-500/25 bg-amber-500/5 rounded-xl p-5">
+      <h2 class="text-white font-semibold mb-2">What you are looking at, precisely</h2>
+      <ul class="text-sm text-slate-300 space-y-2 leading-relaxed list-disc list-inside">
+        <li><span class="text-white">The ledger is synthetic.</span> "Northgate Plumbing &amp; Heating LLC" is not a
+        real company. We generated a fictional contractor's year - 4,714 ledger lines across 23
+        accounts - in QuickBooks General Ledger export format. No client data appears anywhere on
+        this site.</li>
+        <li><span class="text-white">The findings are not.</span> The file was handed to the real
+        engine and the report is whatever it returned. Nothing was written by hand, reordered, or
+        removed because it read badly.</li>
+        <li><span class="text-white">The faults were planted, and that is the point.</span> We built
+        a file with the errors cleanups actually turn up - eight months reconciled and four not,
+        transactions parked in "Ask My Accountant", an Opening Balance Equity balance nobody
+        cleared, two double-entered bills, one vendor under several spellings. A demo on a clean
+        file would prove nothing.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- What it found -->
+  <section class="max-w-3xl mx-auto px-6 py-10">
+    <h2 class="text-xl font-bold text-white mb-4">What it found in this file</h2>
+    <div class="grid sm:grid-cols-3 gap-4 mb-6">
+      <div class="bg-white/5 rounded-xl p-5">
+        <div class="text-2xl font-bold text-white">8</div>
+        <div class="text-xs uppercase tracking-wide text-slate-500 mt-1">Findings, ranked</div>
+      </div>
+      <div class="bg-white/5 rounded-xl p-5">
+        <div class="text-2xl font-bold text-white">17.2-39.4 hrs</div>
+        <div class="text-xs uppercase tracking-wide text-slate-500 mt-1">Indicative effort</div>
+      </div>
+      <div class="bg-white/5 rounded-xl p-5">
+        <div class="text-2xl font-bold text-white">4,714</div>
+        <div class="text-xs uppercase tracking-wide text-slate-500 mt-1">Ledger lines read</div>
+      </div>
+    </div>
+    <p class="text-sm text-slate-400 leading-relaxed">
+      Every finding says what it is, how many lines it touches, what it is worth in money, and why
+      it matters when you are pricing the work - with example rows you can go and look up. The
+      report also carries a section listing what it <span class="text-slate-200">could not</span>
+      check on this export and why. A check that cannot run is reported as skipped, never as clean:
+      "no issues found" on an export that never carried a reconciliation column is the one mistake
+      that would be worth catching us on.
+    </p>
+  </section>
+
+  <!-- The report itself -->
+  <section class="max-w-5xl mx-auto px-6 pb-6">
+    <div class="flex items-baseline justify-between mb-3">
+      <h2 class="text-xl font-bold text-white">The report, in full</h2>
+      <a href="/sample-report/report.html" class="text-sm text-emerald-400 hover:text-emerald-300">Open in its own tab &rarr;</a>
+    </div>
+    <div class="rounded-xl overflow-hidden border border-white/10 bg-white">
+      <iframe src="/sample-report/report.html" title="Sample BooksAudit diagnostic report"
+              loading="lazy" class="w-full" style="height:70vh;min-height:520px;border:0"></iframe>
+    </div>
+    <p class="text-xs text-slate-500 mt-3">
+      The report is a single self-contained HTML file with no tracking and no external requests -
+      it prints, and it forwards to a client as-is.
+    </p>
+  </section>
+
+  <!-- CTA -->
+  <section class="max-w-3xl mx-auto px-6 py-12 border-t border-white/5">
+    <h2 class="text-xl font-bold text-white mb-2">Run one on a real file</h2>
+    <p class="text-sm text-slate-400 leading-relaxed mb-5">
+      Send a QuickBooks Online or Xero export and we will run this on it and send the report back.
+      Read-only - it never touches the ledger, and we do not need access to the file's accounting
+      system. Audits are <span class="text-slate-200">$99 each</span>; the first one is free while
+      we are still proving this out.
+    </p>
+    <div class="flex flex-wrap gap-3">
+      <a href="/for-practices/" class="bg-emerald-500 hover:bg-emerald-400 text-slate-900 font-semibold px-5 py-2.5 rounded-lg transition">For bookkeeping practices</a>
+      <a href="/cleanup-cost-estimator/" class="border border-white/15 hover:border-white/30 text-slate-200 font-semibold px-5 py-2.5 rounded-lg transition">Estimate a cleanup cost</a>
+    </div>
+  </section>
+
+  <!-- Related -->
+  <section class="max-w-3xl mx-auto px-6 py-10 border-t border-white/5">
+    <h2 class="text-xl font-bold text-white mb-4">Related</h2>
+    <ul class="text-sm text-slate-400 space-y-2 list-disc list-inside">
+      <li><a href="/for-practices/" class="text-emerald-400 hover:text-emerald-300">For bookkeeping practices: scope a cleanup before you quote it</a></li>
+      <li><a href="/guides/signs-your-bookkeeper-messed-up-your-books.html" class="text-emerald-400 hover:text-emerald-300">7 signs your bookkeeper messed up your books</a></li>
+      <li><a href="/guides/diy-quickbooks-cleanup-checklist.html" class="text-emerald-400 hover:text-emerald-300">DIY QuickBooks cleanup: the checklist, in the order that actually works</a></li>
+    </ul>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-white/5">
+    <div class="max-w-5xl mx-auto px-6 py-10 text-sm text-slate-500">
+      <div class="flex flex-col sm:flex-row justify-between gap-4">
+        <p>BooksAudit is a product of <a href="/" class="text-emerald-400">Atlas Ventures Group</a>.</p>
+        <p><a href="/privacy.html" class="hover:text-slate-300">Privacy</a> &middot; <a href="/terms.html" class="hover:text-slate-300">Terms</a> &middot; <a href="mailto:info@atlasventuresgroup.net" class="hover:text-slate-300">Support</a></p>
+      </div>
+      <p class="mt-6 text-xs">Not affiliated with, endorsed by, or sponsored by Intuit Inc. or Xero Limited.
+      QuickBooks and Xero are trademarks of their respective owners, used here only to describe
+      compatibility. The report is a scoping aid, not accounting, tax, or financial advice.</p>
+    </div>
+  </footer>
+
+<!-- first-party pageview (platform/pageview) --><script>(function(){try{navigator.sendBeacon("https://fkh6mpvcd24eapcdk3ceytt2xm0vwxyq.lambda-url.us-east-1.on.aws/",JSON.stringify({p:location.pathname,r:document.referrer}));}catch(e){}})();</script>
+</body>
+</html>
