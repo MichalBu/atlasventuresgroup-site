@@ -4,234 +4,382 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Finance dashboard templates for Excel &amp; Google Sheets - DashKit | Atlas Ventures Group</title>
-<meta name="description" content="Spreadsheet finance dashboards that are actually tested: SaaS MRR &amp; churn, rental property income, freelancer income &amp; expense. Formulas only - no macros, no scripts - so they work identically in Excel, Google Sheets, LibreOffice and Numbers. $14 each, one-time." />
+<meta name="description" content="Spreadsheet finance dashboards that are actually tested: SaaS MRR &amp; churn, rental property income, freelancer income &amp; expense. Formulas only - no macros, no scripts - so they work identically in Excel, Google Sheets, LibreOffice and Numbers. $8.99 each, one-time." />
+<link rel="canonical" href="https://atlasventuresgroup.net/finance-dashboards/" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://atlasventuresgroup.net/finance-dashboards/" />
 <meta property="og:title" content="Finance dashboard templates for Excel &amp; Google Sheets - DashKit | Atlas Ventures Group" />
-<meta property="og:description" content="Spreadsheet finance dashboards that are actually tested: SaaS MRR &amp; churn, rental property income, freelancer income &amp; expense. Formulas only - no macros, no scripts - so they work identically in Excel, Google Sheets, LibreOffice and Numbers. $14 each, one-time." />
+<meta property="og:description" content="Spreadsheet finance dashboards that are actually tested: SaaS MRR &amp; churn, rental property income, freelancer income &amp; expense. Formulas only - no macros, no scripts - so they work identically in Excel, Google Sheets, LibreOffice and Numbers. $8.99 each, one-time." />
 <meta property="og:site_name" content="Atlas Ventures Group" />
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content="Finance dashboard templates for Excel &amp; Google Sheets - DashKit | Atlas Ventures Group" />
-<meta name="twitter:description" content="Spreadsheet finance dashboards that are actually tested: SaaS MRR &amp; churn, rental property income, freelancer income &amp; expense. Formulas only - no macros, no scripts - so they work identically in Excel, Google Sheets, LibreOffice and Numbers. $14 each, one-time." />
-<link rel="canonical" href="https://atlasventuresgroup.net/finance-dashboards/" />
-<script src="https://cdn.tailwindcss.com"></script>
+<meta name="twitter:description" content="Spreadsheet finance dashboards that are actually tested: SaaS MRR &amp; churn, rental property income, freelancer income &amp; expense. Formulas only - no macros, no scripts - so they work identically in Excel, Google Sheets, LibreOffice and Numbers. $8.99 each, one-time." />
+<meta name="theme-color" content="#FFFCFA" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../assets/atlas.css?v=3" />
 </head>
-<body class="bg-[#0B0F17] text-slate-200 antialiased">
+<body>
 
-  <!-- Nav -->
-  <header class="border-b border-white/5">
-    <div class="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
-      <a href="/" title="Atlas Ventures Group - home" class="font-semibold text-white tracking-tight">Dash<span class="text-emerald-400">Kit</span></a>
-      <a href="https://www.etsy.com/shop/DashKitLabs" rel="noopener" class="text-sm bg-emerald-500 hover:bg-emerald-400 text-slate-900 font-semibold px-4 py-2 rounded-lg transition">Buy on Etsy - $14</a>
+<!-- ============================ Header ============================ -->
+<header class="site-header" id="siteHeader">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="Atlas Ventures Group home">
+      <svg class="brand__mark" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M12 1.6 22.4 12 12 22.4 1.6 12 12 1.6Z" fill="#E0532E"/>
+        <path d="M12 6.6 17.4 12 12 17.4 6.6 12 12 6.6Z" fill="#FFFCFA"/>
+      </svg>
+      <span>Atlas Ventures</span>
+      <span class="brand__sub">DashKit</span>
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <a href="#templates">Templates</a>
+      <a href="#checked">How it's checked</a>
+      <a href="#included">What you get</a>
+      <a href="#next">Request one</a>
+    </nav>
+    <div class="header-cta">
+      <a href="/" class="link link--quiet" style="font-weight:400;">All products</a>
+      <a href="#templates" class="btn btn--primary btn--sm">Buy a template &mdash; $8.99</a>
+      <details class="menu" id="menu">
+        <summary aria-label="Menu">
+          <svg class="i-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg>
+          <svg class="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke-linecap="round"/></svg>
+        </summary>
+        <nav class="menu__panel" aria-label="Mobile">
+          <a href="#templates">Templates</a>
+          <a href="#checked">How it's checked</a>
+          <a href="#included">What you get</a>
+          <a href="#next">Request one</a>
+          <a href="/">All products</a>
+          <a href="#templates" class="btn btn--primary">Buy a template &mdash; $8.99</a>
+        </nav>
+      </details>
     </div>
-  </header>
+  </div>
+</header>
 
-  <!-- Hero -->
-  <section class="max-w-5xl mx-auto px-6 pt-16 pb-10 text-center">
-    <span class="inline-block text-xs font-medium text-emerald-300 bg-emerald-500/10 border border-emerald-500/20 rounded-full px-3 py-1 mb-6">On sale now - all three, instant download</span>
-    <h1 class="text-4xl sm:text-5xl font-bold text-white leading-tight max-w-3xl mx-auto">
-      Finance dashboards for spreadsheets, with <span class="text-emerald-400">formulas that were actually checked.</span>
-    </h1>
-    <p class="text-lg text-slate-400 mt-6 max-w-2xl mx-auto">
-      Three templates - SaaS MRR &amp; churn, rental property income, freelancer income &amp; expense.
-      You type in the shaded cells; everything else computes. No macros, no scripts, no add-ons to
-      install, and nothing that asks you to enable anything on import.
-    </p>
-    <p class="text-sm text-slate-500 mt-4">$14 each, one-time. Excel · Google Sheets · LibreOffice · Numbers.</p>
-    <div class="mt-8 flex flex-wrap gap-3 justify-center">
-      <a href="https://www.etsy.com/shop/DashKitLabs" rel="noopener" class="bg-emerald-500 hover:bg-emerald-400 text-slate-900 font-semibold px-6 py-3 rounded-lg transition">Buy on Etsy - instant download</a>
-      <a href="#templates" class="border border-white/15 hover:border-white/30 text-slate-200 font-semibold px-6 py-3 rounded-lg transition">See what's in each one</a>
+<main>
+
+  <!-- ============================ Hero ============================ -->
+  <section class="hero">
+    <div class="hero__dots" aria-hidden="true"></div>
+    <div class="wrap hero__inner center">
+      <span class="badge badge--live">On sale now &mdash; instant download</span>
+      <h1 class="display" style="margin-top:22px;">
+        Plug &amp; Play Finance Dashboards<br class="br-lg" />
+        That Just Work
+      </h1>
+      <p class="lede measure">
+        Audit-checked formulas for SaaS, real estate, and freelancing. Type in the shaded cells,
+        let the math handle the rest&mdash;no macros, no scripts, zero setup.
+      </p>
+      <p class="small" style="margin-top:18px;">
+        $8.99 each, one-time &middot; Excel &middot; Google Sheets &middot; LibreOffice &middot; Numbers
+      </p>
+      <div class="hero__actions">
+        <a href="#templates" class="btn btn--primary">Buy a template &mdash; $8.99</a>
+        <a href="#checked" class="btn btn--ghost">How it's checked</a>
+      </div>
+      <p class="tiny" style="margin-top:20px;">
+        Sold through our Etsy shop, DashKitLabs &mdash; Etsy handles payment and delivers the file
+        the moment it clears.
+      </p>
     </div>
-    <p class="text-xs text-slate-500 mt-4">Sold through our Etsy shop, DashKitLabs - Etsy handles
-    payment and delivers the file the moment it clears.</p>
   </section>
 
-  <!-- The three templates -->
-  <section id="templates" class="max-w-5xl mx-auto px-6 py-8">
-    <div class="grid md:grid-cols-3 gap-5">
-
-      <div class="bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col">
-        <h2 class="text-white font-semibold text-lg">SaaS MRR &amp; Churn Dashboard</h2>
-        <p class="text-sm text-slate-400 mt-3 flex-1">
-          Type four numbers a month - new, expansion, contraction and churned MRR. The dashboard
-          returns current MRR and ARR, month-by-month ending MRR, gross churn, and net revenue
-          retention, plus months-to-goal at your current growth rate.
+  <!-- ============================ The three templates ============================ -->
+  <section class="section section--tint" id="templates">
+    <div class="wrap">
+      <div class="center">
+        <h2 class="h2">Three templates, one job each</h2>
+        <p class="lede measure-tight" style="margin-top:14px;">
+          Pick the one that matches what you're already tracking badly.
         </p>
-        <ul class="text-xs text-slate-500 mt-4 space-y-1 border-t border-white/5 pt-4">
-          <li>Tabs: Start here · Inputs · Dashboard</li>
-          <li>12-month model with an ending-MRR chart</li>
-          <li>Empty months are ignored, not counted as zeros</li>
-        </ul>
-        <a href="https://www.etsy.com/shop/DashKitLabs" rel="noopener" class="mt-5 text-center bg-emerald-500 hover:bg-emerald-400 text-slate-900 font-semibold px-4 py-2.5 rounded-lg transition text-sm">Buy on Etsy - $14</a>
       </div>
 
-      <div class="bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col">
-        <h2 class="text-white font-semibold text-lg">Rental Property Income Tracker</h2>
-        <p class="text-sm text-slate-400 mt-3 flex-1">
-          A per-property P&amp;L for a small portfolio, built on one flat transaction log. Cash flow,
-          gross yield, expense ratio and cash-on-cash return - per property and across the
-          portfolio - with negative cash flow flagged automatically.
+      <div class="grid-3" style="margin-top:48px;">
+
+        <!-- SaaS -->
+        <article class="card">
+          <div class="mock">
+            <div class="mock__grid" aria-hidden="true">
+              <span>Month</span><span>MRR</span><span>Churn</span><span>NRR</span>
+              <span>Jan</span><span>$8,400</span><span>2.1%</span><span>104%</span>
+              <span>Feb</span><span>$9,020</span><span>1.8%</span><span>107%</span>
+            </div>
+            <div class="mock__bars" aria-hidden="true" style="height:56px;"><i style="height:34%"></i><i style="height:48%"></i><i style="height:42%"></i><i style="height:66%"></i><i class="on" style="height:88%"></i><i style="height:58%"></i></div>
+          </div>
+          <div class="card__head">
+            <span class="badge badge--live">$8.99</span>
+            <span class="small">One-time</span>
+          </div>
+          <h2 class="h3">SaaS MRR &amp; Churn Dashboard</h2>
+          <p class="card__body">
+            Type four numbers a month &mdash; new, expansion, contraction and churned MRR. The
+            dashboard returns current MRR and ARR, month-by-month ending MRR, gross churn, and net
+            revenue retention, plus months-to-goal at your current growth rate.
+          </p>
+          <ul class="speclist">
+            <li>Tabs: Start here &middot; Inputs &middot; Dashboard</li>
+            <li>12-month model with an ending-MRR chart</li>
+            <li>Empty months are ignored, not counted as zeros</li>
+          </ul>
+          <div class="card__actions">
+            <a class="link" href="https://www.etsy.com/listing/4550367480/saas-mrr-churn-dashboard-excel-template" rel="noopener">Buy on Etsy &mdash; $8.99</a>
+          </div>
+        </article>
+
+        <!-- Rental -->
+        <article class="card">
+          <div class="mock">
+            <div class="mock__row"><b>12 Oak St</b><span class="mock__tag mock__tag--green">+$412/mo</span></div>
+            <div class="mock__row"><b>44 Mill Rd</b><span class="mock__tag mock__tag--green">+$268/mo</span></div>
+            <div class="mock__row"><b>7 Harbour Ln</b><span class="mock__tag mock__tag--red">&minus;$90/mo</span></div>
+          </div>
+          <div class="card__head">
+            <span class="badge badge--live">$8.99</span>
+            <span class="small">One-time</span>
+          </div>
+          <h2 class="h3">Rental Property Income Tracker</h2>
+          <p class="card__body">
+            A per-property P&amp;L for a small portfolio, built on one flat transaction log. Cash
+            flow, gross yield, expense ratio and cash-on-cash return &mdash; per property and across
+            the portfolio &mdash; with negative cash flow flagged automatically.
+          </p>
+          <ul class="speclist">
+            <li>Tabs: Start here &middot; Properties &middot; Transactions &middot; Dashboard</li>
+            <li>Up to 12 properties, 200 logged lines</li>
+            <li>One log with a property column &mdash; so a fourth property doesn't break it</li>
+          </ul>
+          <div class="card__actions">
+            <a class="link" href="https://www.etsy.com/listing/4550390670/rental-property-income-tracker-excel" rel="noopener">Buy on Etsy &mdash; $8.99</a>
+          </div>
+        </article>
+
+        <!-- Freelancer -->
+        <article class="card">
+          <div class="mock">
+            <div class="mock__row"><b>Profit this quarter</b><span class="mock__tag mock__tag--green">$18,240</span></div>
+            <div class="mock__row"><b>Set aside for tax</b><span class="mock__tag mock__tag--amber">$4,742</span></div>
+            <div class="mock__row"><b>Runway</b><span class="mock__tag mock__tag--green">6.4 months</span></div>
+          </div>
+          <div class="card__head">
+            <span class="badge badge--live">$8.99</span>
+            <span class="small">One-time</span>
+          </div>
+          <h2 class="h3">Freelancer Income &amp; Expense Tracker</h2>
+          <p class="card__body">
+            Revenue, expenses, profit &mdash; and the two numbers freelancers actually need: what to
+            set aside for tax (calculated on profit, not revenue, so it doesn't overstate) and how
+            many months of runway that leaves.
+          </p>
+          <ul class="speclist">
+            <li>Tabs: Start here &middot; Settings &middot; Log &middot; Dashboard</li>
+            <li>Income by client, with effective hourly rate</li>
+            <li>300 log lines, 12 clients</li>
+          </ul>
+          <div class="card__actions">
+            <a class="link" href="https://www.etsy.com/listing/4550390756/freelancer-income-and-expense-tracker" rel="noopener">Buy on Etsy &mdash; $8.99</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ How they're checked ============================ -->
+  <section class="section" id="checked">
+    <div class="wrap split">
+      <div class="split__text">
+        <h2 class="h2">The boring part nobody does</h2>
+        <p class="body measure">
+          A spreadsheet template can open beautifully and still be wrong. The formulas run, the
+          cells fill, the numbers look plausible &mdash; and one of them is quietly lying to you.
+          That is the failure a buyer cannot see and only finds out about later.
         </p>
-        <ul class="text-xs text-slate-500 mt-4 space-y-1 border-t border-white/5 pt-4">
-          <li>Tabs: Start here · Properties · Transactions · Dashboard</li>
-          <li>Up to 12 properties, 200 logged lines</li>
-          <li>One log with a property column - so a fourth property doesn't break it</li>
-        </ul>
-        <a href="https://www.etsy.com/listing/4550390670/rental-property-income-tracker-excel" rel="noopener" class="mt-5 text-center bg-emerald-500 hover:bg-emerald-400 text-slate-900 font-semibold px-4 py-2.5 rounded-lg transition text-sm">Buy on Etsy - $14</a>
-      </div>
-
-      <div class="bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col">
-        <h2 class="text-white font-semibold text-lg">Freelancer Income &amp; Expense Tracker</h2>
-        <p class="text-sm text-slate-400 mt-3 flex-1">
-          Revenue, expenses, profit - and the two numbers freelancers actually need: what to set
-          aside for tax (calculated on profit, not revenue, so it doesn't overstate) and how many
-          months of runway that leaves.
+        <p class="body measure" style="margin-top:14px;">
+          So before these were finished, every formula in all three was recalculated and checked
+          against arithmetic worked out by hand &mdash; 25 assertions, and a sweep confirming zero
+          error cells.
         </p>
-        <ul class="text-xs text-slate-500 mt-4 space-y-1 border-t border-white/5 pt-4">
-          <li>Tabs: Start here · Settings · Log · Dashboard</li>
-          <li>Income by client, with effective hourly rate</li>
-          <li>300 log lines, 12 clients</li>
-        </ul>
-        <a href="https://www.etsy.com/listing/4550390756/freelancer-income-and-expense-tracker" rel="noopener" class="mt-5 text-center bg-emerald-500 hover:bg-emerald-400 text-slate-900 font-semibold px-4 py-2.5 rounded-lg transition text-sm">Buy on Etsy - $14</a>
       </div>
+      <div class="mock mock--tall" style="margin:0;">
+        <div class="mock__bar" aria-hidden="true"><i></i><i></i><i></i></div>
+        <div class="mock__code" aria-hidden="true">recalculating 3 workbooks…
+<span class="ok">✓</span> 25 assertions checked by hand
+<span class="ok">✓</span> 0 error cells
+<span class="cm">──────────────────────</span>
+3 defects found and fixed.
+<span class="cm">All three looked right.</span></div>
+      </div>
+    </div>
 
+    <div class="wrap narrow" style="margin-top:56px;">
+      <p class="body">
+        That pass caught three defects, and each one was a wrong number that looked like a right
+        number:
+      </p>
+      <ul class="notes">
+        <li>
+          A client table that used an array formula needing Ctrl-Shift-Enter in Excel. It returned
+          the <em>first</em> client and silently dropped the rest &mdash; so a freelancer with five
+          clients would have seen one, with no error anywhere.
+        </li>
+        <li>
+          Churn and net revenue retention that averaged in months with no data yet, reading 1.6%
+          where the true figure was 3.25%, and 100% where it was 98.6%.
+        </li>
+        <li>
+          A divide-by-zero dressed up by <code>IFERROR</code> as a tidy "$0.00 average growth"
+          &mdash; an error presented as a result.
+        </li>
+      </ul>
+      <p class="body" style="margin-top:26px;">
+        None of these would have shown up in a screenshot. All three would have shown up in a review.
+      </p>
     </div>
   </section>
 
-  <!-- Why this one -->
-  <section class="max-w-3xl mx-auto px-6 py-16 border-t border-white/5">
-    <h2 class="text-2xl font-bold text-white mb-4">The boring part nobody does</h2>
-    <p class="text-slate-400 leading-relaxed">
-      A spreadsheet template can open beautifully and still be wrong. The formulas run, the cells
-      fill, the numbers look plausible - and one of them is quietly lying to you. That is the
-      failure a buyer cannot see and only finds out about later.
-    </p>
-    <p class="text-slate-400 leading-relaxed mt-4">
-      So before these were finished, every formula in all three was recalculated and checked
-      against arithmetic worked out by hand - 25 assertions, and a sweep confirming zero error
-      cells. That pass caught three defects, and each one was a wrong number that looked like a
-      right number:
-    </p>
-    <ul class="text-slate-400 leading-relaxed mt-4 space-y-3 text-sm">
-      <li class="border-l-2 border-emerald-500/40 pl-4">
-        A client table that used an array formula needing Ctrl-Shift-Enter in Excel. It returned
-        the <em>first</em> client and silently dropped the rest - so a freelancer with five clients
-        would have seen one, with no error anywhere.
-      </li>
-      <li class="border-l-2 border-emerald-500/40 pl-4">
-        Churn and net revenue retention that averaged in months with no data yet, reading 1.6%
-        where the true figure was 3.25%, and 100% where it was 98.6%.
-      </li>
-      <li class="border-l-2 border-emerald-500/40 pl-4">
-        A divide-by-zero dressed up by <code class="text-slate-300">IFERROR</code> as a tidy
-        "$0.00 average growth" - an error presented as a result.
-      </li>
-    </ul>
-    <p class="text-slate-400 leading-relaxed mt-6">
-      None of these would have shown up in a screenshot. All three would have shown up in a review.
-    </p>
-  </section>
-
-  <!-- What you get -->
-  <section class="max-w-3xl mx-auto px-6 pb-4">
-    <h2 class="text-2xl font-bold text-white mb-6">What you get</h2>
-    <div class="grid sm:grid-cols-2 gap-x-8 gap-y-5 text-sm">
-      <div>
-        <div class="text-white font-semibold">Formulas only</div>
-        <p class="text-slate-400 mt-1">No macros, no Apps Script, no add-ons. Nothing is blocked on
-        import and nothing asks for permissions.</p>
+  <!-- ============================ What you get ============================ -->
+  <section class="section section--tint" id="included">
+    <div class="wrap">
+      <div class="center" style="margin-bottom:44px;">
+        <h2 class="h2">What you get</h2>
       </div>
-      <div>
-        <div class="text-white font-semibold">Works where you work</div>
-        <p class="text-slate-400 mt-1">Microsoft Excel, Google Sheets, LibreOffice and Numbers -
-        the same file, the same results.</p>
-      </div>
-      <div>
-        <div class="text-white font-semibold">A "Start here" tab</div>
-        <p class="text-slate-400 mt-1">Read once, then never again: what to type, what not to touch,
-        and what each metric actually means.</p>
-      </div>
-      <div>
-        <div class="text-white font-semibold">Yours outright</div>
-        <p class="text-slate-400 mt-1">One-time $14 download. No account, no subscription, no
-        upsell inside the file.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Buy -->
-  <section id="buy" class="max-w-3xl mx-auto px-6 py-16 border-t border-white/5 mt-12 text-center">
-    <h2 class="text-2xl font-bold text-white mb-2">All three are on sale now</h2>
-    <p class="text-slate-400 text-sm mb-8 max-w-xl mx-auto">
-      $14 each, one-time, delivered by instant download. Checkout and delivery run through our
-      Etsy shop, so the file arrives the moment payment clears - no account here, nothing to install.
-    </p>
-    <div class="flex flex-wrap gap-3 justify-center">
-      <a href="https://www.etsy.com/shop/DashKitLabs" rel="noopener" class="bg-emerald-500 hover:bg-emerald-400 text-slate-900 font-semibold px-6 py-3 rounded-lg transition">Open the shop</a>
-      <a href="https://www.etsy.com/listing/4550390670/rental-property-income-tracker-excel" rel="noopener" class="border border-white/15 hover:border-white/30 text-slate-200 font-semibold px-6 py-3 rounded-lg transition">Rental tracker</a>
-      <a href="https://www.etsy.com/listing/4550390756/freelancer-income-and-expense-tracker" rel="noopener" class="border border-white/15 hover:border-white/30 text-slate-200 font-semibold px-6 py-3 rounded-lg transition">Freelancer tracker</a>
-    </div>
-  </section>
-
-  <!-- Next template -->
-  <section id="next" class="max-w-xl mx-auto px-6 py-16 border-t border-white/5">
-    <h2 class="text-2xl font-bold text-white text-center mb-2">Which dashboard should we build next?</h2>
-    <p class="text-slate-400 text-center text-sm mb-8">
-      Three are live. The fourth gets built from what people actually ask for - tell us what you're
-      tracking in a spreadsheet right now, and leave an email if you want to hear when it exists.
-    </p>
-    <!-- All site forms POST to the form-intake Lambda (SES delivery to team@) - standing
-         convention for every current and future form on this domain; never FormSubmit. -->
-    <form action="https://sceg3rbntvunklbuqe4mzb4eea0vrcwc.lambda-url.us-east-1.on.aws/" method="POST" class="space-y-4">
-      <input type="hidden" name="_subject" value="DashKit - next-template request" />
-      <input type="hidden" name="_next" value="https://atlasventuresgroup.net/thanks.html" />
-      <input type="text" name="_honey" style="display:none" />
-      <div>
-        <label class="block text-sm text-slate-300 mb-1" for="email">Email</label>
-        <input id="email" type="email" name="email" required class="w-full bg-[#0B0F17] border border-white/15 rounded-lg px-4 py-2.5 text-slate-100 focus:border-emerald-400 focus:outline-none" placeholder="you@example.com" />
-      </div>
-      <div>
-        <label class="block text-sm text-slate-300 mb-1" for="template">Closest to what you need <span class="text-slate-500">(optional)</span></label>
-        <select id="template" name="template" class="w-full bg-[#0B0F17] border border-white/15 rounded-lg px-4 py-2.5 text-slate-100 focus:border-emerald-400 focus:outline-none">
-          <option value="">Not sure</option>
-          <option value="saas">Something like the SaaS MRR &amp; churn one</option>
-          <option value="rental">Something like the rental property one</option>
-          <option value="freelancer">Something like the freelancer one</option>
-          <option value="other">Something else entirely - I'll say below</option>
-        </select>
-      </div>
-      <div>
-        <label class="block text-sm text-slate-300 mb-1" for="tracking">What are you tracking in a spreadsheet right now? <span class="text-slate-500">(optional)</span></label>
-        <textarea id="tracking" name="tracking" rows="3" class="w-full bg-[#0B0F17] border border-white/15 rounded-lg px-4 py-2.5 text-slate-100 focus:border-emerald-400 focus:outline-none" placeholder="e.g. three rentals in a sheet that keeps breaking, invoices in Notion, MRR in a doc…"></textarea>
-      </div>
-      <button type="submit" class="w-full bg-emerald-500 hover:bg-emerald-400 text-slate-900 font-semibold px-6 py-3 rounded-lg transition">Send it in</button>
-      <p class="text-xs text-slate-500 text-center">We use your email only to contact you about these
-      templates. See our <a href="/privacy.html" class="text-emerald-400">Privacy Policy</a>.</p>
-    </form>
-  </section>
-
-  <!-- Footer -->
-  <footer class="border-t border-white/5">
-    <div class="max-w-5xl mx-auto px-6 py-10 text-sm text-slate-500">
-      <div class="flex flex-col sm:flex-row justify-between gap-4">
+      <div class="assure">
         <div>
-          <div class="font-semibold text-white">Atlas Ventures <span class="text-emerald-400">Group</span></div>
-          <p class="mt-1">A software venture studio.</p>
-          <p><a href="mailto:info@atlasventuresgroup.net" class="text-emerald-400">info@atlasventuresgroup.net</a></p>
+          <svg class="assure__i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="m4.5 12.5 5 5 10-11" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <h3>Formulas only</h3>
+          <p>No macros, no Apps Script, no add-ons. Nothing is blocked on import and nothing asks for permissions.</p>
         </div>
-        <div class="flex flex-wrap gap-6">
-          <a href="/" class="hover:text-slate-300">Home</a>
-          <a href="/terms.html" class="hover:text-slate-300">Terms</a>
-          <a href="/privacy.html" class="hover:text-slate-300">Privacy</a>
-          <a href="/refund.html" class="hover:text-slate-300">Refunds</a>
+        <div>
+          <svg class="assure__i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3.5" y="5" width="17" height="14" rx="2.5"/><path d="M3.5 10h17M9 10v9"/></svg>
+          <h3>Works where you work</h3>
+          <p>Microsoft Excel, Google Sheets, LibreOffice and Numbers &mdash; the same file, the same results.</p>
+        </div>
+        <div>
+          <svg class="assure__i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M6 3.5h9l4 4v13H6z" stroke-linejoin="round"/><path d="M9 12h7M9 16h5" stroke-linecap="round"/></svg>
+          <h3>A "Start here" tab</h3>
+          <p>Read once, then never again: what to type, what not to touch, and what each metric actually means.</p>
+        </div>
+        <div>
+          <svg class="assure__i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M9.5 12h5M12 9.5v5" stroke-linecap="round"/></svg>
+          <h3>Yours outright</h3>
+          <p>One-time $8.99 download. No account, no subscription, no upsell inside the file.</p>
         </div>
       </div>
-      <p class="mt-8 text-xs">&copy; 2026 Atlas Ventures Group. Microsoft Excel, Google Sheets,
-      LibreOffice and Numbers are trademarks of their respective owners, used here only to describe
-      compatibility - this product is not affiliated with, endorsed by, or sponsored by any of them.</p>
     </div>
-  </footer>
+  </section>
 
+  <!-- ============================ Buy band ============================ -->
+  <section class="section" id="buy">
+    <div class="wrap">
+      <div class="band">
+        <h2 class="h2">All three are on sale now</h2>
+        <p class="measure" style="margin-inline:auto;">
+          $8.99 each, one-time, delivered by instant download. Checkout and delivery run through our
+          Etsy shop, so the file arrives the moment payment clears &mdash; no account here, nothing
+          to install.
+        </p>
+        <a class="btn btn--primary" href="https://www.etsy.com/shop/DashKitLabs" rel="noopener">Open the shop</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ Next template ============================ -->
+  <section class="section section--tint" id="next">
+    <div class="wrap narrow">
+      <div class="center">
+        <span class="eyebrow">Template four</span>
+        <h2 class="h2" style="margin-top:12px;">Which dashboard should we build next?</h2>
+        <p class="body measure" style="margin-top:14px;">
+          Three are live. The fourth gets built from what people actually ask for &mdash; tell us
+          what you're tracking in a spreadsheet right now, and leave an email if you want to hear
+          when it exists.
+        </p>
+      </div>
+
+      <!-- All site forms POST to the form-intake Lambda (SES delivery to team@) - standing
+           convention for every current and future form on this domain; never FormSubmit. -->
+      <form class="form" action="https://sceg3rbntvunklbuqe4mzb4eea0vrcwc.lambda-url.us-east-1.on.aws/" method="POST">
+        <input type="hidden" name="_subject" value="DashKit - next-template request" />
+        <input type="hidden" name="_next" value="https://atlasventuresgroup.net/thanks.html" />
+        <input type="text" name="_honey" class="honey" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+        <div class="field">
+          <label for="email">Email</label>
+          <input class="input" id="email" type="email" name="email" required placeholder="you@example.com" />
+        </div>
+        <div class="field">
+          <label for="template">Closest to what you need <span class="small">(optional)</span></label>
+          <select class="input" id="template" name="template">
+            <option value="">Not sure</option>
+            <option value="saas">Something like the SaaS MRR &amp; churn one</option>
+            <option value="rental">Something like the rental property one</option>
+            <option value="freelancer">Something like the freelancer one</option>
+            <option value="other">Something else entirely &mdash; I'll say below</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="tracking">What are you tracking in a spreadsheet right now? <span class="small">(optional)</span></label>
+          <textarea class="input" id="tracking" name="tracking" rows="3" placeholder="e.g. three rentals in a sheet that keeps breaking, invoices in Notion, MRR in a doc…"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn--accent btn--block">Send it in</button>
+        <p class="tiny">We use your email only to contact you about these templates. See our <a class="accent" href="/privacy.html">Privacy Policy</a>.</p>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============================ Footer ============================ -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <a class="brand" href="/">
+          <svg class="brand__mark" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M12 1.6 22.4 12 12 22.4 1.6 12 12 1.6Z" fill="#E0532E"/>
+            <path d="M12 6.6 17.4 12 12 17.4 6.6 12 12 6.6Z" fill="#FFFCFA"/>
+          </svg>
+          <span>Atlas Ventures</span>
+          <span class="brand__sub">Group</span>
+        </a>
+        <p class="small" style="margin-top:10px;">A software venture studio.</p>
+        <p class="small"><a class="accent" href="mailto:info@atlasventuresgroup.net">info@atlasventuresgroup.net</a></p>
+      </div>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="/">Home</a>
+        <a href="/terms.html">Terms</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/refund.html">Refunds</a>
+      </nav>
+    </div>
+    <div class="footer-legal">
+      <p class="tiny">
+        &copy; 2026 Atlas Ventures Group. Microsoft Excel, Google Sheets, LibreOffice and Numbers
+        are trademarks of their respective owners, used here only to describe compatibility &mdash;
+        this product is not affiliated with, endorsed by, or sponsored by any of them.
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var h = document.getElementById('siteHeader');
+    var on = function () { h.classList.toggle('is-stuck', window.scrollY > 4); };
+    on(); addEventListener('scroll', on, { passive: true });
+
+    var m = document.getElementById('menu');
+    m.querySelector('.menu__panel').addEventListener('click', function (e) {
+      if (e.target.closest('a')) m.removeAttribute('open');
+    });
+  })();
+</script>
 <!-- first-party pageview (platform/pageview) --><script>(function(){try{navigator.sendBeacon("https://fkh6mpvcd24eapcdk3ceytt2xm0vwxyq.lambda-url.us-east-1.on.aws/",JSON.stringify({p:location.pathname,r:document.referrer}));}catch(e){}})();</script>
 </body>
 </html>

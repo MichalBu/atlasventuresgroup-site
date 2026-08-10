@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>DevPack - working code artifacts, sold with their tests | Atlas Ventures Group</title>
 <meta name="description" content="Small Python tools that already run in production somewhere, sold as one-time downloads with their test suites: coldstart (cold-email sequencer for AWS SES) and xlcheck (recalculates generated .xlsx and asserts every figure). $49 each." />
+<link rel="canonical" href="https://atlasventuresgroup.net/devpack/" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://atlasventuresgroup.net/devpack/" />
 <meta property="og:title" content="DevPack - working code artifacts, sold with their tests | Atlas Ventures Group" />
@@ -13,158 +14,261 @@
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content="DevPack - working code artifacts, sold with their tests | Atlas Ventures Group" />
 <meta name="twitter:description" content="Small Python tools that already run in production somewhere, sold as one-time downloads with their test suites: coldstart (cold-email sequencer for AWS SES) and xlcheck (recalculates generated .xlsx and asserts every figure). $49 each." />
-<link rel="canonical" href="https://atlasventuresgroup.net/devpack/" />
-<script src="https://cdn.tailwindcss.com"></script>
+<meta name="theme-color" content="#FFFCFA" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../assets/atlas.css?v=3" />
 </head>
-<body class="bg-[#0B0F17] text-slate-200 antialiased">
+<body>
 
-  <!-- Nav -->
-  <header class="border-b border-white/5">
-    <div class="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
-      <a href="/" title="Atlas Ventures Group - home" class="font-semibold text-white tracking-tight">Dev<span class="text-emerald-400">Pack</span></a>
-      <a href="#catalogue" class="text-sm bg-emerald-500 hover:bg-emerald-400 text-slate-900 font-semibold px-4 py-2 rounded-lg transition">See what's in it</a>
+<!-- ============================ Header ============================ -->
+<header class="site-header" id="siteHeader">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="Atlas Ventures Group home">
+      <svg class="brand__mark" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M12 1.6 22.4 12 12 22.4 1.6 12 12 1.6Z" fill="#E0532E"/>
+        <path d="M12 6.6 17.4 12 12 17.4 6.6 12 12 6.6Z" fill="#FFFCFA"/>
+      </svg>
+      <span>Atlas Ventures</span>
+      <span class="brand__sub">DevPack</span>
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <a href="#catalogue">The artifacts</a>
+      <a href="/devpack/coldstart/">coldstart</a>
+      <a href="/devpack/xlcheck/">xlcheck</a>
+      <a href="#notify">Request one</a>
+    </nav>
+    <div class="header-cta">
+      <a href="/" class="link link--quiet" style="font-weight:400;">All products</a>
+      <a href="#catalogue" class="btn btn--primary btn--sm">Buy &mdash; $49</a>
+      <details class="menu" id="menu">
+        <summary aria-label="Menu">
+          <svg class="i-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg>
+          <svg class="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke-linecap="round"/></svg>
+        </summary>
+        <nav class="menu__panel" aria-label="Mobile">
+          <a href="#catalogue">The artifacts</a>
+          <a href="/devpack/coldstart/">coldstart</a>
+          <a href="/devpack/xlcheck/">xlcheck</a>
+          <a href="#notify">Request one</a>
+          <a href="/">All products</a>
+          <a href="#catalogue" class="btn btn--primary">Buy &mdash; $49</a>
+        </nav>
+      </details>
     </div>
-  </header>
+  </div>
+</header>
 
-  <!-- Hero -->
-  <section class="max-w-4xl mx-auto px-6 pt-16 pb-10 text-center">
-    <span class="inline-block text-xs font-medium text-emerald-300 bg-emerald-500/10 border border-emerald-500/20 rounded-full px-3 py-1 mb-6">Both artifacts are on sale - instant download</span>
-    <h1 class="text-4xl sm:text-5xl font-bold text-white leading-tight max-w-3xl mx-auto">
-      Working code, sold <span class="text-emerald-400">with the tests that prove it works.</span>
-    </h1>
-    <p class="text-lg text-slate-400 mt-6 max-w-2xl mx-auto">
-      Every artifact here was built because we needed it ourselves, and every one ships with the
-      suite that keeps it honest. Not a boilerplate scraped together for sale, and not a tutorial
-      with a price on it.
-    </p>
-    <p class="text-sm text-slate-500 mt-4">$49 each, one-time. Full source. Commercial licence.</p>
-    <div class="flex flex-wrap gap-3 justify-center mt-8">
-      <a href="#catalogue" class="bg-emerald-500 hover:bg-emerald-400 text-slate-900 font-semibold px-6 py-3 rounded-lg transition">See both artifacts</a>
-      <a href="#notify" class="border border-white/15 hover:border-white/30 text-slate-200 font-semibold px-6 py-3 rounded-lg transition">Ask for something else</a>
+<main>
+
+  <!-- ============================ Hero ============================ -->
+  <section class="hero">
+    <div class="hero__dots" aria-hidden="true"></div>
+    <div class="wrap hero__inner center">
+      <span class="badge badge--live">Both artifacts on sale &mdash; instant download</span>
+      <h1 class="display" style="margin-top:22px;">
+        Working code, sold with the tests<br class="br-lg" />
+        that prove it works
+      </h1>
+      <p class="lede measure">
+        Every artifact here was built because we needed it ourselves, and every one ships with the
+        suite that keeps it honest. Not a boilerplate scraped together for sale, and not a tutorial
+        with a price on it.
+      </p>
+      <p class="small" style="margin-top:18px;">
+        $49 each, one-time &middot; Full source &middot; Commercial licence
+      </p>
+      <div class="hero__actions">
+        <a href="#catalogue" class="btn btn--primary">See both artifacts</a>
+        <a href="#notify" class="btn btn--ghost">Ask for something else</a>
+      </div>
     </div>
   </section>
 
-  <!-- Catalogue -->
-  <section id="catalogue" class="max-w-5xl mx-auto px-6 py-8">
-    <div class="grid md:grid-cols-2 gap-5">
-
-      <div class="bg-white/5 border border-white/10 hover:border-emerald-500/40 rounded-2xl p-6 flex flex-col transition">
-        <div class="flex items-baseline justify-between">
-          <h2 class="text-white font-semibold text-lg"><a href="/devpack/coldstart/" class="hover:text-emerald-400 transition">coldstart</a></h2>
-          <span class="text-xs text-slate-500">Python · 23 tests</span>
-        </div>
-        <p class="text-sm text-slate-400 mt-3 flex-1">
-          A cold-email sequencer that is safe to leave running. Warmup ramp, threaded follow-ups,
-          any reply ends the sequence, permanent suppression re-checked before every send, RFC 8058
-          one-click unsubscribe, crash-safe sent log. Sends through your own AWS SES or SMTP -
-          no SaaS, no per-contact pricing.
+  <!-- ============================ Catalogue ============================ -->
+  <section class="section section--tint" id="catalogue">
+    <div class="wrap">
+      <div class="center">
+        <h2 class="h2">Two artifacts, both in production</h2>
+        <p class="lede measure-tight" style="margin-top:14px;">
+          Each one names the failures its tests cover. If the list doesn't describe a problem you
+          have, don't buy it.
         </p>
-        <div class="flex items-center gap-3 mt-5">
-          <a href="https://atlasteam.gumroad.com/l/dufbpw"
-             class="bg-emerald-500 hover:bg-emerald-400 text-slate-900 font-semibold text-sm px-4 py-2.5 rounded-lg transition">
-            Buy coldstart — $49
-          </a>
-          <a href="/devpack/coldstart/" class="text-emerald-400 text-sm font-medium hover:text-emerald-300 transition">Read the detail →</a>
-        </div>
       </div>
 
-      <div class="bg-white/5 border border-white/10 hover:border-emerald-500/40 rounded-2xl p-6 flex flex-col transition">
-        <div class="flex items-baseline justify-between">
-          <h2 class="text-white font-semibold text-lg"><a href="/devpack/xlcheck/" class="hover:text-emerald-400 transition">xlcheck</a></h2>
-          <span class="text-xs text-slate-500">Python · 15 tests</span>
-        </div>
-        <p class="text-sm text-slate-400 mt-3 flex-1">
-          openpyxl writes formulas but never evaluates them, so a generated workbook can build
-          cleanly and be arithmetically wrong. xlcheck recalculates it the way Excel would and
-          asserts every figure against hand-computed arithmetic - plus a sweep for error cells you
-          didn't know to look for.
+      <div class="grid-2" style="margin-top:48px;">
+
+        <!-- coldstart -->
+        <article class="card">
+          <div class="mock">
+            <div class="mock__bar" aria-hidden="true"><i></i><i></i><i></i></div>
+            <div class="mock__code" aria-hidden="true"><span class="cm"># dry run — sends nothing</span>
+$ python3 -m coldstart \
+    --campaign campaign.yml \
+    --list prospects.csv --day 3
+<span class="cm">──────────────────────</span>
+would send 30 · suppressed 4
+replied → sequence ended: 2</div>
+          </div>
+          <div class="card__head">
+            <span class="badge badge--live">$49</span>
+            <span class="small">Python &middot; 23 tests</span>
+          </div>
+          <h2 class="h3"><a href="/devpack/coldstart/">coldstart</a></h2>
+          <p class="card__body">
+            A cold-email sequencer that is safe to leave running. Warmup ramp, threaded follow-ups,
+            any reply ends the sequence, permanent suppression re-checked before every send,
+            RFC 8058 one-click unsubscribe, crash-safe sent log. Sends through your own AWS SES or
+            SMTP &mdash; no SaaS, no per-contact pricing.
+          </p>
+          <div class="card__actions">
+            <a class="btn btn--accent btn--sm" href="https://atlasteam.gumroad.com/l/dufbpw" rel="noopener">Buy coldstart &mdash; $49</a>
+            <a class="link link--quiet" href="/devpack/coldstart/">Read the detail</a>
+          </div>
+        </article>
+
+        <!-- xlcheck -->
+        <article class="card">
+          <div class="mock">
+            <div class="mock__bar" aria-hidden="true"><i></i><i></i><i></i></div>
+            <div class="mock__code" aria-hidden="true">$ python3 -m xlcheck spec.yml
+<span class="cm">recalculating build/report.xlsx…</span>
+<span class="ok">✓</span> current MRR      16120.00
+<span class="ok">✓</span> gross churn      0.032508
+<span class="cm">──────────────────────</span>
+FAIL Dashboard!E9 → #REF!</div>
+          </div>
+          <div class="card__head">
+            <span class="badge badge--live">$49</span>
+            <span class="small">Python &middot; 15 tests</span>
+          </div>
+          <h2 class="h3"><a href="/devpack/xlcheck/">xlcheck</a></h2>
+          <p class="card__body">
+            openpyxl writes formulas but never evaluates them, so a generated workbook can build
+            cleanly and be arithmetically wrong. xlcheck recalculates it the way Excel would and
+            asserts every figure against hand-computed arithmetic &mdash; plus a sweep for error
+            cells you didn't know to look for.
+          </p>
+          <div class="card__actions">
+            <a class="btn btn--accent btn--sm" href="https://atlasteam.gumroad.com/l/tfcxi" rel="noopener">Buy xlcheck &mdash; $49</a>
+            <a class="link link--quiet" href="/devpack/xlcheck/">Read the detail</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ Why ============================ -->
+  <section class="section">
+    <div class="wrap narrow">
+      <h2 class="h2">The claim that matters is "with tests"</h2>
+      <p class="body" style="margin-top:18px;">
+        Anyone can publish a script. The reason to pay $49 rather than spend an afternoon writing
+        your own is that the afternoon is not where the cost is &mdash; the cost is in the third
+        week, when the follow-up that didn't thread reads as a fresh cold email, or the generated
+        report shows a customer a number that is quietly wrong.
+      </p>
+      <p class="body" style="margin-top:14px;">
+        So each product's page names the specific failures its tests cover, in the words of the
+        failure rather than the feature. If that list doesn't describe a problem you have, don't
+        buy it.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================ Request ============================ -->
+  <section class="section section--tint" id="notify">
+    <div class="wrap narrow">
+      <div class="center">
+        <span class="eyebrow">The next artifact</span>
+        <h2 class="h2" style="margin-top:12px;">Want something we haven't built yet?</h2>
+        <p class="body measure" style="margin-top:14px;">
+          Both artifacts above are on sale now &mdash; buy either one and the download is instant.
+          This form is for the thing that isn't here yet: tell us which of the two comes closest,
+          and what you'd actually want built, and it goes on the list.
         </p>
-        <div class="flex items-center gap-3 mt-5">
-          <a href="https://atlasteam.gumroad.com/l/tfcxi"
-             class="bg-emerald-500 hover:bg-emerald-400 text-slate-900 font-semibold text-sm px-4 py-2.5 rounded-lg transition">
-            Buy xlcheck — $49
-          </a>
-          <a href="/devpack/xlcheck/" class="text-emerald-400 text-sm font-medium hover:text-emerald-300 transition">Read the detail →</a>
-        </div>
       </div>
 
+      <!-- All site forms POST to the form-intake Lambda (SES delivery to team@) - standing
+           convention for every current and future form on this domain; never FormSubmit. -->
+      <form class="form" action="https://sceg3rbntvunklbuqe4mzb4eea0vrcwc.lambda-url.us-east-1.on.aws/" method="POST">
+        <input type="hidden" name="_subject" value="DevPack - request / what to build next" />
+        <input type="hidden" name="_next" value="https://atlasventuresgroup.net/thanks.html" />
+        <input type="text" name="_honey" class="honey" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+        <div class="field">
+          <label for="email">Email</label>
+          <input class="input" id="email" type="email" name="email" required placeholder="you@example.com" />
+        </div>
+        <div class="field">
+          <label for="artifact">Which one would you buy? <span class="small">(optional)</span></label>
+          <select class="input" id="artifact" name="artifact">
+            <option value="">Not sure yet</option>
+            <option value="coldstart">coldstart &mdash; the cold-email sequencer</option>
+            <option value="xlcheck">xlcheck &mdash; the spreadsheet recalculation harness</option>
+            <option value="both">Both</option>
+            <option value="neither">Neither &mdash; I want something else</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="wanted">What would you want built next? <span class="small">(optional)</span></label>
+          <textarea class="input" id="wanted" name="wanted" rows="3" placeholder="e.g. the glue script you rewrite on every project and never get to keep…"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn--accent btn--block">Send it over</button>
+        <p class="tiny">We use your email only to contact you about these artifacts. See our <a class="accent" href="/privacy.html">Privacy Policy</a>.</p>
+      </form>
     </div>
   </section>
 
-  <!-- Why -->
-  <section class="max-w-3xl mx-auto px-6 py-16 border-t border-white/5 mt-8">
-    <h2 class="text-2xl font-bold text-white mb-4">The claim that matters is "with tests"</h2>
-    <p class="text-slate-400 leading-relaxed">
-      Anyone can publish a script. The reason to pay $49 rather than spend an afternoon writing
-      your own is that the afternoon is not where the cost is - the cost is in the third week,
-      when the follow-up that didn't thread reads as a fresh cold email, or the generated report
-      shows a customer a number that is quietly wrong.
-    </p>
-    <p class="text-slate-400 leading-relaxed mt-4">
-      So each product's page names the specific failures its tests cover, in the words of the
-      failure rather than the feature. If that list doesn't describe a problem you have, don't
-      buy it.
-    </p>
-  </section>
+</main>
 
-  <!-- Request / what to build next -->
-  <section id="notify" class="max-w-xl mx-auto px-6 py-16 border-t border-white/5">
-    <h2 class="text-2xl font-bold text-white text-center mb-2">Want something we haven't built yet?</h2>
-    <p class="text-slate-400 text-center text-sm mb-8">
-      Both artifacts above are on sale now - buy either one and the download is instant. This form
-      is for the thing that isn't here yet: tell us which of the two comes closest, and what you'd
-      actually want built, and it goes on the list.
-    </p>
-    <!-- All site forms POST to the form-intake Lambda (SES delivery to team@) - standing
-         convention for every current and future form on this domain; never FormSubmit. -->
-    <form action="https://sceg3rbntvunklbuqe4mzb4eea0vrcwc.lambda-url.us-east-1.on.aws/" method="POST" class="space-y-4">
-      <input type="hidden" name="_subject" value="DevPack - request / what to build next" />
-      <input type="hidden" name="_next" value="https://atlasventuresgroup.net/thanks.html" />
-      <input type="text" name="_honey" style="display:none" />
+<!-- ============================ Footer ============================ -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
       <div>
-        <label class="block text-sm text-slate-300 mb-1" for="email">Email</label>
-        <input id="email" type="email" name="email" required class="w-full bg-[#0B0F17] border border-white/15 rounded-lg px-4 py-2.5 text-slate-100 focus:border-emerald-400 focus:outline-none" placeholder="you@example.com" />
+        <a class="brand" href="/">
+          <svg class="brand__mark" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M12 1.6 22.4 12 12 22.4 1.6 12 12 1.6Z" fill="#E0532E"/>
+            <path d="M12 6.6 17.4 12 12 17.4 6.6 12 12 6.6Z" fill="#FFFCFA"/>
+          </svg>
+          <span>Atlas Ventures</span>
+          <span class="brand__sub">Group</span>
+        </a>
+        <p class="small" style="margin-top:10px;">A software venture studio.</p>
+        <p class="small"><a class="accent" href="mailto:info@atlasventuresgroup.net">info@atlasventuresgroup.net</a></p>
       </div>
-      <div>
-        <label class="block text-sm text-slate-300 mb-1" for="artifact">Which one would you buy? <span class="text-slate-500">(optional)</span></label>
-        <select id="artifact" name="artifact" class="w-full bg-[#0B0F17] border border-white/15 rounded-lg px-4 py-2.5 text-slate-100 focus:border-emerald-400 focus:outline-none">
-          <option value="">Not sure yet</option>
-          <option value="coldstart">coldstart - the cold-email sequencer</option>
-          <option value="xlcheck">xlcheck - the spreadsheet recalculation harness</option>
-          <option value="both">Both</option>
-          <option value="neither">Neither - I want something else</option>
-        </select>
-      </div>
-      <div>
-        <label class="block text-sm text-slate-300 mb-1" for="wanted">What would you want built next? <span class="text-slate-500">(optional)</span></label>
-        <textarea id="wanted" name="wanted" rows="3" class="w-full bg-[#0B0F17] border border-white/15 rounded-lg px-4 py-2.5 text-slate-100 focus:border-emerald-400 focus:outline-none" placeholder="e.g. the glue script you rewrite on every project and never get to keep…"></textarea>
-      </div>
-      <button type="submit" class="w-full bg-emerald-500 hover:bg-emerald-400 text-slate-900 font-semibold px-6 py-3 rounded-lg transition">Send it over</button>
-      <p class="text-xs text-slate-500 text-center">We use your email only to contact you about
-      these artifacts. See our <a href="/privacy.html" class="text-emerald-400">Privacy Policy</a>.</p>
-    </form>
-  </section>
-
-  <!-- Footer -->
-  <footer class="border-t border-white/5">
-    <div class="max-w-5xl mx-auto px-6 py-10 text-sm text-slate-500">
-      <div class="flex flex-col sm:flex-row justify-between gap-4">
-        <div>
-          <div class="font-semibold text-white">Atlas Ventures <span class="text-emerald-400">Group</span></div>
-          <p class="mt-1">A software venture studio.</p>
-          <p><a href="mailto:info@atlasventuresgroup.net" class="text-emerald-400">info@atlasventuresgroup.net</a></p>
-        </div>
-        <div class="flex flex-wrap gap-6">
-          <a href="/" class="hover:text-slate-300">Home</a>
-          <a href="/terms.html" class="hover:text-slate-300">Terms</a>
-          <a href="/privacy.html" class="hover:text-slate-300">Privacy</a>
-          <a href="/refund.html" class="hover:text-slate-300">Refunds</a>
-        </div>
-      </div>
-      <p class="mt-8 text-xs">&copy; 2026 Atlas Ventures Group.</p>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="/">Home</a>
+        <a href="/terms.html">Terms</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/refund.html">Refunds</a>
+      </nav>
     </div>
-  </footer>
+    <div class="footer-legal">
+      <p class="tiny">
+        Checkout and delivery for DevPack artifacts are handled by Gumroad, which is the merchant
+        of record. &copy; 2026 Atlas Ventures Group.
+      </p>
+    </div>
+  </div>
+</footer>
 
+<script>
+  (function () {
+    var h = document.getElementById('siteHeader');
+    var on = function () { h.classList.toggle('is-stuck', window.scrollY > 4); };
+    on(); addEventListener('scroll', on, { passive: true });
+
+    var m = document.getElementById('menu');
+    m.querySelector('.menu__panel').addEventListener('click', function (e) {
+      if (e.target.closest('a')) m.removeAttribute('open');
+    });
+  })();
+</script>
 <!-- first-party pageview (platform/pageview) --><script>(function(){try{navigator.sendBeacon("https://fkh6mpvcd24eapcdk3ceytt2xm0vwxyq.lambda-url.us-east-1.on.aws/",JSON.stringify({p:location.pathname,r:document.referrer}));}catch(e){}})();</script>
 </body>
 </html>

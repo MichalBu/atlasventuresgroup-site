@@ -3,18 +3,22 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>coldstart - a Python cold-email sequencer for AWS SES or SMTP | DevPack</title>
-<meta name="description" content="Multi-touch cold email from your own AWS SES or SMTP: warmup ramp, threaded follow-ups, any reply ends the sequence, permanent suppression, RFC 8058 one-click unsubscribe, crash-safe sent log. Python, 23 tests, $49 one-time." />
+<title>coldstart - a cold-email sequencer that is safe to leave running | DevPack</title>
+<meta name="description" content="A cold-email sequencer that is safe to leave running: warmup ramp, threaded follow-ups, reply-ends-sequence, permanent suppression and RFC 8058 one-click unsubscribe, sending through your own AWS SES or SMTP relay. Python, 23 tests, $49 one-time." />
+<link rel="canonical" href="https://atlasventuresgroup.net/devpack/coldstart/" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://atlasventuresgroup.net/devpack/coldstart/" />
-<meta property="og:title" content="coldstart - a Python cold-email sequencer for AWS SES or SMTP | DevPack" />
-<meta property="og:description" content="Multi-touch cold email from your own AWS SES or SMTP: warmup ramp, threaded follow-ups, any reply ends the sequence, permanent suppression, RFC 8058 one-click unsubscribe, crash-safe sent log. Python, 23 tests, $49 one-time." />
+<meta property="og:title" content="coldstart - a cold-email sequencer that is safe to leave running | DevPack" />
+<meta property="og:description" content="A cold-email sequencer that is safe to leave running: warmup ramp, threaded follow-ups, reply-ends-sequence, permanent suppression and RFC 8058 one-click unsubscribe, sending through your own AWS SES or SMTP relay. Python, 23 tests, $49 one-time." />
 <meta property="og:site_name" content="Atlas Ventures Group" />
 <meta name="twitter:card" content="summary" />
-<meta name="twitter:title" content="coldstart - a Python cold-email sequencer for AWS SES or SMTP | DevPack" />
-<meta name="twitter:description" content="Multi-touch cold email from your own AWS SES or SMTP: warmup ramp, threaded follow-ups, any reply ends the sequence, permanent suppression, RFC 8058 one-click unsubscribe, crash-safe sent log. Python, 23 tests, $49 one-time." />
-<link rel="canonical" href="https://atlasventuresgroup.net/devpack/coldstart/" />
-<script src="https://cdn.tailwindcss.com"></script>
+<meta name="twitter:title" content="coldstart - a cold-email sequencer that is safe to leave running | DevPack" />
+<meta name="twitter:description" content="A cold-email sequencer that is safe to leave running: warmup ramp, threaded follow-ups, reply-ends-sequence, permanent suppression and RFC 8058 one-click unsubscribe, sending through your own AWS SES or SMTP relay. Python, 23 tests, $49 one-time." />
+<meta name="theme-color" content="#FFFCFA" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../../assets/atlas.css?v=3" />
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"SoftwareApplication","name":"coldstart",
  "applicationCategory":"DeveloperApplication","operatingSystem":"Any (Python 3.10+)",
@@ -23,84 +27,159 @@
  "offers":{"@type":"Offer","price":"49.00","priceCurrency":"USD","availability":"https://schema.org/InStock"}}
 </script>
 </head>
-<body class="bg-[#0B0F17] text-slate-200 antialiased">
+<body>
 
-  <!-- Nav -->
-  <header class="border-b border-white/5">
-    <div class="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
-      <a href="/devpack/" title="DevPack - working code artifacts" class="font-semibold text-white tracking-tight">Dev<span class="text-emerald-400">Pack</span></a>
-      <a href="#buy" class="text-sm bg-emerald-500 hover:bg-emerald-400 text-slate-900 font-semibold px-4 py-2 rounded-lg transition">Buy coldstart — $49</a>
+<!-- ============================ Header ============================ -->
+<header class="site-header" id="siteHeader">
+  <div class="wrap">
+    <a class="brand" href="/devpack/" aria-label="DevPack - working code artifacts">
+      <svg class="brand__mark" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M12 1.6 22.4 12 12 22.4 1.6 12 12 1.6Z" fill="#E0532E"/>
+        <path d="M12 6.6 17.4 12 12 17.4 6.6 12 12 6.6Z" fill="#FFFCFA"/>
+      </svg>
+      <span>Atlas Ventures</span>
+      <span class="brand__sub">DevPack</span>
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <a href="#rules">The rules</a>
+      <a href="#campaign">Campaign file</a>
+      <a href="#included">What you get</a>
+      <a href="#limits">What it isn't</a>
+    </nav>
+    <div class="header-cta">
+      <a href="/devpack/" class="link link--quiet" style="font-weight:400;">DevPack</a>
+      <a href="https://atlasteam.gumroad.com/l/dufbpw" rel="noopener" class="btn btn--primary btn--sm">Buy coldstart &mdash; $49</a>
+      <details class="menu" id="menu">
+        <summary aria-label="Menu">
+          <svg class="i-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg>
+          <svg class="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke-linecap="round"/></svg>
+        </summary>
+        <nav class="menu__panel" aria-label="Mobile">
+          <a href="#rules">The rules</a>
+          <a href="#campaign">Campaign file</a>
+          <a href="#included">What you get</a>
+          <a href="#limits">What it isn't</a>
+          <a href="/devpack/">DevPack</a>
+          <a href="https://atlasteam.gumroad.com/l/dufbpw" rel="noopener" class="btn btn--primary">Buy coldstart &mdash; $49</a>
+        </nav>
+      </details>
     </div>
-  </header>
+  </div>
+</header>
 
-  <!-- Hero -->
-  <section class="max-w-4xl mx-auto px-6 pt-16 pb-8">
-    <span class="inline-block text-xs font-medium text-emerald-300 bg-emerald-500/10 border border-emerald-500/20 rounded-full px-3 py-1 mb-6">On sale now - instant download</span>
-    <h1 class="text-4xl sm:text-5xl font-bold text-white leading-tight">
-      A cold-email sequencer that is <span class="text-emerald-400">safe to leave running.</span>
-    </h1>
-    <p class="text-lg text-slate-400 mt-6">
-      Multi-touch cold campaigns are easy to automate and easy to automate <em>badly</em>. The
-      failures are not crashes - they are a second email to someone who already said no, a
-      follow-up that doesn't thread so it reads as a fresh cold email, or two runs in one day
-      putting 60 messages out under a rule that says 30.
-    </p>
-    <p class="text-lg text-slate-400 mt-4">
-      <strong class="text-white">coldstart</strong> sends through your own AWS SES or SMTP relay.
-      No account, no SaaS, no per-seat pricing, no contact limit.
-    </p>
-    <p class="text-sm text-slate-500 mt-6">Python 3.10+ · one dependency · $49 one-time, source included.</p>
+<main>
+
+  <!-- ============================ Hero ============================ -->
+  <section class="hero">
+    <div class="hero__dots" aria-hidden="true"></div>
+    <div class="wrap hero__inner center">
+      <span class="badge badge--live">On sale now &mdash; instant download</span>
+      <h1 class="display" style="margin-top:22px;">
+        A cold-email sequencer<br class="br-lg" />
+        that is safe to leave running
+      </h1>
+      <p class="lede measure">
+        Multi-touch cold campaigns are easy to automate and easy to automate <em>badly</em>. The
+        failures are not crashes &mdash; they are a second email to someone who already said no, a
+        follow-up that doesn't thread so it reads as a fresh cold email, or two runs in one day
+        putting 60 messages out under a rule that says 30.
+      </p>
+      <p class="body measure" style="margin-top:18px;">
+        <span class="ink" style="font-weight:600;">coldstart</span> sends through your own AWS SES
+        or SMTP relay. No account, no SaaS, no per-seat pricing, no contact limit.
+      </p>
+      <p class="small" style="margin-top:18px;">
+        Python 3.10+ &middot; one dependency &middot; $49 one-time, source included
+      </p>
+      <div class="hero__actions">
+        <a href="https://atlasteam.gumroad.com/l/dufbpw" rel="noopener" class="btn btn--primary">Buy coldstart &mdash; $49</a>
+        <a href="#rules" class="btn btn--ghost">What it enforces</a>
+      </div>
+    </div>
   </section>
 
-  <!-- Code -->
-  <section class="max-w-4xl mx-auto px-6 py-8">
-    <div class="bg-black/40 border border-white/10 rounded-2xl p-6 overflow-x-auto">
-<pre class="text-sm text-slate-300 leading-relaxed"><code><span class="text-slate-500"># dry run: reads the queue, prints exactly what would go out, sends nothing</span>
+  <!-- ============================ Usage ============================ -->
+  <section class="section section--tint">
+    <div class="wrap narrow">
+      <pre class="codeblock"><code><span class="cm"># dry run: reads the queue, prints exactly what would go out, sends nothing</span>
 python3 -m coldstart --campaign campaign.yml --list prospects.csv --day 1
 
-<span class="text-slate-500"># for real</span>
+<span class="cm"># for real</span>
 python3 -m coldstart --campaign campaign.yml --list prospects.csv \
         --day 3 --transport ses --send</code></pre>
-    </div>
-    <p class="text-sm text-slate-500 mt-4">
-      Dry run is the default everywhere. Sending requires an explicit
-      <code class="text-slate-300">--send</code>.
-    </p>
-  </section>
-
-  <!-- The rules -->
-  <section class="max-w-4xl mx-auto px-6 py-12 border-t border-white/5">
-    <h2 class="text-2xl font-bold text-white mb-4">Every rule in here exists because of a specific failure</h2>
-    <div class="overflow-x-auto mt-6">
-      <table class="w-full text-sm text-left border-collapse">
-        <thead class="text-slate-300 border-b border-white/10">
-          <tr><th class="py-3 pr-6 font-semibold">Behaviour</th><th class="py-3 font-semibold">Why it is in here</th></tr>
-        </thead>
-        <tbody class="text-slate-400 align-top">
-          <tr class="border-b border-white/5"><td class="py-3 pr-6 text-slate-200">Warmup ramp (10/20/30/40 → 50, configurable)</td><td class="py-3">A new sending domain that puts 200 cold emails out on day one gets filtered. Gradual volume is the biggest deliverability factor you control.</td></tr>
-          <tr class="border-b border-white/5"><td class="py-3 pr-6 text-slate-200">The cap bounds <em>total</em> sends per calendar day</td><td class="py-3">Follow-ups are charged against the same cap, and a second run the same day gets only the remaining headroom - not a fresh cap.</td></tr>
-          <tr class="border-b border-white/5"><td class="py-3 pr-6 text-slate-200">Follow-ups queue ahead of new prospects</td><td class="py-3">Replies concentrate on touches 2 and 3. A due follow-up outranks a cold first touch.</td></tr>
-          <tr class="border-b border-white/5"><td class="py-3 pr-6 text-slate-200">Threaded follow-ups (In-Reply-To / References)</td><td class="py-3">Rebuilt from the sent log, so a thread survives the prospect row being deleted from your CSV. An untethered "following up" reads as a fresh cold email to anyone who never opened the first one.</td></tr>
-          <tr class="border-b border-white/5"><td class="py-3 pr-6 text-slate-200">Any reply ends the sequence - including a negative one</td><td class="py-3">"Not right now" is an answer. Following up on it is the most damaging thing a campaign can do to its own reputation.</td></tr>
-          <tr class="border-b border-white/5"><td class="py-3 pr-6 text-slate-200">Append-only, permanent suppression</td><td class="py-3">An opt-out is a decision about all future contact, not a per-campaign flag. Re-checked immediately before every individual send, so an opt-out that lands mid-batch is still honoured.</td></tr>
-          <tr class="border-b border-white/5"><td class="py-3 pr-6 text-slate-200">RFC 8058 one-click unsubscribe</td><td class="py-3">Gmail and Yahoo require it from bulk senders. Links are HMAC-signed, so your unsubscribe endpoint can't be used to suppress third parties or enumerate your list - and the verifier ships with it, so the two sides can't disagree about the scheme.</td></tr>
-          <tr class="border-b border-white/5"><td class="py-3 pr-6 text-slate-200">CAN-SPAM footer enforced at load time</td><td class="py-3">No postal address, or an unsubscribe URL that isn't https, and the campaign refuses to build rather than reaching a transport.</td></tr>
-          <tr class="border-b border-white/5"><td class="py-3 pr-6 text-slate-200">Crash-safe sent log</td><td class="py-3">Written the moment the transport accepts a message, before the next send starts. If the process dies mid-batch, that log is what stops you re-mailing everyone.</td></tr>
-          <tr><td class="py-3 pr-6 text-slate-200">A missing merge field fails loudly</td><td class="py-3">A body referencing a column your CSV doesn't have raises at build time, naming the column - instead of mailing <code class="text-slate-300">{industry}</code> to 300 people.</td></tr>
-        </tbody>
-      </table>
+      <p class="small" style="margin-top:16px;">
+        Dry run is the default everywhere. Sending requires an explicit <code>--send</code>.
+      </p>
     </div>
   </section>
 
-  <!-- Campaign file -->
-  <section class="max-w-4xl mx-auto px-6 py-12 border-t border-white/5">
-    <h2 class="text-2xl font-bold text-white mb-4">A campaign is a YAML file, not a code change</h2>
-    <p class="text-slate-400 text-sm leading-relaxed mb-6">
-      Sender identity, the ramp, and the body of every touch. Merge fields are your CSV's own
-      column names plus <code class="text-slate-300">{greeting}</code>.
-    </p>
-    <div class="bg-black/40 border border-white/10 rounded-2xl p-6 overflow-x-auto">
-<pre class="text-sm text-slate-300 leading-relaxed"><code>name: Acme Migrations
+  <!-- ============================ The rules ============================ -->
+  <section class="section" id="rules">
+    <div class="wrap">
+      <div class="center" style="margin-bottom:44px;">
+        <h2 class="h2">Every rule in here exists because of a specific failure</h2>
+      </div>
+      <div class="table-wrap">
+        <table class="table">
+          <thead>
+            <tr><th>Behaviour</th><th>Why it is in here</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Warmup ramp (10/20/30/40 &rarr; 50, configurable)</td>
+              <td>A new sending domain that puts 200 cold emails out on day one gets filtered. Gradual volume is the biggest deliverability factor you control.</td>
+            </tr>
+            <tr>
+              <td>The cap bounds <em>total</em> sends per calendar day</td>
+              <td>Follow-ups are charged against the same cap, and a second run the same day gets only the remaining headroom &mdash; not a fresh cap.</td>
+            </tr>
+            <tr>
+              <td>Follow-ups queue ahead of new prospects</td>
+              <td>Replies concentrate on touches 2 and 3. A due follow-up outranks a cold first touch.</td>
+            </tr>
+            <tr>
+              <td>Threaded follow-ups (In-Reply-To / References)</td>
+              <td>Rebuilt from the sent log, so a thread survives the prospect row being deleted from your CSV. An untethered "following up" reads as a fresh cold email to anyone who never opened the first one.</td>
+            </tr>
+            <tr>
+              <td>Any reply ends the sequence &mdash; including a negative one</td>
+              <td>"Not right now" is an answer. Following up on it is the most damaging thing a campaign can do to its own reputation.</td>
+            </tr>
+            <tr>
+              <td>Append-only, permanent suppression</td>
+              <td>An opt-out is a decision about all future contact, not a per-campaign flag. Re-checked immediately before every individual send, so an opt-out that lands mid-batch is still honoured.</td>
+            </tr>
+            <tr>
+              <td>RFC 8058 one-click unsubscribe</td>
+              <td>Gmail and Yahoo require it from bulk senders. Links are HMAC-signed, so your unsubscribe endpoint can't be used to suppress third parties or enumerate your list &mdash; and the verifier ships with it, so the two sides can't disagree about the scheme.</td>
+            </tr>
+            <tr>
+              <td>CAN-SPAM footer enforced at load time</td>
+              <td>No postal address, or an unsubscribe URL that isn't https, and the campaign refuses to build rather than reaching a transport.</td>
+            </tr>
+            <tr>
+              <td>Crash-safe sent log</td>
+              <td>Written the moment the transport accepts a message, before the next send starts. If the process dies mid-batch, that log is what stops you re-mailing everyone.</td>
+            </tr>
+            <tr>
+              <td>A missing merge field fails loudly</td>
+              <td>A body referencing a column your CSV doesn't have raises at build time, naming the column &mdash; instead of mailing <code>{industry}</code> to 300 people.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ Campaign file ============================ -->
+  <section class="section section--tint" id="campaign">
+    <div class="wrap narrow">
+      <h2 class="h2">A campaign is a YAML file, not a code change</h2>
+      <p class="body" style="margin-top:18px;margin-bottom:26px;">
+        Sender identity, the ramp, and the body of every touch. Merge fields are your CSV's own
+        column names plus <code>{greeting}</code>.
+      </p>
+      <pre class="codeblock"><code>name: Acme Migrations
 sender: Dana at Acme &lt;hello@mail.acme.example&gt;
 subject: scoping migrations before you quote them
 postal_address: |
@@ -119,84 +198,117 @@ steps:
     </div>
   </section>
 
-  <!-- What you get -->
-  <section class="max-w-3xl mx-auto px-6 py-12 border-t border-white/5">
-    <h2 class="text-2xl font-bold text-white mb-6">What you get</h2>
-    <div class="grid sm:grid-cols-2 gap-x-8 gap-y-5 text-sm">
-      <div>
-        <div class="text-white font-semibold">The full source</div>
-        <p class="text-slate-400 mt-1">Seven modules: config, message construction, state, queue
-        building, transports, the send loop, CLI. Readable in one sitting.</p>
+  <!-- ============================ What you get ============================ -->
+  <section class="section" id="included">
+    <div class="wrap">
+      <div class="center" style="margin-bottom:44px;">
+        <h2 class="h2">What you get</h2>
       </div>
-      <div>
-        <div class="text-white font-semibold">23 tests, no network</div>
-        <p class="text-slate-400 mt-1">The console transport keeps every message it was handed, so
-        the exact bytes are asserted rather than mocked. No AWS account needed to run the suite.</p>
-      </div>
-      <div>
-        <div class="text-white font-semibold">Three transports</div>
-        <p class="text-slate-400 mt-1">SES (boto3 <em>or</em> the AWS CLI, whichever you have), any
-        SMTP relay, and console for dry runs.</p>
-      </div>
-      <div>
-        <div class="text-white font-semibold">Yours outright</div>
-        <p class="text-slate-400 mt-1">One-time $49. Commercial single-organisation licence, no
-        subscription, no contact tiers, no phone-home.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- What it is not -->
-  <section class="max-w-3xl mx-auto px-6 py-12 border-t border-white/5">
-    <h2 class="text-2xl font-bold text-white mb-4">What this is not</h2>
-    <p class="text-slate-400 leading-relaxed text-sm">
-      Not an inbox, not a CRM, not a lead scraper, and not a way to email people who never had any
-      relationship with you in a jurisdiction that forbids it. It sends and it enforces; sourcing
-      addresses lawfully and honouring local law - CAN-SPAM, GDPR/PECR, CASL - is yours. Under
-      GDPR/PECR the legitimate-interest route for B2B contact is narrower than CAN-SPAM's, and the
-      README says so in the same words.
-    </p>
-  </section>
-
-  <!-- Buy -->
-  <section id="buy" class="max-w-xl mx-auto px-6 py-16 border-t border-white/5">
-    <h2 class="text-2xl font-bold text-white text-center mb-2">Get coldstart</h2>
-    <p class="text-slate-400 text-center text-sm mb-8">
-      One payment, yours to keep and modify. Commercial single-organisation licence - use and modify it across your whole company, no subscription, no per-seat pricing.
-      Instant download through Gumroad.
-    </p>
-    <a href="https://atlasteam.gumroad.com/l/dufbpw"
-       class="block w-full text-center bg-emerald-500 hover:bg-emerald-400 text-slate-900 font-semibold px-6 py-3 rounded-lg transition">
-      Buy coldstart — $49
-    </a>
-    <p class="text-xs text-slate-500 text-center mt-4">
-      Checkout and delivery are handled by Gumroad, which is the merchant of record.
-    </p>
-  </section>
-
-  <!-- Footer -->
-  <footer class="border-t border-white/5">
-    <div class="max-w-5xl mx-auto px-6 py-10 text-sm text-slate-500">
-      <div class="flex flex-col sm:flex-row justify-between gap-4">
+      <div class="assure">
         <div>
-          <div class="font-semibold text-white">Atlas Ventures <span class="text-emerald-400">Group</span></div>
-          <p class="mt-1">A software venture studio.</p>
-          <p><a href="mailto:info@atlasventuresgroup.net" class="text-emerald-400">info@atlasventuresgroup.net</a></p>
+          <svg class="assure__i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="m9 8-4.5 4L9 16M15 8l4.5 4L15 16" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <h3>The full source</h3>
+          <p>Seven modules: config, message construction, state, queue building, transports, the send loop, CLI. Readable in one sitting.</p>
         </div>
-        <div class="flex flex-wrap gap-6">
-          <a href="/devpack/" class="hover:text-slate-300">DevPack</a>
-          <a href="/" class="hover:text-slate-300">Home</a>
-          <a href="/terms.html" class="hover:text-slate-300">Terms</a>
-          <a href="/privacy.html" class="hover:text-slate-300">Privacy</a>
-          <a href="/refund.html" class="hover:text-slate-300">Refunds</a>
+        <div>
+          <svg class="assure__i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="m4.5 12.5 5 5 10-11" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <h3>23 tests, no network</h3>
+          <p>The console transport keeps every message it was handed, so the exact bytes are asserted rather than mocked. No AWS account needed to run the suite.</p>
+        </div>
+        <div>
+          <svg class="assure__i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3.5 7h17l-8.5 6.5L3.5 7Z" stroke-linejoin="round"/><path d="M3.5 7v10h17V7" stroke-linejoin="round"/></svg>
+          <h3>Three transports</h3>
+          <p>SES (boto3 <em>or</em> the AWS CLI, whichever you have), any SMTP relay, and console for dry runs.</p>
+        </div>
+        <div>
+          <svg class="assure__i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M9.5 12h5M12 9.5v5" stroke-linecap="round"/></svg>
+          <h3>Yours outright</h3>
+          <p>One-time $49. Commercial single-organisation licence, no subscription, no contact tiers, no phone-home.</p>
         </div>
       </div>
-      <p class="mt-8 text-xs">&copy; 2026 Atlas Ventures Group. Amazon SES, Gmail and Yahoo are
-      trademarks of their respective owners, named here only to describe compatibility and
-      requirements - this product is not affiliated with, endorsed by, or sponsored by any of them.</p>
     </div>
-  </footer>
+  </section>
 
+  <!-- ============================ What this is not ============================ -->
+  <section class="section section--tint" id="limits">
+    <div class="wrap narrow">
+      <h2 class="h2">What this is not</h2>
+      <p class="body" style="margin-top:18px;">
+        Not an inbox, not a CRM, not a lead scraper, and not a way to email people who never had
+        any relationship with you in a jurisdiction that forbids it. It sends and it enforces;
+        sourcing addresses lawfully and honouring local law &mdash; CAN-SPAM, GDPR/PECR, CASL
+        &mdash; is yours. Under GDPR/PECR the legitimate-interest route for B2B contact is narrower
+        than CAN-SPAM's, and the README says so in the same words.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================ Buy ============================ -->
+  <section class="section" id="buy">
+    <div class="wrap">
+      <div class="band">
+        <h2 class="h2">Get coldstart</h2>
+        <p class="measure" style="margin-inline:auto;">
+          One payment, yours to keep and modify. Commercial single-organisation licence &mdash; use
+          and modify it across your whole company, no subscription, no per-seat pricing. Instant
+          download through Gumroad.
+        </p>
+        <a class="btn btn--primary" href="https://atlasteam.gumroad.com/l/dufbpw" rel="noopener">Buy coldstart &mdash; $49</a>
+        <p class="tiny" style="margin-top:20px;color:rgba(255,252,250,.5);">
+          Checkout and delivery are handled by Gumroad, which is the merchant of record.
+        </p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============================ Footer ============================ -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <a class="brand" href="/">
+          <svg class="brand__mark" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M12 1.6 22.4 12 12 22.4 1.6 12 12 1.6Z" fill="#E0532E"/>
+            <path d="M12 6.6 17.4 12 12 17.4 6.6 12 12 6.6Z" fill="#FFFCFA"/>
+          </svg>
+          <span>Atlas Ventures</span>
+          <span class="brand__sub">Group</span>
+        </a>
+        <p class="small" style="margin-top:10px;">A software venture studio.</p>
+        <p class="small"><a class="accent" href="mailto:info@atlasventuresgroup.net">info@atlasventuresgroup.net</a></p>
+      </div>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="/devpack/">DevPack</a>
+        <a href="/">Home</a>
+        <a href="/terms.html">Terms</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/refund.html">Refunds</a>
+      </nav>
+    </div>
+    <div class="footer-legal">
+      <p class="tiny">
+        &copy; 2026 Atlas Ventures Group. Amazon SES, Gmail and Yahoo are trademarks of their
+        respective owners, named here only to describe compatibility and requirements &mdash; this
+        product is not affiliated with, endorsed by, or sponsored by any of them.
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var h = document.getElementById('siteHeader');
+    var on = function () { h.classList.toggle('is-stuck', window.scrollY > 4); };
+    on(); addEventListener('scroll', on, { passive: true });
+
+    var m = document.getElementById('menu');
+    m.querySelector('.menu__panel').addEventListener('click', function (e) {
+      if (e.target.closest('a')) m.removeAttribute('open');
+    });
+  })();
+</script>
 <!-- first-party pageview (platform/pageview) --><script>(function(){try{navigator.sendBeacon("https://fkh6mpvcd24eapcdk3ceytt2xm0vwxyq.lambda-url.us-east-1.on.aws/",JSON.stringify({p:location.pathname,r:document.referrer}));}catch(e){}})();</script>
 </body>
 </html>

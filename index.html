@@ -14,299 +14,473 @@
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content="Atlas Ventures Group - Focused software products for expensive, specific problems" />
 <meta name="twitter:description" content="Atlas Ventures Group is a software venture studio. We build focused, self-serve products that fix expensive, specific problems - starting from real, documented pain." />
-<script src="https://cdn.tailwindcss.com"></script>
-<style>
-  /* --- 3D hero ------------------------------------------------------- */
-  .hero-wrap { perspective: 900px; }
-  .hero-content { transform-style: preserve-3d; transition: transform .25s ease-out; will-change: transform; }
-
-  .grid-floor {
-    position: absolute; left: -20%; right: -20%; bottom: -12%; height: 62%;
-    transform: perspective(620px) rotateX(63deg);
-    transform-origin: 50% 100%;
-    background-image:
-      linear-gradient(rgba(16,185,129,.16) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(16,185,129,.16) 1px, transparent 1px);
-    background-size: 44px 44px;
-    -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,.9) 30%, transparent 92%);
-            mask-image: linear-gradient(to top, rgba(0,0,0,.9) 30%, transparent 92%);
-    animation: grid-move 16s linear infinite;
-    pointer-events: none;
-  }
-  @keyframes grid-move { from { background-position-y: 0, 0; } to { background-position-y: 44px, 0; } }
-
-  .orb { position: absolute; border-radius: 9999px; filter: blur(70px); pointer-events: none; will-change: transform; }
-  .orb-a { width: 420px; height: 420px; top: -140px; left: -80px;
-           background: radial-gradient(circle, rgba(16,185,129,.28), transparent 65%);
-           animation: orb-float-a 14s ease-in-out infinite alternate; }
-  .orb-b { width: 360px; height: 360px; top: 30px; right: -100px;
-           background: radial-gradient(circle, rgba(34,211,238,.20), transparent 65%);
-           animation: orb-float-b 18s ease-in-out infinite alternate; }
-  .orb-c { width: 260px; height: 260px; bottom: -40px; left: 38%;
-           background: radial-gradient(circle, rgba(16,185,129,.18), transparent 65%);
-           animation: orb-float-a 22s ease-in-out infinite alternate-reverse; }
-  @keyframes orb-float-a { from { transform: translate3d(0,0,0) scale(1); } to { transform: translate3d(40px,24px,0) scale(1.12); } }
-  @keyframes orb-float-b { from { transform: translate3d(0,0,0) scale(1.08); } to { transform: translate3d(-32px,30px,0) scale(.96); } }
-
-  @media (prefers-reduced-motion: reduce) {
-    .grid-floor, .orb { animation: none; }
-    .hero-content { transition: none; }
-  }
-</style>
+<meta name="theme-color" content="#FFFCFA" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/atlas.css?v=3" />
 </head>
-<body class="bg-[#0B0F17] text-slate-200 antialiased">
+<body>
 
-  <!-- Nav -->
-  <header class="border-b border-white/5">
-    <div class="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
-      <span class="font-semibold text-white tracking-tight">Atlas Ventures <span class="text-emerald-400">Group</span></span>
-      <nav class="flex gap-6 text-sm text-slate-300">
-        <a href="#products" class="hover:text-white transition">Products</a>
-        <a href="#about" class="hover:text-white transition hidden sm:inline">About</a>
-        <a href="#contact" class="hover:text-white transition">Contact</a>
+<!-- ============================ Header ============================ -->
+<header class="site-header" id="siteHeader">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="Atlas Ventures Group home">
+      <svg class="brand__mark" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M12 1.6 22.4 12 12 22.4 1.6 12 12 1.6Z" fill="#E0532E"/>
+        <path d="M12 6.6 17.4 12 12 17.4 6.6 12 12 6.6Z" fill="#FFFCFA"/>
+      </svg>
+      <span>Atlas Ventures</span>
+      <span class="brand__sub">Group</span>
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <a href="#products">Products</a>
+      <a href="#how">How we work</a>
+      <a href="#about">About</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="header-cta">
+      <a href="#contact" class="link link--quiet" style="font-weight:400;">Contact</a>
+      <a href="#products" class="btn btn--primary btn--sm">See the products</a>
+      <details class="menu" id="menu">
+        <summary aria-label="Menu">
+          <svg class="i-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg>
+          <svg class="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke-linecap="round"/></svg>
+        </summary>
+        <nav class="menu__panel" aria-label="Mobile">
+          <a href="#products">Products</a>
+          <a href="#how">How we work</a>
+          <a href="#about">About</a>
+          <a href="#faq">FAQ</a>
+          <a href="#contact">Contact</a>
+          <a href="#products" class="btn btn--primary">See the products</a>
+        </nav>
+      </details>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- ============================ Hero ============================ -->
+  <section class="hero">
+    <div class="hero__dots" aria-hidden="true"></div>
+    <div class="wrap hero__inner center">
+      <span class="badge badge--next">Autonomous software products</span>
+      <h1 class="display" style="margin-top:22px;">
+        Stop Wasting High-Value Minds<br class="br-lg" />
+        on Low-Value Tasks
+      </h1>
+      <p class="lede measure">
+        Repetitive execution, operational drag, and constant oversight are draining you and your
+        team's capacity. Our autonomous products handle the execution end-to-end so your team can
+        focus on growth.
+      </p>
+      <div class="hero__actions">
+        <a href="#products" class="btn btn--primary">See the products</a>
+        <a href="#how" class="btn btn--ghost">How we work</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ Split: what we do ============================ -->
+  <section class="section" id="about">
+    <div class="wrap split">
+      <div class="split__text">
+        <h2 class="h2">You get the finished work, not another tool</h2>
+        <p class="body measure">
+          Most software hands you a dashboard and leaves the actual job on your desk. Ours take
+          the whole loop: they take in what you already have, do the work, and hand back something
+          finished &mdash; a report you can act on, a spreadsheet whose numbers are right, a
+          sequence that already ran.
+        </p>
+        <p class="body measure" style="margin-top:14px;">
+          No setup project, no analyst in the middle, no step where it quietly stops and waits for
+          someone. If a product still needs a person standing over it, it isn't finished, and we
+          don't sell it.
+        </p>
+        <a href="#products" class="btn btn--ghost">See the products</a>
+      </div>
+      <div class="mock mock--tall" style="margin:0;">
+        <div class="mock__bar" aria-hidden="true"><i></i><i></i><i></i></div>
+        <div class="mock__row"><b>You send what you already have</b><span class="mock__tag mock__tag--green">done</span></div>
+        <div class="mock__row"><b>It does the work unattended</b><span class="mock__tag mock__tag--green">done</span></div>
+        <div class="mock__row"><b>Finished output comes back</b><span class="mock__tag mock__tag--green">done</span></div>
+        <div class="mock__row"><b>Time your team spends on it</b><span class="mock__tag mock__tag--amber">minutes</span></div>
+        <div class="mock__row"><b>Steps that wait on a human</b><span class="mock__tag mock__tag--red">none</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ Products ============================ -->
+  <section class="section section--tint" id="products">
+    <div class="wrap">
+      <div class="center">
+        <h2 class="h2">The products</h2>
+        <p class="lede measure-tight" style="margin-top:14px;">
+          Small, self-serve, and priced in the open.
+        </p>
+      </div>
+
+      <div class="grid-2" style="margin-top:48px;">
+
+        <!-- DashKit -->
+        <article class="card">
+          <div class="mock">
+            <div class="mock__grid" aria-hidden="true">
+              <span>Month</span><span>MRR</span><span>Churn</span><span>Net</span>
+              <span>Jan</span><span>$8,400</span><span>2.1%</span><span>+$620</span>
+              <span>Feb</span><span>$9,020</span><span>1.8%</span><span>+$740</span>
+              <span>Mar</span><span>$9,760</span><span>2.4%</span><span>+$510</span>
+            </div>
+            <div class="mock__bars" aria-hidden="true"><i style="height:38%"></i><i style="height:52%"></i><i style="height:44%"></i><i style="height:68%"></i><i class="on" style="height:86%"></i><i style="height:60%"></i></div>
+          </div>
+          <div class="card__head">
+            <span class="badge badge--live">On sale now</span>
+            <span class="small">One-time</span>
+          </div>
+          <h3 class="h3">DashKit &mdash; finance dashboard templates</h3>
+          <p class="card__body">
+            Spreadsheet finance dashboards that were actually checked: SaaS MRR &amp; churn, rental
+            property income, freelancer income &amp; expense. Formulas only &mdash; no macros, no
+            scripts &mdash; so the same file behaves identically in Excel, Google Sheets,
+            LibreOffice and Numbers.
+          </p>
+          <p class="card__price"><strong>$8.99 each</strong>, one-time. No account, no subscription.</p>
+          <div class="card__actions">
+            <a class="link" href="https://www.etsy.com/shop/DashKitLabs" rel="noopener">Buy on Etsy</a>
+            <a class="link link--quiet" href="/finance-dashboards/">See what's inside</a>
+          </div>
+        </article>
+
+        <!-- DevPack -->
+        <article class="card">
+          <div class="mock">
+            <div class="mock__bar" aria-hidden="true"><i></i><i></i><i></i></div>
+            <div class="mock__code" aria-hidden="true">$ xlcheck report_q3.xlsx
+<span class="cm">recalculating 4 sheets…</span>
+<span class="ok">✓</span> 1,284 formulas agree
+<span class="ok">✓</span> 0 stale cached values
+<span class="cm">──────────────────────</span>
+2 numbers were quietly wrong.</div>
+          </div>
+          <div class="card__head">
+            <span class="badge badge--live">On sale now</span>
+            <span class="small">One-time</span>
+          </div>
+          <h3 class="h3">DevPack &mdash; working code, with its tests</h3>
+          <p class="card__body">
+            Small Python tools we built because we needed them, sold with the suites that keep
+            them honest: <span class="ink">coldstart</span>, a cold-email sequencer safe to leave
+            running on your own SES, and <span class="ink">xlcheck</span>, which recalculates a
+            generated spreadsheet and catches the numbers that are quietly wrong.
+          </p>
+          <p class="card__price"><strong>$49 each</strong>, one-time. Full source, commercial licence.</p>
+          <div class="card__actions">
+            <a class="link" href="https://atlasteam.gumroad.com/l/dufbpw" rel="noopener">Buy coldstart &mdash; $49</a>
+            <a class="link" href="https://atlasteam.gumroad.com/l/tfcxi" rel="noopener">Buy xlcheck &mdash; $49</a>
+            <a class="link link--quiet" href="/devpack/">Catalogue</a>
+          </div>
+        </article>
+
+        <!-- Bookkeeping Cleanup Auditor -->
+        <article class="card">
+          <div class="mock">
+            <div class="mock__bar" aria-hidden="true"><i></i><i></i><i></i></div>
+            <div class="mock__row"><b>Duplicate vendor payments</b><span class="mock__tag mock__tag--red">6 found</span></div>
+            <div class="mock__row"><b>Miscategorised transactions</b><span class="mock__tag mock__tag--red">41 found</span></div>
+            <div class="mock__row"><b>Unreconciled since Mar</b><span class="mock__tag mock__tag--amber">2 accounts</span></div>
+            <div class="mock__row"><b>Opening balance equity</b><span class="mock__tag mock__tag--green">clean</span></div>
+          </div>
+          <div class="card__head">
+            <span class="badge badge--build">In development</span>
+            <span class="small">Waitlist open</span>
+          </div>
+          <h3 class="h3">Bookkeeping Cleanup Auditor</h3>
+          <p class="card__body">
+            Suspect your books are wrong? Send a QuickBooks Online or Xero export and get back a
+            dated diagnostic report flagging miscategorized transactions, duplicates, unreconciled
+            accounts, and common handoff errors. Diagnostic only &mdash; it never touches your ledger.
+          </p>
+          <p class="card__price">
+            <strong>$99 per audit</strong>, one-time &mdash; or <strong>$79/month</strong> for
+            bookkeeping and CPA practices (5 client audits a month, cancel anytime). Not open for
+            purchase yet; waitlist members get their first audit free and paid access first.
+          </p>
+          <div class="card__actions">
+            <a class="link" href="/for-practices/">For bookkeeping practices</a>
+            <a class="link link--quiet" href="/cleanup-cost-estimator/">Free cost estimator</a>
+            <a class="link link--quiet" href="#waitlist">Join the waitlist</a>
+          </div>
+          <div class="card__foot">
+            <p class="tiny">
+              <span class="ink" style="font-weight:600;">AI-powered.</span> The analysis is built on
+              third-party AI models, accessed through our own interface &mdash; we are an independent
+              product, not affiliated with or endorsed by any model provider. Your export is processed
+              under commercial API terms that prohibit using it to train models, and we don't retain
+              it once your report is delivered.
+            </p>
+            <p class="tiny" style="margin-top:8px;">
+              Guides:
+              <a class="accent" href="/guides/signs-your-bookkeeper-messed-up-your-books.html">7 signs your bookkeeper messed up your books</a>
+              &middot;
+              <a class="accent" href="/guides/diy-quickbooks-cleanup-checklist.html">DIY QuickBooks cleanup checklist</a>
+            </p>
+          </div>
+        </article>
+
+        <!-- Next -->
+        <article class="card card--dashed">
+          <div class="mock mock--empty" style="background:transparent;border-style:dashed;">
+            <svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="rgba(37,37,34,.22)" stroke-width="1.25" aria-hidden="true">
+              <path d="M12 5v14M5 12h14" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="card__head">
+            <span class="badge">In validation</span>
+          </div>
+          <h3 class="h3">More in the works</h3>
+          <p class="card__body">
+            We continuously test new product ideas against real, documented demand &mdash; and only
+            build the ones that prove it. When the next one is real, it appears here. Most ideas
+            don't make it; that's the point.
+          </p>
+          <div class="card__actions">
+            <a class="link link--quiet" href="#contact">Tell us about a problem</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ How we work ============================ -->
+  <section class="section" id="how">
+    <div class="wrap">
+      <div class="center">
+        <h2 class="h2">How a product gets built here</h2>
+        <p class="lede measure-tight" style="margin-top:14px;">
+          Three gates. Nothing gets past one on enthusiasm.
+        </p>
+      </div>
+      <div class="grid-3" style="margin-top:48px;gap:32px;">
+        <div class="step">
+          <div class="step__n">01 &mdash; Find</div>
+          <h3 class="h3">A pain someone already pays for</h3>
+          <p>
+            If nobody is spending money or hours on the problem today, there's nothing to sell.
+            We look for the workaround before we look for the product.
+          </p>
+        </div>
+        <div class="step">
+          <div class="step__n">02 &mdash; Test</div>
+          <h3 class="h3">The cheapest honest test</h3>
+          <p>
+            A real, buyable thing in front of real people &mdash; priced, not promised. Interest
+            that doesn't survive a price tag isn't interest.
+          </p>
+        </div>
+        <div class="step">
+          <div class="step__n">03 &mdash; Keep or kill</div>
+          <h3 class="h3">Revenue, or it's gone</h3>
+          <p>
+            Products earn their next step by making more than they cost to run. The ones that
+            don't get killed quickly, which is what keeps the rest good.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ Waitlist ============================ -->
+  <section class="section section--tint" id="waitlist">
+    <div class="wrap narrow">
+      <div class="center">
+        <span class="eyebrow">Bookkeeping Cleanup Auditor</span>
+        <h2 class="h2" style="margin-top:12px;">Get in before it opens</h2>
+        <p class="body measure" style="margin-top:14px;">
+          In development now. It will cost $99 an audit, or $79/month for a bookkeeping or CPA
+          practice. Leave your email and we'll invite you when the first version is ready &mdash;
+          early waitlist members get their first audit free. Nothing is charged today.
+        </p>
+      </div>
+
+      <!-- All site forms POST to the form-intake Lambda (SES delivery to team@) - standing
+           convention for every current and future form on this domain; never FormSubmit. -->
+      <form class="form" action="https://sceg3rbntvunklbuqe4mzb4eea0vrcwc.lambda-url.us-east-1.on.aws/" method="POST">
+        <input type="hidden" name="_subject" value="Bookkeeping Cleanup Auditor - waitlist signup" />
+        <input type="hidden" name="_next" value="https://atlasventuresgroup.net/thanks.html" />
+        <input type="text" name="_honey" class="honey" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+        <div class="field">
+          <label for="email">Email</label>
+          <input class="input" type="email" name="email" id="email" required placeholder="you@company.com" />
+        </div>
+        <div class="field">
+          <label for="books">Your books <span class="small">(optional)</span></label>
+          <input class="input" type="text" name="books" id="books" placeholder="e.g. QuickBooks Online, Xero" />
+        </div>
+        <div class="field">
+          <label for="problem">What do you suspect is wrong? <span class="small">(optional)</span></label>
+          <textarea class="input" name="problem" id="problem" rows="3" placeholder="Inherited messy books, offshore bookkeeper errors, accounts that never reconcile…"></textarea>
+        </div>
+
+        <fieldset>
+          <legend>Once it opens at <span class="ink" style="font-weight:600;">$99</span> an audit &mdash; would you pay that?</legend>
+          <label class="choice"><input type="radio" name="would_pay" value="YES - would pay $99 one-time" required /><span>Yes &mdash; $99 for one audit is worth it to me</span></label>
+          <label class="choice"><input type="radio" name="would_pay" value="YES - would pay $79/mo practice plan" /><span>I'm a bookkeeper or CPA &mdash; I'd pay $79/month for the practice plan</span></label>
+          <label class="choice"><input type="radio" name="would_pay" value="WOULD PAY LESS - see price_feedback" /><span>I'd pay for this, but less than that &mdash; I'll say what below</span></label>
+          <label class="choice"><input type="radio" name="would_pay" value="NO - too expensive / would not pay" /><span>Too expensive &mdash; I wouldn't pay for this</span></label>
+        </fieldset>
+
+        <div class="field">
+          <label for="price_feedback_home">What would you actually pay? <span class="small">(optional &mdash; and the single most useful thing you can tell us)</span></label>
+          <input class="input" type="text" name="price_feedback" id="price_feedback_home" placeholder="e.g. I'd pay $150 for this, or $40 is my limit" />
+        </div>
+
+        <button type="submit" class="btn btn--accent btn--block">Join the waitlist</button>
+        <p class="tiny">We use your email only to contact you about this product. See our <a class="accent" href="/privacy.html">Privacy Policy</a>.</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- ============================ Assurances ============================ -->
+  <section class="section">
+    <div class="wrap">
+      <div class="center" style="margin-bottom:44px;">
+        <h2 class="h2">What you can hold us to</h2>
+      </div>
+      <div class="assure">
+        <div>
+          <svg class="assure__i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 3 4 6.5v5c0 4.5 3.2 8.3 8 9.5 4.8-1.2 8-5 8-9.5v-5L12 3Z" stroke-linejoin="round"/></svg>
+          <h3>Priced in the open</h3>
+          <p>Every price is on the page before you give us anything. No "contact sales" to find out.</p>
+        </div>
+        <div>
+          <svg class="assure__i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="4" y="10" width="16" height="10" rx="2.5"/><path d="M8 10V7.5a4 4 0 0 1 8 0V10" stroke-linecap="round"/></svg>
+          <h3>Your data isn't the product</h3>
+          <p>What you send us is used to do the job you paid for, and is never used to train models.</p>
+        </div>
+        <div>
+          <svg class="assure__i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="m4.5 12.5 5 5 10-11" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <h3>We say what it can't do</h3>
+          <p>The Auditor is diagnostic only &mdash; it reads an export and never writes to your ledger.</p>
+        </div>
+        <div>
+          <svg class="assure__i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5v5l3 2" stroke-linecap="round"/></svg>
+          <h3>Refunds without a fight</h3>
+          <p>Digital goods are covered by a plain-English refund policy, handled by email.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ FAQ ============================ -->
+  <section class="section section--tint" id="faq">
+    <div class="wrap narrow">
+      <div class="center" style="margin-bottom:36px;">
+        <h2 class="h2">Frequently asked questions</h2>
+        <p class="body" style="margin-top:12px;">Anything else &mdash; just email us.</p>
+      </div>
+      <div class="faq">
+        <details open>
+          <summary>What kind of company is this?</summary>
+          <p>A software venture studio. We find expensive, specific problems &mdash; documented in real practitioner communities &mdash; and build focused, self-serve products that fix them. Products launch in early access, stay honest about what they can do, and grow only when they earn it.</p>
+        </details>
+        <details>
+          <summary>Do I need an account to buy anything?</summary>
+          <p>No. DashKit and DevPack are one-time purchases with instant delivery &mdash; no account, no subscription, no upsell sequence.</p>
+        </details>
+        <details>
+          <summary>Who processes payments?</summary>
+          <p>Payments on product pages are processed by our merchant of record, named at checkout. We never see or store your card details.</p>
+        </details>
+        <details>
+          <summary>Is the Bookkeeping Cleanup Auditor available yet?</summary>
+          <p>Not yet. It's in development and the waitlist is open. Early waitlist members get their first audit free and get paid access before anyone else. Nothing is charged for joining.</p>
+        </details>
+        <details>
+          <summary>Will the Auditor change my books?</summary>
+          <p>No. It's diagnostic only. You send an export, it returns a dated report of what looks wrong. It has no write access to QuickBooks, Xero or anything else.</p>
+        </details>
+        <details>
+          <summary>Do your spreadsheet templates work in Google Sheets?</summary>
+          <p>Yes &mdash; and in Excel, LibreOffice and Numbers. They're formulas only, with no macros or scripts, and we verify the same file produces the same numbers in all four.</p>
+        </details>
+        <details>
+          <summary>Can you build something for us?</summary>
+          <p>We don't do client work. But if you have an expensive, specific problem you'd pay to make go away, tell us about it &mdash; that's exactly where our products come from.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ Closing band ============================ -->
+  <section class="section" id="contact">
+    <div class="wrap">
+      <div class="band">
+        <h2 class="h2">Got an expensive, specific problem?</h2>
+        <p class="measure" style="margin-inline:auto;">
+          Questions, a problem worth fixing, or anything about our products &mdash; we read every one.
+        </p>
+        <a class="btn btn--primary" href="mailto:info@atlasventuresgroup.net">info@atlasventuresgroup.net</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============================ Footer ============================ -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <a class="brand" href="/">
+          <svg class="brand__mark" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M12 1.6 22.4 12 12 22.4 1.6 12 12 1.6Z" fill="#E0532E"/>
+            <path d="M12 6.6 17.4 12 12 17.4 6.6 12 12 6.6Z" fill="#FFFCFA"/>
+          </svg>
+          <span>Atlas Ventures</span>
+          <span class="brand__sub">Group</span>
+        </a>
+        <p class="small" style="margin-top:10px;">A software venture studio.</p>
+        <p class="small"><a class="accent" href="mailto:info@atlasventuresgroup.net">info@atlasventuresgroup.net</a></p>
+      </div>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="#products">Products</a>
+        <a href="/terms.html">Terms</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/refund.html">Refunds</a>
       </nav>
     </div>
-  </header>
-
-  <!-- Hero -->
-  <section id="hero" class="hero-wrap relative overflow-hidden">
-    <div class="orb orb-a" data-depth="30"></div>
-    <div class="orb orb-b" data-depth="18"></div>
-    <div class="orb orb-c" data-depth="42"></div>
-    <div class="grid-floor"></div>
-    <!-- R3F 3D scene mounts here (assets/hero-bg.js, built from platform/site/react-hero/).
-         Transparent canvas layered over the CSS orbs/grid; if JS fails or the user prefers
-         reduced motion, the CSS-only hero above is the graceful fallback. -->
-    <div id="hero-3d" class="absolute inset-0"></div>
-    <div class="hero-content relative z-10 max-w-5xl mx-auto px-6 pt-24 pb-40 text-center">
-      <span class="inline-block text-xs font-medium text-emerald-300 bg-emerald-500/10 border border-emerald-500/20 rounded-full px-3 py-1 mb-6 backdrop-blur-sm">Software venture studio</span>
-      <h1 class="text-4xl sm:text-6xl font-bold text-white leading-tight max-w-3xl mx-auto drop-shadow-[0_0_30px_rgba(16,185,129,0.15)]">
-        We build focused software products that fix <span class="text-emerald-400">expensive, specific problems.</span>
-      </h1>
-      <p class="text-lg text-slate-400 mt-6 max-w-2xl mx-auto">
-        Every product starts from a real, documented pain - sourced from practitioner communities,
-        not brainstorms - and does one job well. Built lean, launched in early access, grown only
-        when it earns it.
+    <div class="footer-legal">
+      <p class="tiny">
+        Payments on product pages are processed by our merchant of record, named at checkout.
+        Support: <a href="mailto:info@atlasventuresgroup.net">info@atlasventuresgroup.net</a>.
+        &copy; 2026 Atlas Ventures Group.
       </p>
-      <div class="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
-        <a href="#products" class="bg-emerald-500 hover:bg-emerald-400 text-slate-900 font-semibold px-6 py-3 rounded-lg transition shadow-lg shadow-emerald-500/25 hover:shadow-emerald-400/40">See our products</a>
-        <a href="#contact" class="border border-white/15 hover:border-white/30 bg-white/5 backdrop-blur-sm text-slate-200 font-medium px-6 py-3 rounded-lg transition">Get in touch</a>
-      </div>
+      <p class="tiny">
+        Not affiliated with, endorsed by, or sponsored by Intuit Inc. or Xero Limited. QuickBooks
+        and Xero are trademarks of their respective owners, used here only to describe compatibility.
+      </p>
     </div>
-  </section>
-  <script>
-    // Subtle 3D parallax: tilt hero content + drift orbs with the pointer. No-op on touch
-    // devices (no hover) and under prefers-reduced-motion.
-    (function () {
-      if (matchMedia('(prefers-reduced-motion: reduce)').matches || !matchMedia('(hover: hover)').matches) return;
-      var hero = document.getElementById('hero');
-      var content = hero.querySelector('.hero-content');
-      var orbs = hero.querySelectorAll('.orb');
-      hero.addEventListener('pointermove', function (e) {
-        var r = hero.getBoundingClientRect();
-        var x = (e.clientX - r.left) / r.width - 0.5;   // -0.5 .. 0.5
-        var y = (e.clientY - r.top) / r.height - 0.5;
-        content.style.transform = 'rotateY(' + (x * 4) + 'deg) rotateX(' + (-y * 3) + 'deg) translateZ(0)';
-        orbs.forEach(function (o) {
-          var d = +o.dataset.depth || 20;
-          o.style.translate = (-x * d) + 'px ' + (-y * d) + 'px';
-        });
-      });
-      hero.addEventListener('pointerleave', function () {
-        content.style.transform = '';
-        orbs.forEach(function (o) { o.style.translate = ''; });
-      });
-    })();
-  </script>
+  </div>
+</footer>
 
-  <!-- Products -->
-  <section id="products" class="max-w-5xl mx-auto px-6 py-12 border-t border-white/5">
-    <h2 class="text-2xl font-bold text-white text-center mb-10">Products</h2>
-    <div class="grid sm:grid-cols-2 gap-5">
+<script>
+  // Hairline under the sticky header, only once the page has moved.
+  (function () {
+    var h = document.getElementById('siteHeader');
+    var on = function () { h.classList.toggle('is-stuck', window.scrollY > 4); };
+    on(); addEventListener('scroll', on, { passive: true });
 
-      <!-- Bookkeeping Cleanup Auditor -->
-      <div class="bg-white/5 rounded-xl p-6 flex flex-col">
-        <span class="self-start text-xs font-medium text-amber-300 bg-amber-500/10 border border-amber-500/20 rounded-full px-3 py-1 mb-4">In development</span>
-        <h3 class="text-white font-semibold text-lg">Bookkeeping Cleanup Auditor</h3>
-        <p class="text-sm text-slate-400 mt-2 flex-1">
-          Suspect your books are wrong? Send a QuickBooks Online or Xero export and get back a dated
-          diagnostic report flagging miscategorized transactions, duplicates, unreconciled accounts,
-          and common handoff errors. Diagnostic only - it never touches your ledger.
-        </p>
-        <p class="text-xs text-slate-500 mt-3 border-t border-white/5 pt-3">
-          <span class="text-slate-400 font-medium">AI-powered.</span> The analysis is built on
-          third-party AI models, accessed through our own interface - we are an independent product,
-          not affiliated with or endorsed by any model provider. Your export is processed under
-          commercial API terms that prohibit using it to train models, and we don't retain it once
-          your report is delivered.
-        </p>
-        <p class="text-sm text-slate-300 mt-3"><span class="text-white font-semibold">$99 per audit</span>,
-        one-time - or <span class="text-white font-semibold">$79/month</span> for bookkeeping and CPA
-        practices (5 client audits a month, cancel anytime). Not open for purchase yet; waitlist
-        members get their first audit free and paid access first.</p>
-        <div class="mt-5 flex flex-wrap gap-x-5 gap-y-2">
-          <a href="for-practices/" class="text-sm font-semibold text-amber-300 hover:text-amber-200 transition">For bookkeeping practices &rarr;</a>
-          <a href="cleanup-cost-estimator/" class="text-sm font-semibold text-slate-400 hover:text-slate-300 transition">Try the free cost estimator</a>
-          <a href="#waitlist" class="text-sm font-semibold text-slate-400 hover:text-slate-300 transition">Join the waitlist</a>
-        </div>
-        <p class="text-xs text-slate-500 mt-4 border-t border-white/5 pt-3">
-          Guides:
-          <a href="guides/signs-your-bookkeeper-messed-up-your-books.html" class="text-emerald-400 hover:text-emerald-300">7 signs your bookkeeper messed up your books</a>
-          &middot;
-          <a href="guides/diy-quickbooks-cleanup-checklist.html" class="text-emerald-400 hover:text-emerald-300">DIY QuickBooks cleanup checklist</a>
-        </p>
-      </div>
-
-      <!-- DashKit -->
-      <div class="bg-white/5 rounded-xl p-6 flex flex-col">
-        <span class="self-start text-xs font-medium text-emerald-300 bg-emerald-500/10 border border-emerald-500/20 rounded-full px-3 py-1 mb-4">On sale now</span>
-        <h3 class="text-white font-semibold text-lg">DashKit - finance dashboard templates</h3>
-        <p class="text-sm text-slate-400 mt-2 flex-1">
-          Spreadsheet finance dashboards that were actually checked: SaaS MRR &amp; churn, rental
-          property income, freelancer income &amp; expense. Formulas only - no macros, no scripts -
-          so the same file behaves identically in Excel, Google Sheets, LibreOffice and Numbers.
-        </p>
-        <p class="text-sm text-slate-300 mt-3"><span class="text-white font-semibold">$14 each</span>,
-        one-time. No account, no subscription.</p>
-        <div class="mt-5 flex flex-wrap gap-x-5 gap-y-2">
-          <a href="https://www.etsy.com/shop/DashKitLabs" rel="noopener" class="text-sm font-semibold text-emerald-300 hover:text-emerald-200 transition">Buy on Etsy &rarr;</a>
-          <a href="finance-dashboards/" class="text-sm font-semibold text-slate-400 hover:text-slate-300 transition">See what's inside</a>
-        </div>
-      </div>
-
-      <!-- DevPack -->
-      <div class="bg-white/5 rounded-xl p-6 flex flex-col">
-        <span class="self-start text-xs font-medium text-emerald-300 bg-emerald-500/10 border border-emerald-500/20 rounded-full px-3 py-1 mb-4">On sale now</span>
-        <h3 class="text-white font-semibold text-lg">DevPack - working code, with its tests</h3>
-        <p class="text-sm text-slate-400 mt-2 flex-1">
-          Small Python tools we built because we needed them, sold with the suites that keep them
-          honest: <span class="text-slate-300">coldstart</span>, a cold-email sequencer safe to
-          leave running on your own SES, and <span class="text-slate-300">xlcheck</span>, which
-          recalculates a generated spreadsheet and catches the numbers that are quietly wrong.
-        </p>
-        <p class="text-sm text-slate-300 mt-3"><span class="text-white font-semibold">$49 each</span>,
-        one-time. Full source, commercial licence.</p>
-        <div class="mt-5 flex flex-wrap gap-x-5 gap-y-2">
-          <a href="devpack/coldstart/" class="text-sm font-semibold text-emerald-300 hover:text-emerald-200 transition">Buy coldstart &mdash; $49</a>
-          <a href="devpack/xlcheck/" class="text-sm font-semibold text-emerald-300 hover:text-emerald-200 transition">Buy xlcheck &mdash; $49</a>
-          <a href="devpack/" class="text-sm font-semibold text-slate-400 hover:text-slate-300 transition">See the catalogue &rarr;</a>
-        </div>
-      </div>
-
-      <!-- More in the works -->
-      <div class="bg-white/5 rounded-xl p-6 flex flex-col border border-dashed border-white/10">
-        <span class="self-start text-xs font-medium text-slate-400 bg-white/5 border border-white/10 rounded-full px-3 py-1 mb-4">In validation</span>
-        <h3 class="text-white font-semibold text-lg">More in the works</h3>
-        <p class="text-sm text-slate-400 mt-2 flex-1">
-          We continuously test new product ideas against real, documented demand - and only build
-          the ones that prove it. When the next one is real, it appears here. Most ideas don't
-          make it; that's the point.
-        </p>
-        <a href="#contact" class="mt-5 text-sm font-semibold text-slate-400 hover:text-slate-300 transition">Tell us about a problem &rarr;</a>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- Waitlist -->
-  <section id="waitlist" class="max-w-xl mx-auto px-6 py-16 border-t border-white/5">
-    <h2 class="text-2xl font-bold text-white text-center mb-2">Bookkeeping Cleanup Auditor - waitlist</h2>
-    <p class="text-slate-400 text-center text-sm mb-8">
-      In development now. It will cost $99 an audit, or $79/month for a bookkeeping or CPA practice.
-      Leave your email and we'll invite you when the first version is ready - early waitlist members
-      get their first audit free. Nothing is charged today.
-    </p>
-    <!-- All site forms POST to the form-intake Lambda (SES delivery to team@) - standing
-         convention for every current and future form on this domain; never FormSubmit. -->
-    <form action="https://sceg3rbntvunklbuqe4mzb4eea0vrcwc.lambda-url.us-east-1.on.aws/" method="POST" class="space-y-4">
-      <input type="hidden" name="_subject" value="Bookkeeping Cleanup Auditor - waitlist signup" />
-      <input type="hidden" name="_next" value="https://atlasventuresgroup.net/thanks.html" />
-      <input type="text" name="_honey" style="display:none" />
-      <div>
-        <label class="block text-sm text-slate-300 mb-1">Email</label>
-        <input type="email" name="email" required class="w-full bg-[#0B0F17] border border-white/15 rounded-lg px-4 py-2.5 text-slate-100 focus:border-emerald-400 focus:outline-none" placeholder="you@company.com" />
-      </div>
-      <div>
-        <label class="block text-sm text-slate-300 mb-1">Your books <span class="text-slate-500">(optional)</span></label>
-        <input type="text" name="books" class="w-full bg-[#0B0F17] border border-white/15 rounded-lg px-4 py-2.5 text-slate-100 focus:border-emerald-400 focus:outline-none" placeholder="e.g. QuickBooks Online, Xero" />
-      </div>
-      <div>
-        <label class="block text-sm text-slate-300 mb-1">What do you suspect is wrong? <span class="text-slate-500">(optional)</span></label>
-        <textarea name="problem" rows="3" class="w-full bg-[#0B0F17] border border-white/15 rounded-lg px-4 py-2.5 text-slate-100 focus:border-emerald-400 focus:outline-none" placeholder="Inherited messy books, offshore bookkeeper errors, accounts that never reconcile…"></textarea>
-      </div>
-      <fieldset>
-        <legend class="block text-sm text-slate-300 mb-2">Once it opens at <span class="text-white font-semibold">$99</span> an audit - would you pay that?</legend>
-        <div class="space-y-2">
-          <label class="flex items-start gap-2 text-sm text-slate-400">
-            <input type="radio" name="would_pay" value="YES - would pay $99 one-time" required class="mt-1 accent-emerald-500" />
-            <span>Yes - $99 for one audit is worth it to me</span>
-          </label>
-          <label class="flex items-start gap-2 text-sm text-slate-400">
-            <input type="radio" name="would_pay" value="YES - would pay $79/mo practice plan" class="mt-1 accent-emerald-500" />
-            <span>I'm a bookkeeper or CPA - I'd pay $79/month for the practice plan</span>
-          </label>
-          <label class="flex items-start gap-2 text-sm text-slate-400">
-            <input type="radio" name="would_pay" value="WOULD PAY LESS - see price_feedback" class="mt-1 accent-emerald-500" />
-            <span>I'd pay for this, but less than that - I'll say what below</span>
-          </label>
-          <label class="flex items-start gap-2 text-sm text-slate-400">
-            <input type="radio" name="would_pay" value="NO - too expensive / would not pay" class="mt-1 accent-emerald-500" />
-            <span>Too expensive - I wouldn't pay for this</span>
-          </label>
-        </div>
-      </fieldset>
-      <div>
-        <label class="block text-sm text-slate-300 mb-1" for="price_feedback_home">What would you actually pay? <span class="text-slate-500">(optional - and the single most useful thing you can tell us)</span></label>
-        <input type="text" name="price_feedback" id="price_feedback_home" class="w-full bg-[#0B0F17] border border-white/15 rounded-lg px-4 py-2.5 text-slate-100 focus:border-emerald-400 focus:outline-none" placeholder="e.g. I'd pay $150 for this, or $40 is my limit" />
-      </div>
-      <button type="submit" class="w-full bg-emerald-500 hover:bg-emerald-400 text-slate-900 font-semibold px-6 py-3 rounded-lg transition">Join the waitlist</button>
-      <p class="text-xs text-slate-500 text-center">We use your email only to contact you about this product. See our <a href="privacy.html" class="text-emerald-400">Privacy Policy</a>.</p>
-    </form>
-  </section>
-
-  <!-- About -->
-  <section id="about" class="max-w-3xl mx-auto px-6 py-16 border-t border-white/5 text-center">
-    <h2 class="text-2xl font-bold text-white mb-4">About</h2>
-    <p class="text-slate-400 leading-relaxed">
-      Atlas Ventures Group is a software venture studio. We find expensive, specific problems -
-      documented in real practitioner communities - and build focused, self-serve products that
-      fix them. Products launch in early access, stay honest about what they can do, and grow
-      only when they earn it.
-    </p>
-  </section>
-
-  <!-- Contact -->
-  <section id="contact" class="max-w-3xl mx-auto px-6 py-16 border-t border-white/5 text-center">
-    <h2 class="text-2xl font-bold text-white mb-4">Contact</h2>
-    <p class="text-slate-400">Questions, a problem worth fixing, or anything about our products:</p>
-    <a href="mailto:info@atlasventuresgroup.net" class="inline-block mt-4 text-emerald-400 hover:text-emerald-300 font-semibold transition">info@atlasventuresgroup.net</a>
-  </section>
-
-  <!-- Footer -->
-  <footer class="border-t border-white/5">
-    <div class="max-w-5xl mx-auto px-6 py-10 text-sm text-slate-500">
-      <div class="flex flex-col sm:flex-row justify-between gap-4">
-        <div>
-          <div class="font-semibold text-white">Atlas Ventures <span class="text-emerald-400">Group</span></div>
-          <p class="mt-1">A software venture studio.</p>
-          <p><a href="mailto:info@atlasventuresgroup.net" class="text-emerald-400">info@atlasventuresgroup.net</a></p>
-        </div>
-        <div class="flex flex-wrap gap-6">
-          <a href="terms.html" class="hover:text-slate-300">Terms</a>
-          <a href="privacy.html" class="hover:text-slate-300">Privacy</a>
-          <a href="refund.html" class="hover:text-slate-300">Refunds</a>
-        </div>
-      </div>
-      <p class="mt-8 text-xs">Payments on product pages are processed by our merchant of record, named at
-      checkout. Support: <a href="mailto:info@atlasventuresgroup.net" class="hover:text-slate-300">info@atlasventuresgroup.net</a>.
-      &copy; 2026 Atlas Ventures Group.</p>
-      <p class="mt-3 text-xs">Not affiliated with, endorsed by, or sponsored by Intuit Inc. or Xero Limited.
-      QuickBooks and Xero are trademarks of their respective owners, used here only to describe
-      compatibility.</p>
-    </div>
-  </footer>
-
-  <script type="module" src="assets/hero-bg.js"></script>
+    // Close the mobile menu once a link inside it is taken.
+    var m = document.getElementById('menu');
+    m.querySelector('.menu__panel').addEventListener('click', function (e) {
+      if (e.target.closest('a')) m.removeAttribute('open');
+    });
+  })();
+</script>
 <!-- first-party pageview (platform/pageview) --><script>(function(){try{navigator.sendBeacon("https://fkh6mpvcd24eapcdk3ceytt2xm0vwxyq.lambda-url.us-east-1.on.aws/",JSON.stringify({p:location.pathname,r:document.referrer}));}catch(e){}})();</script>
 </body>
 </html>
